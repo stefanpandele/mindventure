@@ -8,4 +8,45 @@
         Instrument Sans, ui-sans-serif, system-ui, sans-serif,
         'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol',
         'Noto Color Emoji';
+
+    /* Brand (indigo) */
+    --color-brand: #4f46e5;
+    --color-brand-dark: #4338ca;
+    --color-brand-tint: #eef2ff;
+
+    /* Text */
+    --color-brand-ink: #1e1b2e;
+    --color-brand-body: #44404f;
+    --color-brand-muted: #8b8896;
+
+    /* Accents */
+    --color-accent-teal: #0d9488;
+    --color-accent-lime: #65a30d;
+    --color-accent-magenta: #c026d3;
+
+    /* Chips (light tinted backgrounds) */
+    --color-chip-indigo: #eef2ff;
+    --color-chip-teal: #ccfbf1;
+    --color-chip-lime: #ecfccb;
+    --color-chip-magenta: #fae8ff;
+
+    --color-logo-indigo: #4f46e5;
+    --color-logo-teal: #0d9488;
+    --color-logo-lime: #65a30d;
+    --color-logo-magenta: #c026d3;
+
+    /* Animations */
+    --animate-brand-flow: brand-flow 3s linear infinite;
+}
+
+@keyframes brand-flow {
+    to {
+        background-position: -200% 0;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .animate-brand-flow {
+        animation: none;
+    }
 }
