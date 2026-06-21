@@ -13,15 +13,17 @@ const locale = computed(() => (page.props.locale ?? 'ro') as string);
 const open = ref(false);
 const links = [
     'nav.home',
-    'nav.program',
-    'nav.results',
-    'nav.about',
-    'nav.video',
+    'nav.trainer',
+    'nav.ib_7',
+    'nav.ia_lab',
+    'nav.junior',
 ];
 </script>
 
 <template>
-    <header class="sticky top-0 z-30 bg-white/95 backdrop-blur">
+    <header
+        class="sticky top-0 z-30 border-b border-brand/30 bg-paper backdrop-blur"
+    >
         <!--        <div class="flex h-1">-->
         <!--            <span class="bg-logo-indigo flex-1" />-->
         <!--            <span class="bg-logo-teal flex-1" />-->
@@ -40,8 +42,8 @@ const links = [
                     src="/images/mindventure-logo.png"
                     class="h-10 w-auto rounded-sm"
                 />
-                <span class="text-[15px] font-semibold text-brand-ink">
-                    Mindventure
+                <span class="text-[17px] font-semibold text-brand-body">
+                    MINDVENTURE
                 </span>
             </Link>
 
@@ -75,7 +77,7 @@ const links = [
 
                 <Link
                     href="/"
-                    class="rounded-md bg-brand px-3.5 py-2 text-xs font-semibold text-white transition-opacity hover:opacity-90"
+                    class="rounded-md bg-logo-indigo px-3.5 py-2 text-xs font-semibold text-white transition-opacity hover:opacity-90"
                 >
                     {{ t('cta.book') }}
                 </Link>
@@ -88,20 +90,20 @@ const links = [
                 </div>
 
                 <button
-                    class="flex h-11 w-11 items-center justify-center rounded-md text-brand-ink"
+                    class="flex h-[42px] w-[42px] cursor-pointer items-center justify-center rounded-[10px] border border-brand-ink/12 bg-white text-brand-ink"
                     :aria-expanded="open"
                     aria-label="Meniu"
                     @click="open = !open"
                 >
-                    <IconX v-if="open" :size="35" class="text-[#4f46e5]" />
-                    <IconMenu2 v-else :size="35" class="text-[#4f46e5]" />
+                    <IconX v-if="open" :size="20" stroke="1.6" />
+                    <IconMenu2 v-else :size="20" stroke="1.6" />
                 </button>
             </div>
         </div>
 
         <!-- Mobile secondary row: auth + CTA (below the top bar) -->
         <div
-            class="flex items-center gap-2 border-t border-brand/10 px-5 py-2.5 md:hidden"
+            class="flex items-center gap-2 px-5 py-2.5 md:hidden"
         >
             <Link
                 href="/"

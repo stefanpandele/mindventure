@@ -5,14 +5,21 @@
 
 @theme inline {
     --font-sans:
-        Instrument Sans, ui-sans-serif, system-ui, sans-serif,
+        Source Sans Pro, ui-sans-serif, system-ui, sans-serif,
         'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol',
         'Noto Color Emoji';
+
+    --color-paper: #f5f3ed;
 
     /* Brand (indigo) */
     --color-brand: #4f46e5;
     --color-brand-dark: #4338ca;
     --color-brand-tint: #eef2ff;
+    --color-brand-indigo: #342C81;
+    --color-brand-indigo-dark-2: #110E2B;
+    --color-brand-lime: #C9DB0D;
+    --color-brand-teal: #0d9488;
+    --color-brand-magenta: #c026d3;
 
     /* Text */
     --color-brand-ink: #1e1b2e;
@@ -30,7 +37,7 @@
     --color-chip-lime: #ecfccb;
     --color-chip-magenta: #fae8ff;
 
-    --color-logo-indigo: #4f46e5;
+    --color-logo-indigo: #342C81;
     --color-logo-teal: #0d9488;
     --color-logo-lime: #65a30d;
     --color-logo-magenta: #c026d3;

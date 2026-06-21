@@ -1,9 +1,10 @@
 {
     "nav.home": "Acasă",
-    "nav.program": "Program IB",
-    "nav.results": "Rezultate",
-    "nav.about": "Despre",
-    "nav.video": "Video",
+    "nav.trainer": "Despre profesor",
+    "nav.ib_7": "IB7",
+    "nav.ia_lab": "IA Lab",
+    "nav.junior": "Junior",
     "auth.login": "Autentificare",
-    "cta.book": "Rezervă o evaluare gratuită"
+    "cta.book": "Rezervă o evaluare gratuită",
+    "all_rights_reserved": "Toate drepturile rezervate."
 }
