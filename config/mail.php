@@ -115,4 +115,16 @@ return [
         'name' => env('MAIL_FROM_NAME', env('APP_NAME', 'Laravel')),
     ],
 
+    /*
+    |--------------------------------------------------------------------------
+    | Contact Form Recipient
+    |--------------------------------------------------------------------------
+    |
+    | The address that receives messages submitted through the homepage
+    | contact form. Override it per environment with MAIL_CONTACT_TO.
+    |
+    */
+
+    'contact_to' => env('MAIL_CONTACT_TO', 'contact@mindventure.ro'),
+
 ];

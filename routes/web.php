@@ -1,5 +1,16 @@
 <?php
 
+use App\Http\Controllers\ContactController;
 use Illuminate\Support\Facades\Route;
 
-Route::inertia('/', 'Welcome')->name('home');
+Route::inertia('/', 'Home')->name('home');
+
+Route::get('/locale/{locale}', function (string $locale) {
+    abort_unless(in_array($locale, ['ro', 'en'], true), 400);
+
+    session(['locale' => $locale]);
+
+    return back();
+})->name('locale.switch');
+
+Route::post('/contact', [ContactController::class, 'store'])->name('contact.store');
