@@ -1,7 +1,7 @@
 {
     "nav.home": "Acasă",
-    "nav.trainer": "Despre profesor",
-    "nav.ib_7": "IB7",
+    "nav.teacher": "Despre profesor",
+    "nav.ib-math": "Matematică IB",
     "nav.ia_lab": "IA Lab",
     "nav.junior": "Junior",
     "auth.login": "Autentificare",
