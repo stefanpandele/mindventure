@@ -8,12 +8,20 @@
         <link rel="icon" href="/favicon.svg" type="image/svg+xml">
         <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 
+        <title>{{ config('app.name', 'Mindventure') }}</title>
+
+        <meta name="description" content="Premium mathematics education for International Baccalaureate students.">
+
+        <meta property="og:title" content="Mindventure">
+        <meta property="og:description" content="Premium mathematics education for International Baccalaureate students.">
+        <meta property="og:image" content="{{ url('/og-image.png') }}">
+        <meta property="og:url" content="{{ config('app.url') }}">
+        <meta property="og:type" content="website">
+
         @fonts
 
         @vite(['resources/css/app.css', 'resources/js/app.ts', "resources/js/pages/{$page['component']}.vue"])
-        <x-inertia::head>
-            <title>{{ config('app.name', 'Mindventure') }}</title>
-        </x-inertia::head>
+        <x-inertia::head />
     </head>
     <body class="font-sans antialiased">
         <x-inertia::app />
