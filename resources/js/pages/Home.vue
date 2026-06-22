@@ -4,11 +4,11 @@ import Header from '@/components/Header.vue';
 import AboutTrainerSection from '@/components/home/AboutTrainerSection.vue';
 import CtaSection from '@/components/home/CtaSection.vue';
 import HeroSection from '@/components/home/HeroSection.vue';
+import HowWeWorkSection from '@/components/home/HowWeWorkSection.vue';
 import ProgramSection from '@/components/home/ProgramSection.vue';
 import ResultsBarSection from '@/components/home/ResultsBarSection.vue';
 import TestimonialsSection from '@/components/home/TestimonialsSection.vue';
 import VideoSection from '@/components/home/VideoSection.vue';
-import HowWeWorkSection from '@/components/home/HowWeWorkSection.vue';
 </script>
 
 <template>
