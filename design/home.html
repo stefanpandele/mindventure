@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mindventure — Matematică IB</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#110E2B;
+    --ink-2:#1B1740;
+    --paper:#F5F3ED;
+    --paper-2:#EDEAE0;
+    --white:#FFFFFF;
+    --magenta:#DA1A7D;
+    --lime:#C9DB0D;
+    --teal:#48C5B7;
+    --indigo:#342C81;
+    --indigo-bright:#4A3FD4;
+    --muted:#615C82;
+    --muted-light:rgba(245,243,237,.62);
+    --line:rgba(17,14,43,.12);
+    --line-light:rgba(245,243,237,.16);
+    --r:18px;
+    --r-sm:12px;
+    --maxw:1180px;
+    --display:"Bricolage Grotesque",system-ui,sans-serif;
+    --body:"Inter",system-ui,sans-serif;
+    --mono:"JetBrains Mono",ui-monospace,monospace;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:var(--body);
+    background:var(--paper);
+    color:var(--ink);
+    -webkit-font-smoothing:antialiased;
+    line-height:1.55;
+    overflow-x:hidden;
+  }
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 28px}
+  .display{font-family:var(--display);font-weight:700;line-height:1.02;letter-spacing:-.025em}
+  .mono{font-family:var(--mono);font-feature-settings:"tnum"}
+  .eyebrow{
+    font-family:var(--mono);font-size:11.5px;font-weight:700;letter-spacing:.14em;
+    text-transform:uppercase;display:inline-flex;align-items:center;gap:9px;
+  }
+  .dot{width:7px;height:7px;border-radius:2px;display:inline-block}
+
+  /* buttons */
+  .btn{
+    display:inline-flex;align-items:center;gap:9px;font-family:var(--body);
+    font-weight:600;font-size:15px;padding:13px 22px;border-radius:12px;
+    cursor:pointer;border:none;transition:transform .18s ease, box-shadow .18s ease, background .18s ease;
+    white-space:nowrap;
+  }
+  .btn-primary{background:var(--ink);color:var(--paper)}
+  .btn-primary:hover{transform:translateY(-2px);box-shadow:0 14px 30px -12px rgba(17,14,43,.55)}
+  .btn-lime{background:var(--lime);color:var(--ink)}
+  .btn-lime:hover{transform:translateY(-2px);box-shadow:0 14px 30px -10px rgba(201,219,13,.6)}
+  .btn-ghost{background:transparent;color:var(--ink);border:1.5px solid var(--line);}
+  .btn-ghost:hover{border-color:var(--ink);transform:translateY(-2px)}
+  .btn-white{background:var(--paper);color:var(--ink)}
+  .btn-white:hover{transform:translateY(-2px);box-shadow:0 14px 32px -12px rgba(0,0,0,.5)}
+
+  /* ===== NAV ===== */
+  header{position:sticky;top:0;z-index:50;background:rgba(245,243,237,.82);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+  .nav{display:flex;align-items:center;justify-content:space-between;height:74px}
+  .brand{display:flex;align-items:center;gap:12px;font-family:var(--display);font-weight:800;font-size:20px;letter-spacing:-.02em}
+  .mark{width:34px;height:34px;display:block;border-radius:9px;overflow:hidden;flex:none}
+  .nav-links{display:flex;gap:30px;align-items:center}
+  .nav-links a{font-size:14.5px;font-weight:500;color:var(--muted);transition:color .15s}
+  .nav-links a:hover{color:var(--ink)}
+  .nav-cta{display:flex;align-items:center;gap:14px}
+  .menu-btn{display:none}
+
+  /* ===== HERO ===== */
+  .hero{padding:74px 0 54px}
+  .hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center}
+  .hero h1{font-size:clamp(42px,5.4vw,68px);margin:22px 0 0}
+  .hero h1 .seven{
+    position:relative;display:inline-block;color:var(--magenta);
+  }
+  .hero h1 .seven::after{
+    content:"";position:absolute;left:-6px;right:-6px;bottom:.08em;height:.34em;
+    background:var(--lime);z-index:-1;border-radius:3px;transform:rotate(-1.5deg);
+  }
+  .hero p.lead{font-size:18px;color:var(--muted);max-width:30em;margin-top:22px}
+  .hero-actions{display:flex;gap:14px;margin-top:30px;flex-wrap:wrap}
+  .badge-pill{
+    display:inline-flex;align-items:center;gap:9px;padding:7px 14px;border-radius:100px;
+    background:var(--white);border:1px solid var(--line);font-size:12.5px;font-weight:600;color:var(--indigo)
+  }
+  /* media card */
+  .media{
+    position:relative;border-radius:var(--r);overflow:hidden;aspect-ratio:4/3.05;
+    background:linear-gradient(150deg,var(--ink) 0%,var(--ink-2) 60%,var(--indigo) 130%);
+    border:1px solid rgba(17,14,43,.2);box-shadow:0 30px 60px -34px rgba(17,14,43,.6);
+    display:flex;align-items:center;justify-content:center;
+  }
+  .media::before{
+    content:"";position:absolute;inset:0;opacity:.5;
+    background:radial-gradient(circle at 70% 18%,rgba(72,197,183,.35),transparent 45%),radial-gradient(circle at 22% 88%,rgba(218,26,125,.28),transparent 42%);
+  }
+  .media .chip{
+    position:absolute;top:16px;left:16px;font-family:var(--mono);font-size:11px;font-weight:700;
+    letter-spacing:.08em;text-transform:uppercase;color:var(--lime);
+    background:rgba(17,14,43,.55);border:1px solid var(--line-light);padding:6px 11px;border-radius:8px;backdrop-filter:blur(6px)
+  }
+  .play{
+    width:74px;height:74px;border-radius:50%;background:var(--paper);display:flex;align-items:center;justify-content:center;
+    position:relative;z-index:2;box-shadow:0 12px 36px -8px rgba(0,0,0,.5);transition:transform .2s
+  }
+  .media:hover .play{transform:scale(1.07)}
+  .play svg{margin-left:4px}
+  .media .cap{position:absolute;bottom:16px;left:18px;color:var(--muted-light);font-size:13px;z-index:2}
+
+  /* ===== STATS ===== */
+  .stats{background:var(--ink);color:var(--paper);padding:46px 0}
+  .stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px}
+  .stat{position:relative;padding-left:18px}
+  .stat::before{content:"";position:absolute;left:0;top:6px;bottom:6px;width:3px;border-radius:2px}
+  .stat:nth-child(1)::before{background:var(--magenta)}
+  .stat:nth-child(2)::before{background:var(--lime)}
+  .stat:nth-child(3)::before{background:var(--teal)}
+  .stat:nth-child(4)::before{background:var(--indigo-bright)}
+  .stat .num{font-family:var(--mono);font-weight:700;font-size:clamp(32px,3.6vw,44px);line-height:1;letter-spacing:-.02em}
+  .stat .num.word{font-family:var(--display);font-size:clamp(20px,2.3vw,27px);line-height:1.08;letter-spacing:-.01em}
+  .stat .lbl{font-size:13.5px;color:var(--muted-light);margin-top:9px;max-width:14em}
+
+  /* ===== SECTION SHELL ===== */
+  section.block{padding:90px 0}
+  .sec-head{max-width:40em}
+  .sec-head h2{font-size:clamp(30px,3.6vw,44px);margin-top:14px}
+  .sec-head p{font-size:17px;color:var(--muted);margin-top:14px}
+
+  /* ===== TRACKS ===== */
+  .tracks{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:44px}
+  .track{
+    background:var(--white);border:1px solid var(--line);border-radius:var(--r);padding:30px;
+    transition:transform .22s ease, box-shadow .22s ease;position:relative;overflow:hidden
+  }
+  .track::before{content:"";position:absolute;top:0;left:0;right:0;height:4px}
+  .track.aa::before{background:var(--magenta)}
+  .track.ai::before{background:var(--teal)}
+  .track:hover{transform:translateY(-4px);box-shadow:0 26px 50px -30px rgba(17,14,43,.4)}
+  .track-top{display:flex;align-items:center;gap:14px}
+  .ticon{width:46px;height:46px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-family:var(--display);font-weight:700;font-size:19px;color:var(--white);flex:none}
+  .track.aa .ticon{background:var(--magenta)}
+  .track.ai .ticon{background:var(--teal);color:var(--ink)}
+  .track h3{font-family:var(--display);font-weight:700;font-size:20px;letter-spacing:-.01em}
+  .track .sub{font-size:13px;color:var(--muted);margin-top:2px}
+  .track .desc{font-size:15px;color:var(--muted);margin-top:18px;line-height:1.6}
+  .levels{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:22px}
+  .level{
+    display:flex;align-items:center;justify-content:space-between;padding:12px 15px;border-radius:10px;
+    border:1px solid var(--line);font-family:var(--mono);font-weight:700;font-size:13px;letter-spacing:.04em;
+    transition:.18s;cursor:default
+  }
+  .track.aa .level:hover{border-color:var(--magenta);color:var(--magenta)}
+  .track.ai .level:hover{border-color:var(--teal);color:var(--teal)}
+  .level span{font-family:var(--body);font-weight:500;font-size:11px;color:var(--muted)}
+  .helper{
+    margin-top:22px;display:flex;gap:13px;align-items:flex-start;padding:16px 20px;
+    border:1px dashed var(--line);border-radius:14px;background:rgba(255,255,255,.5);font-size:14.5px;color:var(--muted)
+  }
+  .helper b{color:var(--ink);font-weight:600}
+  .qm{width:24px;height:24px;border-radius:7px;background:var(--indigo);color:var(--white);display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;flex:none}
+
+  /* ===== METHOD (dark) ===== */
+  .method{background:var(--ink);color:var(--paper)}
+  .method .sec-head p{color:var(--muted-light)}
+  .methods{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;margin-top:44px}
+  .mcard{padding:26px;border:1px solid var(--line-light);border-radius:var(--r);background:rgba(255,255,255,.025);transition:.22s;position:relative}
+  .mcard:hover{transform:translateY(-4px);background:rgba(255,255,255,.05);border-color:rgba(245,243,237,.3)}
+  .mnum{font-family:var(--mono);font-size:12px;font-weight:700;letter-spacing:.1em}
+  .mcard:nth-child(1) .mnum{color:var(--magenta)}
+  .mcard:nth-child(2) .mnum{color:var(--lime)}
+  .mcard:nth-child(3) .mnum{color:var(--teal)}
+  .mcard:nth-child(4) .mnum{color:var(--indigo-bright)}
+  .mcard h4{font-family:var(--display);font-weight:700;font-size:18px;margin:18px 0 8px}
+  .mcard p{font-size:14px;color:var(--muted-light);line-height:1.55}
+
+  /* ===== LESSONS ===== */
+  .lessons-head{display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:16px}
+  .lessons-head a{font-weight:600;font-size:14.5px;color:var(--indigo-bright);display:inline-flex;gap:6px;align-items:center;transition:gap .18s}
+  .lessons-head a:hover{gap:11px}
+  .lgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:38px}
+  .lcard{cursor:pointer}
+  .lthumb{
+    position:relative;aspect-ratio:16/10;border-radius:14px;overflow:hidden;display:flex;align-items:center;justify-content:center;
+    background:linear-gradient(150deg,var(--ink) 0%,var(--ink-2) 100%);border:1px solid var(--line);transition:.22s
+  }
+  .lcard:nth-child(1) .lthumb::after{background:radial-gradient(circle at 30% 30%,rgba(218,26,125,.5),transparent 60%)}
+  .lcard:nth-child(2) .lthumb::after{background:radial-gradient(circle at 70% 35%,rgba(72,197,183,.5),transparent 60%)}
+  .lcard:nth-child(3) .lthumb::after{background:radial-gradient(circle at 50% 70%,rgba(201,219,13,.45),transparent 60%)}
+  .lthumb::after{content:"";position:absolute;inset:0;opacity:.55}
+  .lcard:hover .lthumb{transform:translateY(-4px);box-shadow:0 24px 44px -28px rgba(17,14,43,.5)}
+  .lplay{width:54px;height:54px;border-radius:50%;background:rgba(245,243,237,.92);display:flex;align-items:center;justify-content:center;position:relative;z-index:2}
+  .ltag{position:absolute;top:12px;left:12px;z-index:2;font-family:var(--mono);font-size:10.5px;font-weight:700;letter-spacing:.06em;color:var(--paper);background:rgba(17,14,43,.5);border:1px solid var(--line-light);padding:5px 9px;border-radius:7px}
+  .lcard .ltitle{font-weight:600;font-size:15.5px;margin-top:14px}
+  .lcard .lmeta{font-size:13px;color:var(--muted);margin-top:3px}
+
+  /* ===== INSTRUCTOR ===== */
+  .instructor{background:var(--paper-2)}
+  .ins-grid{display:grid;grid-template-columns:320px 1fr;gap:48px;align-items:center}
+  .ins-photo{
+    aspect-ratio:1;border-radius:20px;background:linear-gradient(160deg,var(--indigo),var(--magenta));
+    display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;
+    box-shadow:0 30px 60px -34px rgba(52,44,129,.7)
+  }
+  .ins-photo::after{content:"";position:absolute;inset:0;background:radial-gradient(circle at 70% 80%,rgba(72,197,183,.5),transparent 50%)}
+  .ins-photo .iglyph{font-family:var(--display);font-weight:800;font-size:96px;color:rgba(245,243,237,.9);position:relative;z-index:2}
+  .ins-body h2{font-size:clamp(28px,3.2vw,38px)}
+  .ins-body p{font-size:17px;color:var(--muted);margin-top:18px;max-width:42em;line-height:1.65}
+  .tags{display:flex;gap:10px;flex-wrap:wrap;margin-top:24px}
+  .tag{font-family:var(--mono);font-size:12px;font-weight:700;letter-spacing:.04em;padding:8px 14px;border-radius:100px;border:1.5px solid var(--ink);color:var(--ink)}
+
+  /* ===== TESTIMONIALS ===== */
+  .tgrid{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:44px}
+  .quote{background:var(--white);border:1px solid var(--line);border-radius:var(--r);padding:32px;position:relative}
+  .quote .qmark{font-family:var(--display);font-size:64px;font-weight:800;line-height:.5;color:var(--lime);height:28px}
+  .quote p{font-size:18px;line-height:1.55;margin:8px 0 24px;font-weight:500}
+  .qfoot{display:flex;align-items:center;gap:13px}
+  .qav{width:42px;height:42px;border-radius:50%;flex:none}
+  .quote:nth-child(1) .qav{background:var(--teal)}
+  .quote:nth-child(2) .qav{background:var(--magenta)}
+  .qname{font-weight:600;font-size:14.5px}
+  .qrole{font-size:13px;color:var(--muted)}
+  .tnote{text-align:center;font-size:13px;color:var(--muted);margin-top:24px}
+
+  /* ===== CTA BAND ===== */
+  .cta-band{background:var(--indigo);color:var(--paper);text-align:center;padding:96px 0;position:relative;overflow:hidden}
+  .cta-band::before{content:"";position:absolute;top:-40%;left:50%;transform:translateX(-50%);width:120%;height:120%;background:radial-gradient(circle,rgba(74,63,212,.7),transparent 55%);opacity:.8}
+  .cta-band .inner{position:relative;z-index:2}
+  .cta-band h2{font-size:clamp(32px,4.4vw,52px);max-width:14em;margin:0 auto}
+  .cta-band p{font-size:18px;color:var(--muted-light);margin:18px auto 32px;max-width:30em}
+  .cta-band .seven-chip{display:inline-block;color:var(--lime)}
+
+  /* ===== FOOTER ===== */
+  footer{background:var(--ink);color:var(--paper);padding:64px 0 40px}
+  .fgrid{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:40px}
+  .fbrand p{font-size:14px;color:var(--muted-light);margin-top:16px;max-width:24em;line-height:1.6}
+  .socials{display:flex;gap:10px;margin-top:22px}
+  .soc{width:38px;height:38px;border-radius:10px;background:rgba(245,243,237,.08);display:flex;align-items:center;justify-content:center;transition:.18s}
+  .soc:hover{background:var(--indigo-bright)}
+  .fcol h5{font-family:var(--mono);font-size:11.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--muted-light);margin-bottom:18px}
+  .fcol a{display:block;font-size:14.5px;color:rgba(245,243,237,.82);margin-bottom:12px;transition:.15s}
+  .fcol a:hover{color:var(--paper)}
+  .fbottom{border-top:1px solid var(--line-light);margin-top:48px;padding-top:24px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;font-size:13px;color:var(--muted-light)}
+
+  /* reveal */
+  .reveal{opacity:0;transform:translateY(22px);transition:opacity .7s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1)}
+  .reveal.in{opacity:1;transform:none}
+
+  /* ===== RESPONSIVE ===== */
+  @media(max-width:920px){
+    .hero-grid{grid-template-columns:1fr;gap:38px}
+    .stats-grid{grid-template-columns:1fr 1fr;gap:30px}
+    .tracks{grid-template-columns:1fr}
+    .methods{grid-template-columns:1fr 1fr}
+    .lgrid{grid-template-columns:1fr}
+    .ins-grid{grid-template-columns:1fr;gap:30px}
+    .ins-photo{max-width:280px}
+    .tgrid{grid-template-columns:1fr}
+    .fgrid{grid-template-columns:1fr 1fr;gap:32px}
+    .nav-links{display:none}
+    .menu-btn{display:flex;width:42px;height:42px;border-radius:10px;border:1px solid var(--line);background:var(--white);align-items:center;justify-content:center;cursor:pointer}
+  }
+  @media(max-width:540px){
+    .wrap{padding:0 20px}
+    section.block{padding:64px 0}
+    .stats-grid{grid-template-columns:1fr 1fr}
+    .methods{grid-template-columns:1fr}
+    .fgrid{grid-template-columns:1fr 1fr}
+    .nav-cta .btn{padding:11px 16px;font-size:14px}
+    .hero{padding:48px 0 36px}
+  }
+  /* ===== SERVICES (3 programe) ===== */
+  .services{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:44px}
+  .svc{position:relative;display:flex;flex-direction:column;background:var(--white);border:1px solid var(--line);border-radius:var(--r);padding:30px;overflow:hidden;transition:transform .22s ease,box-shadow .22s ease}
+  .svc::before{content:"";position:absolute;top:0;left:0;right:0;height:4px}
+  .svc.s1::before{background:var(--magenta)}
+  .svc.s2::before{background:var(--teal)}
+  .svc.s3::before{background:var(--indigo)}
+  .svc:hover{transform:translateY(-5px);box-shadow:0 26px 50px -30px rgba(17,14,43,.4)}
+  .svc .svc-tag{font-family:var(--mono);font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+  .svc h3{font-family:var(--display);font-weight:800;font-size:30px;letter-spacing:-.02em;margin-top:14px;line-height:1}
+  .svc.s1 h3{color:var(--magenta)}.svc.s2 h3{color:var(--teal)}.svc.s3 h3{color:var(--indigo)}
+  .svc .svc-sub{font-weight:600;font-size:14.5px;margin-top:6px}
+  .svc .svc-desc{font-size:14.5px;color:var(--muted);margin-top:14px;line-height:1.6;flex:1}
+  .svc .svc-meta{display:flex;gap:8px;flex-wrap:wrap;margin-top:20px}
+  .svc .mini{font-family:var(--mono);font-size:11px;font-weight:700;letter-spacing:.03em;padding:5px 10px;border-radius:8px;border:1px solid var(--line);color:var(--muted)}
+  .svc .svc-link{margin-top:18px;font-weight:600;font-size:14px;display:inline-flex;gap:7px;align-items:center;transition:gap .18s}
+  .svc.s1 .svc-link{color:var(--magenta)}.svc.s2 .svc-link{color:var(--teal)}.svc.s3 .svc-link{color:var(--indigo)}
+  .svc .svc-link:hover{gap:12px}
+
+  /* ===== FAQ ===== */
+  .faq{margin-top:44px;display:grid;grid-template-columns:1fr 1fr;gap:16px}
+  .faq details{background:var(--white);border:1px solid var(--line);border-radius:14px;padding:2px 22px;transition:border-color .2s}
+  .faq details[open]{border-color:rgba(17,14,43,.26)}
+  .faq summary{list-style:none;cursor:pointer;font-weight:600;font-size:16px;padding:18px 0;display:flex;justify-content:space-between;align-items:center;gap:14px}
+  .faq summary::-webkit-details-marker{display:none}
+  .faq summary .pl{flex:none;width:22px;height:22px;border-radius:6px;background:var(--paper-2);display:flex;align-items:center;justify-content:center;font-size:15px;font-weight:700;line-height:1;transition:.2s}
+  .faq details[open] summary .pl{background:var(--lime);transform:rotate(45deg)}
+  .faq .ans{font-size:14.5px;color:var(--muted);line-height:1.6;padding:0 0 20px;max-width:34em}
+  @media(max-width:920px){
+    .services{grid-template-columns:1fr}
+    .faq{grid-template-columns:1fr}
+  }
+
+  @media(prefers-reduced-motion:reduce){
+    *{transition:none!important;animation:none!important;scroll-behavior:auto}
+    .reveal{opacity:1;transform:none}
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="#">
+      <svg class="mark" viewBox="0 0 100 100" aria-hidden="true">
+        <rect x="2" y="2" width="45" height="45" rx="9" fill="#DA1A7D"/>
+        <rect x="53" y="2" width="45" height="45" rx="9" fill="#C9DB0D"/>
+        <rect x="2" y="53" width="45" height="45" rx="9" fill="#48C5B7"/>
+        <rect x="53" y="53" width="45" height="45" rx="9" fill="#342C81"/>
+        <text x="24.5" y="32" font-family="Bricolage Grotesque,sans-serif" font-size="22" font-weight="800" fill="#fff" text-anchor="middle">∞</text>
+        <text x="75.5" y="32" font-family="Bricolage Grotesque,sans-serif" font-size="16" font-weight="800" fill="#fff" text-anchor="middle">&lt;3</text>
+        <text x="24.5" y="83" font-family="JetBrains Mono,monospace" font-size="17" font-weight="700" fill="#fff" text-anchor="middle">7</text>
+        <text x="75.5" y="82" font-family="Bricolage Grotesque,sans-serif" font-size="20" font-weight="800" fill="#fff" text-anchor="middle">+</text>
+      </svg>
+      Mindventure
+    </a>
+    <nav class="nav-links">
+      <a href="#">Acasă</a>
+      <a href="#program">Program</a>
+      <a href="#rezultate">De ce noi</a>
+      <a href="#despre">Despre</a>
+      <a href="#video">Video</a>
+    </nav>
+    <div class="nav-cta">
+      <button class="btn btn-primary">Rezervă o sesiune</button>
+      <button class="menu-btn" aria-label="Meniu">
+        <svg width="18" height="14" viewBox="0 0 18 14" fill="none"><path d="M0 1h18M0 7h18M0 13h18" stroke="#110E2B" stroke-width="1.6"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div class="reveal">
+      <span class="badge-pill"><span class="dot" style="background:var(--magenta)"></span> Matematică · IB &amp; clasele 2–8</span>
+      <h1 class="display">Matematică<br>predată ca să<br>ajungă la <span class="seven">7</span>.</h1>
+      <p class="lead">De la primele baze din clasele 2–8, la meditațiile de Bacalaureat Internațional și suportul pentru Internal Assessment — predate de un profesor universitar.</p>
+      <div class="hero-actions">
+        <button class="btn btn-primary">Rezervă o sesiune de evaluare</button>
+        <button class="btn btn-ghost">Vezi lecții gratuite</button>
+      </div>
+    </div>
+    <div class="reveal media" style="transition-delay:.08s">
+      <span class="chip">Lecție IB · demo</span>
+      <div class="play">
+        <svg width="22" height="24" viewBox="0 0 22 24" fill="none"><path d="M1 1.7v20.6L21 12 1 1.7z" fill="#110E2B"/></svg>
+      </div>
+      <span class="cap">Derivate, explicate ca să rămână.</span>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<section class="stats" id="rezultate">
+  <div class="wrap stats-grid">
+    <div class="stat reveal"><div class="num word">Profesor universitar</div><div class="lbl">predă atât AA cât și AI</div></div>
+    <div class="stat reveal" style="transition-delay:.06s"><div class="num word">Gratuit</div><div class="lbl">lecții complete pe YouTube</div></div>
+    <div class="stat reveal" style="transition-delay:.12s"><div class="num">30 min</div><div class="lbl">evaluare inițială, fără obligații</div></div>
+    <div class="stat reveal" style="transition-delay:.18s"><div class="num word">AA &amp; AI</div><div class="lbl">SL și HL — toată matematica IB</div></div>
+  </div>
+</section>
+
+<!-- TRACKS -->
+<section class="block" id="program">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow"><span class="dot" style="background:var(--magenta)"></span>Program</span>
+      <h2 class="display">Trei programe, de la bază la 7</h2>
+      <p>Indiferent de unde pornește copilul, îl ducem mai departe pe același traseu de matematică — construit pe înțelegere, nu pe memorare.</p>
+    </div>
+    <div class="services">
+      <div class="svc s1 reveal">
+        <span class="svc-tag">Liceu · IB</span>
+        <h3>IB 7</h3>
+        <div class="svc-sub">Meditații Bacalaureat Internațional</div>
+        <p class="svc-desc">Pregătire 1:1 sau în grup mic pentru examenul de matematică IB, cu accent pe exact ce se punctează în bareme.</p>
+        <div class="svc-meta"><span class="mini">AA &amp; AI</span><span class="mini">SL &amp; HL</span></div>
+        <a class="svc-link" href="#">Află mai mult <svg width="14" height="11" viewBox="0 0 16 12" fill="none"><path d="M1 6h13M9 1l5 5-5 5" stroke="currentColor" stroke-width="1.6"/></svg></a>
+      </div>
+      <div class="svc s2 reveal" style="transition-delay:.07s">
+        <span class="svc-tag">IB · proiect</span>
+        <h3>IA Lab</h3>
+        <div class="svc-sub">Suport Internal Assessment</div>
+        <p class="svc-desc">Te ghidăm la IA pas cu pas — de la alegerea temei și a setului de date, până la forma finală corectată pe barem.</p>
+        <div class="svc-meta"><span class="mini">AA &amp; AI</span><span class="mini">temă → final</span></div>
+        <a class="svc-link" href="#">Află mai mult <svg width="14" height="11" viewBox="0 0 16 12" fill="none"><path d="M1 6h13M9 1l5 5-5 5" stroke="currentColor" stroke-width="1.6"/></svg></a>
+      </div>
+      <div class="svc s3 reveal" style="transition-delay:.14s">
+        <span class="svc-tag">Clasele 2–8</span>
+        <h3>Junior</h3>
+        <div class="svc-sub">Fundația de matematică, devreme</div>
+        <p class="svc-desc">Bazele solide pe care se construiește tot ce urmează — gândire logică și încredere, nu memorare mecanică.</p>
+        <div class="svc-meta"><span class="mini">clasa 2–8</span><span class="mini">1:1 / grup mic</span></div>
+        <a class="svc-link" href="#">Află mai mult <svg width="14" height="11" viewBox="0 0 16 12" fill="none"><path d="M1 6h13M9 1l5 5-5 5" stroke="currentColor" stroke-width="1.6"/></svg></a>
+      </div>
+    </div>
+    <div class="helper reveal">
+      <span class="qm">?</span>
+      <div>Nu știi ce program i se potrivește copilului? <b>La evaluarea gratuită îl testăm</b> și vă recomandăm traseul potrivit pentru nivelul și obiectivul lui.</div>
+    </div>
+  </div>
+</section>
+
+<!-- METHOD -->
+<section class="block method">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow"><span class="dot" style="background:var(--lime)"></span>Cum lucrăm</span>
+      <h2 class="display">Notă mai mare, nu mai multe ore</h2>
+      <p>Patru lucruri pe care le facem la fiecare elev, indiferent de program — astea fac diferența.</p>
+    </div>
+    <div class="methods">
+      <div class="mcard reveal">
+        <div class="mnum">01</div>
+        <h4>Evaluare inițială</h4>
+        <p>Vedem exact unde e copilul și ce nivel i se potrivește, înainte de orice.</p>
+      </div>
+      <div class="mcard reveal" style="transition-delay:.06s">
+        <div class="mnum">02</div>
+        <h4>Plan individual</h4>
+        <p>Un traseu construit pe obiectivul lui, nu o programă generică pentru toți.</p>
+      </div>
+      <div class="mcard reveal" style="transition-delay:.12s">
+        <div class="mnum">03</div>
+        <h4>Subiecte reale</h4>
+        <p>Past papers și probleme calibrate fix pe nivelul țintă, corectate pe barem.</p>
+      </div>
+      <div class="mcard reveal" style="transition-delay:.18s">
+        <div class="mnum">04</div>
+        <h4>Rapoarte progres</h4>
+        <p>Vedeți clar ce a recuperat copilul și ce mai are de lucru.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LESSONS -->
+<section class="block" id="video">
+  <div class="wrap">
+    <div class="lessons-head reveal">
+      <div class="sec-head">
+        <span class="eyebrow"><span class="dot" style="background:var(--teal)"></span>Video</span>
+        <h2 class="display">Vezi cum predăm, gratuit</h2>
+      </div>
+      <a href="#">Toate lecțiile <svg width="16" height="12" viewBox="0 0 16 12" fill="none"><path d="M1 6h13M9 1l5 5-5 5" stroke="currentColor" stroke-width="1.6"/></svg></a>
+    </div>
+    <div class="lgrid">
+      <div class="lcard reveal">
+        <div class="lthumb"><span class="ltag">AA HL</span><div class="lplay"><svg width="16" height="18" viewBox="0 0 16 18" fill="none"><path d="M1 1.3v15.4L15 9 1 1.3z" fill="#110E2B"/></svg></div></div>
+        <div class="ltitle">Derivate pe scurt</div>
+        <div class="lmeta">8 min · trucuri de examen</div>
+      </div>
+      <div class="lcard reveal" style="transition-delay:.06s">
+        <div class="lthumb"><span class="ltag">AI SL</span><div class="lplay"><svg width="16" height="18" viewBox="0 0 16 18" fill="none"><path d="M1 1.3v15.4L15 9 1 1.3z" fill="#110E2B"/></svg></div></div>
+        <div class="ltitle">Distribuția normală</div>
+        <div class="lmeta">11 min · cu exemplu rezolvat</div>
+      </div>
+      <div class="lcard reveal" style="transition-delay:.12s">
+        <div class="lthumb"><span class="ltag">IA</span><div class="lplay"><svg width="16" height="18" viewBox="0 0 16 18" fill="none"><path d="M1 1.3v15.4L15 9 1 1.3z" fill="#110E2B"/></svg></div></div>
+        <div class="ltitle">Cum alegi tema de IA</div>
+        <div class="lmeta">9 min · ghid practic</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- INSTRUCTOR -->
+<section class="block instructor" id="despre">
+  <div class="wrap ins-grid">
+    <div class="ins-photo reveal"><span class="iglyph">M</span></div>
+    <div class="ins-body reveal" style="transition-delay:.08s">
+      <span class="eyebrow"><span class="dot" style="background:var(--indigo-bright)"></span>Cine predă</span>
+      <h2 class="display" style="margin-top:14px">Profesor universitar, nu meditator generalist</h2>
+      <p>Matematica e predată de un profesor universitar, specializat în programa IB. Acoperă atât Analysis &amp; Approaches cât și Applications &amp; Interpretation, la SL și HL, cu accent pe rezultate concrete la examen.</p>
+      <div class="tags">
+        <span class="tag">Profesor universitar</span>
+        <span class="tag">AA &amp; AI · SL &amp; HL</span>
+        <span class="tag">IB &amp; clasele 2–8</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="block">
+  <div class="wrap">
+    <div class="sec-head reveal" style="text-align:center;margin:0 auto">
+      <span class="eyebrow" style="justify-content:center"><span class="dot" style="background:var(--magenta)"></span>Întrebări</span>
+      <h2 class="display" style="margin-top:14px">Întrebări frecvente</h2>
+    </div>
+    <div class="faq reveal">
+      <details open>
+        <summary>Online sau față în față? <span class="pl">+</span></summary>
+        <div class="ans">Ambele. Sesiunile se țin online sau on-site, în funcție de ce vă e mai comod.</div>
+      </details>
+      <details>
+        <summary>Cum stabiliți nivelul copilului? <span class="pl">+</span></summary>
+        <div class="ans">Printr-o evaluare inițială gratuită de 30 de minute, în care vedem exact unde e și ce program i se potrivește.</div>
+      </details>
+      <details>
+        <summary>Acoperiți și AA, și AI? <span class="pl">+</span></summary>
+        <div class="ans">Da — ambele trasee IB, la SL și HL. La evaluare vă spunem care e potrivit pentru obiectivul de admitere.</div>
+      </details>
+      <details>
+        <summary>De la ce vârstă se poate începe? <span class="pl">+</span></summary>
+        <div class="ans">De la clasa a 2-a, prin programul Junior. Cu cât fundația e construită mai devreme, cu atât drumul spre IB e mai ușor.</div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- CTA BAND -->
+<section class="cta-band">
+  <div class="wrap inner">
+    <h2 class="display reveal">Primul pas e o evaluare gratuită</h2>
+    <p class="reveal">30 de minute în care vedem unde e copilul, ce nivel i se potrivește și cum îl ducem spre nota dorită. Fără obligații.</p>
+    <button class="btn btn-lime reveal">Rezervă o sesiune pentru copilul tău</button>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap">
+    <div class="fgrid">
+      <div class="fbrand">
+        <a class="brand" href="#" style="color:var(--paper)">
+          <svg class="mark" viewBox="0 0 100 100" aria-hidden="true">
+            <rect x="2" y="2" width="45" height="45" rx="9" fill="#DA1A7D"/>
+            <rect x="53" y="2" width="45" height="45" rx="9" fill="#C9DB0D"/>
+            <rect x="2" y="53" width="45" height="45" rx="9" fill="#48C5B7"/>
+            <rect x="53" y="53" width="45" height="45" rx="9" fill="#342C81"/>
+            <text x="24.5" y="32" font-family="Bricolage Grotesque,sans-serif" font-size="22" font-weight="800" fill="#fff" text-anchor="middle">∞</text>
+            <text x="75.5" y="32" font-family="Bricolage Grotesque,sans-serif" font-size="16" font-weight="800" fill="#fff" text-anchor="middle">&lt;3</text>
+            <text x="24.5" y="83" font-family="JetBrains Mono,monospace" font-size="17" font-weight="700" fill="#fff" text-anchor="middle">7</text>
+            <text x="75.5" y="82" font-family="Bricolage Grotesque,sans-serif" font-size="20" font-weight="800" fill="#fff" text-anchor="middle">+</text>
+          </svg>
+          Mindventure
+        </a>
+        <p>Pregătire specializată de matematică IB pentru liceeni. Analysis &amp; Approaches și Applications &amp; Interpretation, SL și HL.</p>
+        <div class="socials">
+          <a class="soc" href="#" aria-label="YouTube"><svg width="18" height="18" viewBox="0 0 24 24" fill="#F5F3ED"><path d="M23 7.5a3 3 0 00-2.1-2.1C19 5 12 5 12 5s-7 0-8.9.4A3 3 0 001 7.5 31 31 0 00.6 12 31 31 0 001 16.5a3 3 0 002.1 2.1C5 19 12 19 12 19s7 0 8.9-.4a3 3 0 002.1-2.1A31 31 0 0023.4 12 31 31 0 0023 7.5zM9.7 15.4V8.6l6 3.4-6 3.4z"/></svg></a>
+          <a class="soc" href="#" aria-label="Instagram"><svg width="17" height="17" viewBox="0 0 24 24" fill="none"><rect x="2.5" y="2.5" width="19" height="19" rx="5" stroke="#F5F3ED" stroke-width="1.8"/><circle cx="12" cy="12" r="4.2" stroke="#F5F3ED" stroke-width="1.8"/><circle cx="17.4" cy="6.6" r="1.3" fill="#F5F3ED"/></svg></a>
+          <a class="soc" href="#" aria-label="Facebook"><svg width="16" height="16" viewBox="0 0 24 24" fill="#F5F3ED"><path d="M14 9V7c0-1 .3-1.5 1.6-1.5H17V2.2C16.5 2.1 15.4 2 14.2 2 11.6 2 10 3.6 10 6.4V9H7v3.5h3V22h4v-9.5h3l.5-3.5H14z"/></svg></a>
+        </div>
+      </div>
+      <div class="fcol">
+        <h5>Program</h5>
+        <a href="#">IB 7 — meditații IB</a><a href="#">IA Lab — suport IA</a><a href="#">Junior — clasele 2–8</a>
+      </div>
+      <div class="fcol">
+        <h5>Resurse</h5>
+        <a href="#">Lecții YouTube</a><a href="#">Blog</a><a href="#">Întrebări frecvente</a>
+      </div>
+      <div class="fcol">
+        <h5>Contact</h5>
+        <a href="#">Email</a><a href="#">WhatsApp</a><a href="#">Formular</a>
+      </div>
+    </div>
+    <div class="fbottom">
+      <span>© 2026 Mindventure. Toate drepturile rezervate.</span>
+      <span>Făcut pentru nota care contează.</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} });
+  },{threshold:.12, rootMargin:'0px 0px -40px 0px'});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>
