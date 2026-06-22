@@ -1,8 +1,8 @@
 {
     "nav.home": "Acasă",
     "nav.teacher": "Despre profesor",
-    "nav.ib-math": "Matematică IB",
-    "nav.ia_lab": "IA Lab",
+    "nav.ib_math": "Matematică IB",
+    "nav.ib_ia": "Internal Assessment",
     "nav.junior": "Junior",
     "auth.login": "Autentificare",
     "cta.book": "Rezervă o evaluare gratuită",

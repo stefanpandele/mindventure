@@ -11,12 +11,18 @@ const page = usePage();
 const locale = computed(() => (page.props.locale ?? 'ro') as string);
 
 const open = ref(false);
-const links = [
-    'nav.home',
-    'nav.trainer',
-    'nav.ib_7',
-    'nav.ia_lab',
-    'nav.junior',
+
+interface NavLink {
+    name: string;
+    uri: string;
+}
+
+const links: NavLink[] = [
+    { name: 'nav.home', uri: '/' },
+    { name: 'nav.teacher', uri: '/teacher' },
+    { name: 'nav.ib_math', uri: '/ib-math' },
+    { name: 'nav.ib_ia', uri: '/ib-ia' },
+    { name: 'nav.junior', uri: '/junior' },
 ];
 </script>
 
@@ -53,11 +59,11 @@ const links = [
             >
                 <Link
                     v-for="link in links"
-                    :key="link"
-                    href="#"
+                    :key="link.name"
+                    :href="link.uri"
                     class="text-[13px] text-brand-body transition-colors hover:text-brand"
                 >
-                    {{ t(link) }}
+                    {{ t(link.name) }}
                 </Link>
             </nav>
 
@@ -102,9 +108,7 @@ const links = [
         </div>
 
         <!-- Mobile secondary row: auth + CTA (below the top bar) -->
-        <div
-            class="flex items-center gap-2 px-5 py-2.5 md:hidden"
-        >
+        <div class="flex items-center gap-2 px-5 py-2.5 md:hidden">
             <Link
                 href="/"
                 class="flex-1 rounded-md border border-brand/30 py-2 text-center text-xs font-semibold text-brand-ink transition-colors hover:border-brand hover:text-brand"
@@ -126,11 +130,12 @@ const links = [
         >
             <Link
                 v-for="link in links"
-                :key="link"
-                href="#"
+                :key="link.name"
+                :href="link.uri"
                 class="block py-2 text-sm text-brand-body"
+                @click="open = false"
             >
-                {{ t(link) }}
+                {{ t(link.name) }}
             </Link>
         </nav>
     </header>

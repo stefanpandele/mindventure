@@ -1,8 +1,8 @@
 {
     "nav.home": "Home",
     "nav.teacher": "About the teacher",
-    "nav.ib-math": "IB Math",
-    "nav.ia_lab": "IA Lab",
+    "nav.ib_math": "IB Math",
+    "nav.ib_ia": "Internal Assessment",
     "nav.junior": "Junior",
     "auth.login": "Sign in",
     "cta.book": "Book a free evaluation",
