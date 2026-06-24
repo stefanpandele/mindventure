@@ -8,6 +8,7 @@ Route::inertia('/about', 'About')->name('about');
 Route::inertia('/ib-math', 'IbMath')->name('ib-math');
 Route::inertia('/ib-ia', 'IbIa')->name('ib-ia');
 Route::inertia('/junior', 'Junior')->name('junior');
+Route::inertia('/contact', 'Contact')->name('contact');
 
 Route::get('/locale/{locale}', function (string $locale) {
     abort_unless(in_array($locale, ['ro', 'en'], true), 400);

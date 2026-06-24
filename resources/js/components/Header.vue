@@ -23,6 +23,7 @@ const links: NavLink[] = [
     { name: 'nav.ib_math', uri: '/ib-math' },
     { name: 'nav.ib_ia', uri: '/ib-ia' },
     { name: 'nav.junior', uri: '/junior' },
+    { name: 'nav.contact', uri: '/contact' },
 ];
 </script>
 
