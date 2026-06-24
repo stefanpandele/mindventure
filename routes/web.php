@@ -4,6 +4,7 @@ use App\Http\Controllers\ContactController;
 use Illuminate\Support\Facades\Route;
 
 Route::inertia('/', 'Home')->name('home');
+Route::inertia('/about', 'About')->name('about');
 Route::inertia('/ib-math', 'IbMath')->name('ib-math');
 Route::inertia('/ib-ia', 'IbIa')->name('ib-ia');
 Route::inertia('/junior', 'Junior')->name('junior');

@@ -19,7 +19,7 @@ interface NavLink {
 
 const links: NavLink[] = [
     { name: 'nav.home', uri: '/' },
-    { name: 'nav.teacher', uri: '/teacher' },
+    { name: 'nav.about', uri: '/about' },
     { name: 'nav.ib_math', uri: '/ib-math' },
     { name: 'nav.ib_ia', uri: '/ib-ia' },
     { name: 'nav.junior', uri: '/junior' },
