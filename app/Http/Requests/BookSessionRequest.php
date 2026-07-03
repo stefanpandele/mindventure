@@ -6,7 +6,7 @@ use Illuminate\Contracts\Validation\ValidationRule;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
 
-class FaqAskRequest extends FormRequest
+class BookSessionRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -26,8 +26,8 @@ class FaqAskRequest extends FormRequest
         return [
             'name' => ['required', 'string', 'max:100'],
             'email' => ['required', 'email', 'max:255'],
-            'phone' => ['nullable', 'string', 'max:50'],
-            'question' => ['required', 'string', 'min:5', 'max:5000'],
+            'phone' => ['required', 'string', 'max:50'],
+            'question' => ['nullable', 'string', 'max:5000'],
             'section' => ['required', Rule::in(['ib-math'])],
         ];
     }
@@ -40,17 +40,16 @@ class FaqAskRequest extends FormRequest
     public function messages(): array
     {
         return [
-            'name.required' => __('modal_ask.error.name_required'),
-            'name.max' => __('modal_ask.error.name_max'),
-            'email.required' => __('modal_ask.error.email_required'),
-            'email.email' => __('modal_ask.error.email_invalid'),
-            'email.max' => __('modal_ask.error.email_max'),
-            'phone.max' => __('modal_ask.error.phone_max'),
-            'question.required' => __('modal_ask.error.question_required'),
-            'question.min' => __('modal_ask.error.question_min'),
-            'question.max' => __('modal_ask.error.question_max'),
-            'section.required' => __('modal_ask.error.section_invalid'),
-            'section.in' => __('modal_ask.error.section_invalid'),
+            'name.required' => __('modal_book.error.name_required'),
+            'name.max' => __('modal_book.error.name_max'),
+            'email.required' => __('modal_book.error.email_required'),
+            'email.email' => __('modal_book.error.email_invalid'),
+            'email.max' => __('modal_book.error.email_max'),
+            'phone.required' => __('modal_book.error.phone_required'),
+            'phone.max' => __('modal_book.error.tel_max'),
+            'question.max' => __('modal_book.error.question_max'),
+            'section.required' => __('modal_book.error.section_invalid'),
+            'section.in' => __('modal_book.error.section_invalid'),
         ];
     }
 }

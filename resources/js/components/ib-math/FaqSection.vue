@@ -87,8 +87,9 @@ const faqs: Faq[] = [
                         <a
                             href="mailto:contact@mindventure.ro"
                             class="font-semibold text-brand-lime"
-                            >contact@mindventure.ro</a
                         >
+                            contact@mindventure.ro
+                        </a>
                     </div>
                 </div>
             </div>

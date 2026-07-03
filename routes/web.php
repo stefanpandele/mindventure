@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\BookSessionController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\FaqController;
 use Illuminate\Support\Facades\Route;
@@ -21,3 +22,4 @@ Route::get('/locale/{locale}', function (string $locale) {
 
 Route::post('/contact', [ContactController::class, 'store'])->name('contact.store');
 Route::post('/faq/ask', [FaqController::class, 'ask'])->name('faq.ask');
+Route::post('/book-session', BookSessionController::class)->name('book-session');

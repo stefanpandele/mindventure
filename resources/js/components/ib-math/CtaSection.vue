@@ -1,4 +1,10 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import BookSessionModal from '@/components/modals/BookSessionModal.vue';
+import { useTranslations } from '@/composables/useTranslations';
+
+const { t } = useTranslations();
+const section = 'ib-math';
+</script>
 
 <template>
     <section
@@ -15,11 +21,11 @@
                 30 de minute în care vedem unde e copilul, ce nivel i se
                 potrivește și cum îl ducem spre nota dorită. Fără obligații.
             </p>
-            <a
-                href="#"
-                class="inline-block rounded-xl bg-brand-lime px-6 py-3 text-[15px] font-semibold text-brand-indigo-dark-2 transition-opacity hover:opacity-90"
-                >Rezervă o sesiune pentru copilul tău</a
-            >
+            <BookSessionModal
+                :section="section"
+                :name="t('buttons.cta.book_session_child')"
+                trigger-class="inline-block rounded-xl bg-brand-lime px-6 py-3 text-[15px] font-semibold text-brand-indigo-dark-2 transition-opacity hover:opacity-90"
+            />
         </div>
     </section>
 </template>

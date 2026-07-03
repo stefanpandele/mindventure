@@ -14,7 +14,7 @@ const props = defineProps(['section']);
 const form = useForm({
     name: '',
     email: '',
-    tel: '',
+    phone: '',
     question: '',
     section: props.section,
 });
@@ -162,29 +162,29 @@ watch(open, (v) => {
                             </p>
                         </div>
 
-                        <!-- TELEFON (opțional) — șterge tot acest bloc dacă nu-l vrei -->
+                        <!-- TELEFON (opțional) -->
                         <div class="mb-4">
                             <label
-                                for="ask-tel"
+                                for="ask-phone"
                                 class="mb-2 block text-[13px] font-semibold"
                             >
-                                {{ t('modal_ask.tel') }}
+                                {{ t('modal_ask.phone') }}
                                 <span class="font-normal text-slate-400"
-                                    >({{ t('modal_ask.tel_optional') }})</span
+                                    >({{ t('modal_ask.phone_optional') }})</span
                                 >
                             </label>
                             <input
-                                id="ask-tel"
-                                v-model="form.tel"
+                                id="ask-phone"
+                                v-model="form.phone"
                                 type="tel"
-                                :placeholder="t('modal_ask.tel_ph')"
+                                :placeholder="t('modal_ask.phone_ph')"
                                 class="w-full rounded-xl border-[1.5px] border-slate-200 bg-slate-50 px-4 py-3 text-[15px] transition outline-none focus:border-indigo-500 focus:bg-white focus:ring-4 focus:ring-indigo-500/10"
                             />
                             <p
-                                v-if="form.errors.tel"
+                                v-if="form.errors.phone"
                                 class="mt-1.5 text-[13px] text-brand-magenta"
                             >
-                                {{ form.errors.tel }}
+                                {{ form.errors.phone }}
                             </p>
                         </div>
 
