@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { IconPlayerPlayFilled } from '@tabler/icons-vue';
+import BookSessionModal from '@/components/modals/BookSessionModal.vue';
 import { useTranslations } from '@/composables/useTranslations';
 
 const { t } = useTranslations();
@@ -42,11 +43,11 @@ const { t } = useTranslations();
                 </p>
 
                 <div class="mt-2 flex flex-wrap gap-3">
-                    <a
-                        href="#rezerva"
-                        class="rounded-md bg-brand-indigo px-5 py-2.5 text-[15px] font-semibold text-white transition-opacity hover:opacity-90"
-                        >{{ t('buttons.cta.book_session') }}</a
-                    >
+                    <BookSessionModal
+                        section="ib-math"
+                        :name="t('buttons.cta.book_session')"
+                        trigger-class="rounded-md bg-brand-indigo px-5 py-2.5 text-[15px] font-semibold text-white transition-opacity hover:opacity-90"
+                    />
                     <a
                         href="#video"
                         class="rounded-md border border-brand/30 bg-white px-5 py-2.5 text-[15px] font-semibold text-brand transition-colors hover:bg-brand-tint"
