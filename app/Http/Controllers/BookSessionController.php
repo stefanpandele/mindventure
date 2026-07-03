@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\BookSessionRequest;
 use App\Mail\BookSession;
-use App\Mail\FaqQuestion;
+use App\Mail\BookSessionConfirmation;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Mail;
 
@@ -25,6 +25,16 @@ class BookSessionController extends Controller
             section: $validated['section'],
         ));
 
-        return back()->withFragment('faq');
+        Mail::to($validated['email'])
+            ->locale(app()->getLocale())
+            ->send(new BookSessionConfirmation(
+                senderName: $validated['name'],
+                senderEmail: $validated['email'],
+                senderPhone: $validated['phone'],
+                question: $validated['question'],
+                section: $validated['section'],
+            ));
+
+        return back();
     }
 }

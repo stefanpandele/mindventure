@@ -128,8 +128,22 @@
     "modal_book.error.phone_max": "The phone number is too long.",
     "modal_book.error.question_max": "The question is too long.",
     "modal_book.error.section_invalid": "Invalid section.",
+    "emails.booking.subject": "Am primit cererea ta de evaluare — Mindventure",
+    "emails.booking.greeting": "Bună, :name,",
+    "emails.booking.intro": "Mulțumim că ai ales Mindventure! Am primit cererea ta pentru o evaluare gratuită de 30 de minute a copilului tău.",
+    "emails.booking.next_title": "Ce urmează:",
+    "emails.booking.next_body": "Te contactăm în cel mult 24 de ore, telefonic sau pe email, ca să stabilim împreună ziua și ora ședinței. Fără obligații și fără plată acum.",
+    "emails.booking.details_title": "Datele trimise de tine:",
+    "emails.booking.field_name": "Nume",
+    "emails.booking.field_email": "Email",
+    "emails.booking.field_phone": "Telefon",
+    "emails.booking.question_title": "Întrebarea ta, la care îți răspundem la ședință:",
+    "emails.booking.signature": "Pe curând,\nDenisa Diaconescu\nMindventure",
 
     "buttons.cta.book_session": "Rezervă o sesiune de evaluare",
     "buttons.cta.book_session_child": "Programează o sesiune de evaluare pentru copilul tău",
-    "buttons.view_lessons": "Vezi lecții gratuite"
+    "buttons.view_lessons": "Vezi lecții gratuite",
+
+    "email.book_session_confirmation.subject": "Am primit cererea ta de evaluare — Mindventure",
+    "email.book_session_confirmation.greeting": "Bună"
 }
