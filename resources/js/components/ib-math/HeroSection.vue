@@ -1,5 +1,8 @@
 <script setup lang="ts">
 import { IconPlayerPlayFilled } from '@tabler/icons-vue';
+import { useTranslations } from '@/composables/useTranslations';
+
+const { t } = useTranslations();
 </script>
 
 <template>
@@ -20,9 +23,11 @@ import { IconPlayerPlayFilled } from '@tabler/icons-vue';
                 <h1
                     class="text-4xl leading-[1.02] font-bold tracking-[-0.025em] text-brand-indigo-dark-2 sm:text-6xl"
                 >
-                    Matematica IB,<br />predată ca să<br />ajungă la
+                    {{ t('pages.ib_math.hero.title_1') }}
                     <span class="relative inline-block text-brand-magenta">
-                        <span class="relative z-10">7</span>
+                        <span class="relative z-10">{{
+                            t('pages.ib_math.hero.title_2')
+                        }}</span>
                         <span
                             class="absolute -right-1.5 bottom-[0.08em] -left-1.5 h-[0.34em] -rotate-[1.5deg] rounded-[3px] bg-brand-lime"
                         />
@@ -33,22 +38,19 @@ import { IconPlayerPlayFilled } from '@tabler/icons-vue';
                 <p
                     class="max-w-xl text-justify text-[17px] leading-relaxed text-brand-body/90"
                 >
-                    Pregătire specializată pentru Analysis &amp; Approaches și
-                    Applications &amp; Interpretation, la nivel SL și HL. Pentru
-                    liceenii care vor nota de care depinde admiterea la
-                    universitate.
+                    {{ t('pages.ib_math.hero.description') }}
                 </p>
 
                 <div class="mt-2 flex flex-wrap gap-3">
                     <a
                         href="#rezerva"
                         class="rounded-md bg-brand-indigo px-5 py-2.5 text-[15px] font-semibold text-white transition-opacity hover:opacity-90"
-                        >Rezervă o sesiune de evaluare</a
+                        >{{ t('buttons.cta.book_session') }}</a
                     >
                     <a
                         href="#video"
                         class="rounded-md border border-brand/30 bg-white px-5 py-2.5 text-[15px] font-semibold text-brand transition-colors hover:bg-brand-tint"
-                        >Vezi lecții gratuite</a
+                        >{{ t('buttons.view_lessons') }}</a
                     >
                 </div>
             </div>
@@ -62,7 +64,7 @@ import { IconPlayerPlayFilled } from '@tabler/icons-vue';
                     <span
                         class="absolute top-4 left-4 z-[2] rounded-lg border border-[rgba(245,243,237,0.16)] bg-[rgba(17,14,43,0.55)] px-2.5 py-1.5 font-mono text-[11px] font-bold tracking-[0.08em] text-[#C9DB0D] uppercase backdrop-blur-[6px]"
                     >
-                        Lecție IB · demo
+                        {{ t('pages.ib_math.hero.media.chips.demo_class') }}
                     </span>
 
                     <!-- Play -->
@@ -79,7 +81,7 @@ import { IconPlayerPlayFilled } from '@tabler/icons-vue';
                     <span
                         class="absolute bottom-4 left-[18px] z-[2] text-[13px] text-[rgba(245,243,237,0.62)]"
                     >
-                        Derivate, explicate ca să rămână.
+                        {{ t('pages.ib_math.hero.media.caption') }}
                     </span>
                 </div>
             </div>

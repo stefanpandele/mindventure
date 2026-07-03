@@ -1,5 +1,10 @@
 <script setup lang="ts">
+import { useTranslations } from '@/composables/useTranslations';
+import { IconArrowRight } from '@tabler/icons-vue';
+
 const tags = ['Profesor IB', '10+ ani', 'AA & AI · SL & HL'];
+
+const { t } = useTranslations();
 </script>
 
 <template>
@@ -24,36 +29,35 @@ const tags = ['Profesor IB', '10+ ani', 'AA & AI · SL & HL'];
                     <span
                         class="inline-block h-[7px] w-[7px] rounded-[2px] bg-brand"
                     />
-                    Cine predă
+                    {{ t('pages.ib_math.trainer.section_header') }}
                 </span>
                 <h2
                     class="mt-3.5 text-[clamp(28px,3.2vw,38px)] font-bold tracking-[-0.01em] text-brand-indigo-dark-2"
                 >
-                    Profesor IB, nu meditator generalist
+                    {{ t('pages.ib_math.trainer.section_title_1') }}
                 </h2>
+                <h3
+                    class="mt-3.5 text-[clamp(18px,3.2vw,20px)] font-bold tracking-[-0.01em] text-brand-indigo-dark-2"
+                >
+                    {{ t('pages.ib_math.trainer.section_title_2') }}
+                </h3>
+                <p
+                    class="mt-[18px] text-justify text-[17px] leading-[1.65] whitespace-pre-line text-brand-body"
+                >
+                    {{ t('pages.ib_math.trainer.section_description') }}
+                </p>
+
                 <p
                     class="mt-[18px] text-justify text-[17px] leading-[1.65] text-brand-body"
                 >
-                    Sunt Denisa Diaconescu. Sunt conferențiar la Facultatea de
-                    Matematică și Informatică (Universitatea din București) și
-                    doctor în logică matematică. Din 2008 am ghidat generații
-                    întregi de tineri. Am predat atât în România, cât și la
-                    Universitatea din Berna. Am făcut cercetare și am aplicat
-                    matematica în academie și în industrie. Dar dincolo de
-                    diplome și articole științifice … sunt mamă. Iar atunci când
-                    ești și profesor, și părinte, vezi altfel lucrurile. După
-                    ani petrecuți în universitate și în cercetare, am descoperit
-                    că adevărata valoare a matematicii nu stă doar în rezultate,
-                    ci în felul în care modelează gândirea. De aceea am creat
-                    Mindventure: un spațiu unde ne conectăm cu copiii, le
-                    câștigăm încrederea, respectăm ritmul fiecăruia și le arătăm
-                    că matematica este frumoasă, logică și vie. Încă de mică îmi
-                    așezam jucăriile și le “predam” povești inventate. Astăzi
-                    fac același lucru, doar că poveștile mele sunt despre
-                    logică, explorare și jocul gândirii. Vreau ca fiecare copil
-                    care trece prin Mindventure să simtă că mintea lui este
-                    puternică. Dacă vrei să afli mai multe despre parcursul meu
-                    profesional, găsești detalii aici.
+                    {{ t('pages.ib_math.trainer.cv_1') }}
+                    <a
+                        href="https://cs.unibuc.ro/~ddiaconescu"
+                        target="_blank"
+                        class="inline-flex items-center gap-1.5 text-[14.5px] font-semibold text-brand transition-all hover:gap-[11px]"
+                    >
+                        {{ t('pages.ib_math.trainer.cv_2') }}
+                    </a>
                 </p>
                 <div class="mt-6 flex flex-wrap gap-2.5">
                     <span
