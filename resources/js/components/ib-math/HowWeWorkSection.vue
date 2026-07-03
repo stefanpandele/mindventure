@@ -35,7 +35,7 @@ const methods: Method[] = [
 </script>
 
 <template>
-    <section class="bg-brand-indigo-dark-2 text-paper py-[64px] md:py-[90px]">
+    <section class="bg-brand-indigo-dark-2 py-[64px] text-paper md:py-[90px]">
         <div class="mx-auto max-w-6xl px-5 sm:px-6">
             <!-- Section head -->
             <div class="max-w-[40em]">
@@ -43,7 +43,7 @@ const methods: Method[] = [
                     class="inline-flex items-center gap-[9px] font-mono text-[11.5px] font-bold tracking-[0.14em] uppercase"
                 >
                     <span
-                        class="bg-brand-lime inline-block h-[7px] w-[7px] rounded-[2px]"
+                        class="inline-block h-[7px] w-[7px] rounded-[2px] bg-brand-lime"
                     />
                     Cum lucrăm
                 </span>
@@ -52,7 +52,7 @@ const methods: Method[] = [
                 >
                     Notă mai mare, nu mai multe ore
                 </h2>
-                <p class="text-paper/60 mt-3.5 text-[17px] leading-relaxed">
+                <p class="mt-3.5 text-[17px] leading-relaxed text-paper/60">
                     Patru lucruri pe care le facem la fiecare elev — astea fac
                     diferența între un 5 și un 7.
                 </p>
@@ -63,7 +63,7 @@ const methods: Method[] = [
                 <article
                     v-for="method in methods"
                     :key="method.num"
-                    class="border-paper/15 hover:border-paper/30 relative rounded-[18px] border bg-white/[0.025] p-[26px] transition duration-200 hover:-translate-y-1 hover:bg-white/5"
+                    class="relative rounded-[18px] border border-paper/15 bg-white/[0.025] p-[26px] transition duration-200 hover:-translate-y-1 hover:border-paper/30 hover:bg-white/5"
                 >
                     <div
                         class="font-mono text-[12px] font-bold tracking-[0.1em]"
@@ -74,7 +74,7 @@ const methods: Method[] = [
                     <h4 class="mt-[18px] mb-2 text-[18px] font-bold text-white">
                         {{ method.title }}
                     </h4>
-                    <p class="text-paper/60 text-[14px] leading-[1.55]">
+                    <p class="text-[14px] leading-[1.55] text-paper/60">
                         {{ method.text }}
                     </p>
                 </article>

@@ -44,19 +44,19 @@ const levels = [
             <!-- Section head -->
             <div class="max-w-[40em]">
                 <span
-                    class="text-brand-indigo-dark-2 inline-flex items-center gap-[9px] font-mono text-[11.5px] font-bold tracking-[0.14em] uppercase"
+                    class="inline-flex items-center gap-[9px] font-mono text-[11.5px] font-bold tracking-[0.14em] text-brand-indigo-dark-2 uppercase"
                 >
                     <span
-                        class="bg-brand-magenta inline-block h-[7px] w-[7px] rounded-[2px]"
+                        class="inline-block h-[7px] w-[7px] rounded-[2px] bg-brand-magenta"
                     />
                     Program
                 </span>
                 <h2
-                    class="text-brand-indigo-dark-2 mt-3.5 text-[clamp(30px,3.6vw,44px)] font-bold tracking-[-0.01em]"
+                    class="mt-3.5 text-[clamp(30px,3.6vw,44px)] font-bold tracking-[-0.01em] text-brand-indigo-dark-2"
                 >
                     Acoperim toată matematica IB
                 </h2>
-                <p class="text-brand-body mt-3.5 text-[17px] leading-relaxed">
+                <p class="mt-3.5 text-[17px] leading-relaxed text-brand-body">
                     Indiferent de traseul copilului, îl pregătim pentru examenul
                     real — cu accent pe ce se punctează efectiv în bareme.
                 </p>
@@ -67,7 +67,7 @@ const levels = [
                 <article
                     v-for="track in tracks"
                     :key="track.name"
-                    class="border-brand-indigo-dark-2/12 relative overflow-hidden rounded-[18px] border bg-white p-[30px] transition-transform duration-200 hover:-translate-y-1 hover:shadow-[0_26px_50px_-30px_rgba(17,14,43,0.4)]"
+                    class="relative overflow-hidden rounded-[18px] border border-brand-indigo-dark-2/12 bg-white p-[30px] transition-transform duration-200 hover:-translate-y-1 hover:shadow-[0_26px_50px_-30px_rgba(17,14,43,0.4)]"
                 >
                     <span
                         class="absolute top-0 right-0 left-0 h-1"
@@ -83,18 +83,18 @@ const levels = [
                         </span>
                         <div>
                             <h3
-                                class="text-brand-indigo-dark-2 text-[20px] font-bold tracking-[-0.01em]"
+                                class="text-[20px] font-bold tracking-[-0.01em] text-brand-indigo-dark-2"
                             >
                                 {{ track.name }}
                             </h3>
-                            <div class="text-brand-muted mt-0.5 text-[13px]">
+                            <div class="mt-0.5 text-[13px] text-brand-muted">
                                 {{ track.audience }}
                             </div>
                         </div>
                     </div>
 
                     <p
-                        class="text-brand-body mt-[18px] text-[15px] leading-[1.6]"
+                        class="mt-[18px] text-[15px] leading-[1.6] text-brand-body"
                     >
                         {{ track.description }}
                     </p>
@@ -103,11 +103,13 @@ const levels = [
                         <div
                             v-for="level in levels"
                             :key="level.code"
-                            class="border-brand-indigo-dark-2/12 text-brand-indigo-dark-2 flex items-center justify-between rounded-[10px] border px-[15px] py-3 font-mono text-[13px] font-bold tracking-[0.04em] transition-colors"
+                            class="flex items-center justify-between rounded-[10px] border border-brand-indigo-dark-2/12 px-[15px] py-3 font-mono text-[13px] font-bold tracking-[0.04em] text-brand-indigo-dark-2 transition-colors"
                             :class="track.levelHover"
                         >
                             {{ level.code }}
-                            <span class="text-brand-muted text-[11px] font-medium">
+                            <span
+                                class="text-[11px] font-medium text-brand-muted"
+                            >
                                 {{ level.name }}
                             </span>
                         </div>
@@ -117,16 +119,16 @@ const levels = [
 
             <!-- Helper for parents unsure of the level -->
             <div
-                class="border-brand-indigo-dark-2/12 text-brand-body mt-[22px] flex items-start gap-[13px] rounded-[14px] border border-dashed bg-white/50 px-5 py-4 text-[14.5px]"
+                class="mt-[22px] flex items-start gap-[13px] rounded-[14px] border border-dashed border-brand-indigo-dark-2/12 bg-white/50 px-5 py-4 text-[14.5px] text-brand-body"
             >
                 <span
-                    class="bg-brand-indigo flex h-6 w-6 shrink-0 items-center justify-center rounded-[7px] text-[13px] font-bold text-white"
+                    class="flex h-6 w-6 shrink-0 items-center justify-center rounded-[7px] bg-brand-indigo text-[13px] font-bold text-white"
                 >
                     ?
                 </span>
                 <p>
                     Nu știi ce nivel i se potrivește copilului?
-                    <b class="text-brand-indigo-dark-2 font-semibold"
+                    <b class="font-semibold text-brand-indigo-dark-2"
                         >La evaluare îl testăm</b
                     >
                     și vă recomandăm traseul potrivit pentru obiectivul lui de

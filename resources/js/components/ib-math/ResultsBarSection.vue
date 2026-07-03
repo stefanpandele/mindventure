@@ -34,7 +34,7 @@ const stats: Stat[] = [
 </script>
 
 <template>
-    <section id="rezultate" class="bg-brand-indigo-dark-2 text-paper py-[46px]">
+    <section id="rezultate" class="bg-brand-indigo-dark-2 py-[46px] text-paper">
         <div
             class="mx-auto grid max-w-6xl grid-cols-2 gap-x-6 gap-y-8 px-5 sm:px-6 md:grid-cols-4 md:gap-6"
         >
@@ -57,7 +57,7 @@ const stats: Stat[] = [
                 >
                     {{ stat.value }}
                 </div>
-                <div class="text-paper/60 mt-[9px] max-w-[14em] text-[14px]">
+                <div class="mt-[9px] max-w-[14em] text-[14px] text-paper/60">
                     {{ stat.label }}
                 </div>
             </div>

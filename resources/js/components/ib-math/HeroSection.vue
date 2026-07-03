@@ -3,32 +3,36 @@ import { IconPlayerPlayFilled } from '@tabler/icons-vue';
 </script>
 
 <template>
-    <section class="border-brand/10 border-b">
+    <section class="border-b border-brand/10">
         <div
             class="mx-auto flex max-w-6xl flex-col items-center gap-8 px-5 py-12 sm:px-6 md:flex-row md:gap-10 md:py-16"
         >
             <div class="flex flex-1 flex-col gap-4">
                 <span
-                    class="text-brand-indigo border-brand-indigo-dark-2/12 inline-flex w-fit items-center gap-[9px] rounded-full border bg-white px-3.5 py-[7px] text-[12.5px] font-semibold"
+                    class="inline-flex w-fit items-center gap-[9px] rounded-full border border-brand-indigo-dark-2/12 bg-white px-3.5 py-[7px] text-[12.5px] font-semibold text-brand-indigo"
                 >
-                    <span class="bg-brand-magenta inline-block h-[7px] w-[7px] rounded-[2px]" />
+                    <span
+                        class="inline-block h-[7px] w-[7px] rounded-[2px] bg-brand-magenta"
+                    />
                     International Baccalaureate · Matematică
                 </span>
 
                 <h1
-                    class="text-brand-indigo-dark-2 text-4xl font-bold tracking-[-0.025em] leading-[1.02] sm:text-6xl"
+                    class="text-4xl leading-[1.02] font-bold tracking-[-0.025em] text-brand-indigo-dark-2 sm:text-6xl"
                 >
                     Matematica IB,<br />predată ca să<br />ajungă la
-                    <span class="text-brand-magenta relative inline-block">
+                    <span class="relative inline-block text-brand-magenta">
                         <span class="relative z-10">7</span>
                         <span
-                            class="bg-brand-lime absolute -right-1.5 -left-1.5 bottom-[0.08em] h-[0.34em] -rotate-[1.5deg] rounded-[3px]"
+                            class="absolute -right-1.5 bottom-[0.08em] -left-1.5 h-[0.34em] -rotate-[1.5deg] rounded-[3px] bg-brand-lime"
                         />
                     </span>
                     <span class="relative z-11">.</span>
                 </h1>
 
-                <p class="text-brand-body/90 max-w-xl text-[17px] leading-relaxed text-justify">
+                <p
+                    class="max-w-xl text-justify text-[17px] leading-relaxed text-brand-body/90"
+                >
                     Pregătire specializată pentru Analysis &amp; Approaches și
                     Applications &amp; Interpretation, la nivel SL și HL. Pentru
                     liceenii care vor nota de care depinde admiterea la
@@ -38,12 +42,12 @@ import { IconPlayerPlayFilled } from '@tabler/icons-vue';
                 <div class="mt-2 flex flex-wrap gap-3">
                     <a
                         href="#rezerva"
-                        class="bg-brand-indigo rounded-md px-5 py-2.5 text-[15px] font-semibold text-white transition-opacity hover:opacity-90"
+                        class="rounded-md bg-brand-indigo px-5 py-2.5 text-[15px] font-semibold text-white transition-opacity hover:opacity-90"
                         >Rezervă o sesiune de evaluare</a
                     >
                     <a
                         href="#video"
-                        class="border-brand/30 text-brand hover:bg-brand-tint rounded-md border bg-white px-5 py-2.5 text-[15px] font-semibold transition-colors"
+                        class="rounded-md border border-brand/30 bg-white px-5 py-2.5 text-[15px] font-semibold text-brand transition-colors hover:bg-brand-tint"
                         >Vezi lecții gratuite</a
                     >
                 </div>
@@ -63,7 +67,7 @@ import { IconPlayerPlayFilled } from '@tabler/icons-vue';
 
                     <!-- Play -->
                     <div
-                        class="bg-paper relative z-[2] flex h-[74px] w-[74px] items-center justify-center rounded-full shadow-[0_12px_36px_-8px_rgba(0,0,0,0.5)] transition-transform group-hover:scale-[1.07]"
+                        class="relative z-[2] flex h-[74px] w-[74px] items-center justify-center rounded-full bg-paper shadow-[0_12px_36px_-8px_rgba(0,0,0,0.5)] transition-transform group-hover:scale-[1.07]"
                     >
                         <IconPlayerPlayFilled
                             :size="26"
