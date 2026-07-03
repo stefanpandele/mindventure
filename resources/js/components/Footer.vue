@@ -57,7 +57,7 @@ const socials: Component[] = [
                     Analysis & Approaches și Applications & Interpretation, SL
                     și HL.
                 </p>
-                <div class="flex gap-2 mt-4">
+                <div class="mt-4 flex gap-2">
                     <a
                         v-for="(social, i) in socials"
                         :key="i"

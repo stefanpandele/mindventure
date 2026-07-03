@@ -17,7 +17,7 @@
             </p>
             <a
                 href="#"
-                class="text-brand-indigo-dark-2 inline-block rounded-xl bg-brand-lime px-6 py-3 text-[15px] font-semibold transition-opacity hover:opacity-90"
+                class="inline-block rounded-xl bg-brand-lime px-6 py-3 text-[15px] font-semibold text-brand-indigo-dark-2 transition-opacity hover:opacity-90"
                 >Rezervă o sesiune pentru copilul tău</a
             >
         </div>
