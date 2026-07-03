@@ -4,9 +4,7 @@ const tags = ['Profesor IB', '10+ ani', 'AA & AI · SL & HL'];
 
 <template>
     <section id="despre" class="bg-[#edeae0] py-[64px] md:py-[90px]">
-        <div
-            class="mx-auto max-w-6xl px-5 sm:px-6"
-        >
+        <div class="mx-auto max-w-6xl px-5 sm:px-6">
             <!-- Photo -->
             <div
                 class="relative mb-6 aspect-square w-full overflow-hidden rounded-[20px] shadow-[0_30px_60px_-34px_rgba(52,44,129,0.7)] md:float-left md:mr-10 md:mb-4 md:w-[440px]"
@@ -34,23 +32,22 @@ const tags = ['Profesor IB', '10+ ani', 'AA & AI · SL & HL'];
                     Profesor IB, nu meditator generalist
                 </h2>
                 <p
-                    class="mt-[18px] text-[17px] leading-[1.65] text-brand-body text-justify"
+                    class="mt-[18px] text-justify text-[17px] leading-[1.65] text-brand-body"
                 >
-                    Sunt Denisa Diaconescu. Sunt
-                    conferențiar la Facultatea de Matematică și Informatică
-                    (Universitatea din București) și doctor în logică
-                    matematică. Din 2008 am ghidat generații întregi de tineri.
-                    Am predat atât în România, cât și la Universitatea din
-                    Berna. Am făcut cercetare și am aplicat matematica în
-                    academie și în industrie. Dar dincolo de diplome și articole
-                    științifice … sunt mamă. Iar atunci când ești și profesor,
-                    și părinte, vezi altfel lucrurile. După ani petrecuți în
-                    universitate și în cercetare, am descoperit că adevărata
-                    valoare a matematicii nu stă doar în rezultate, ci în felul
-                    în care modelează gândirea. De aceea am creat Mindventure:
-                    un spațiu unde ne conectăm cu copiii, le câștigăm
-                    încrederea, respectăm ritmul fiecăruia și le arătăm că
-                    matematica este frumoasă, logică și vie. Încă de mică îmi
+                    Sunt Denisa Diaconescu. Sunt conferențiar la Facultatea de
+                    Matematică și Informatică (Universitatea din București) și
+                    doctor în logică matematică. Din 2008 am ghidat generații
+                    întregi de tineri. Am predat atât în România, cât și la
+                    Universitatea din Berna. Am făcut cercetare și am aplicat
+                    matematica în academie și în industrie. Dar dincolo de
+                    diplome și articole științifice … sunt mamă. Iar atunci când
+                    ești și profesor, și părinte, vezi altfel lucrurile. După
+                    ani petrecuți în universitate și în cercetare, am descoperit
+                    că adevărata valoare a matematicii nu stă doar în rezultate,
+                    ci în felul în care modelează gândirea. De aceea am creat
+                    Mindventure: un spațiu unde ne conectăm cu copiii, le
+                    câștigăm încrederea, respectăm ritmul fiecăruia și le arătăm
+                    că matematica este frumoasă, logică și vie. Încă de mică îmi
                     așezam jucăriile și le “predam” povești inventate. Astăzi
                     fac același lucru, doar că poveștile mele sunt despre
                     logică, explorare și jocul gândirii. Vreau ca fiecare copil

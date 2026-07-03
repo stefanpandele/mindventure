@@ -98,15 +98,15 @@ onBeforeUnmount(stop);
             <!-- Head (centered) -->
             <div class="text-center">
                 <span
-                    class="text-brand-indigo-dark-2 inline-flex items-center justify-center gap-[9px] font-mono text-[11.5px] font-bold tracking-[0.14em] uppercase"
+                    class="inline-flex items-center justify-center gap-[9px] font-mono text-[11.5px] font-bold tracking-[0.14em] text-brand-indigo-dark-2 uppercase"
                 >
                     <span
-                        class="bg-brand-magenta inline-block h-[7px] w-[7px] rounded-[2px]"
+                        class="inline-block h-[7px] w-[7px] rounded-[2px] bg-brand-magenta"
                     />
                     Părinți
                 </span>
                 <h2
-                    class="text-brand-indigo-dark-2 mt-3.5 text-[clamp(30px,3.6vw,44px)] font-bold tracking-[-0.01em]"
+                    class="mt-3.5 text-[clamp(30px,3.6vw,44px)] font-bold tracking-[-0.01em] text-brand-indigo-dark-2"
                 >
                     Ce spun părinții
                 </h2>
@@ -131,30 +131,34 @@ onBeforeUnmount(stop);
                             <figure
                                 v-for="t in page"
                                 :key="t.name"
-                                class="border-brand-indigo-dark-2/12 relative overflow-hidden rounded-[18px] border bg-white p-8"
+                                class="relative overflow-hidden rounded-[18px] border border-brand-indigo-dark-2/12 bg-white p-8"
                             >
                                 <div
-                                    class="text-brand-lime h-7 text-[64px] leading-[0.5] font-extrabold"
+                                    class="h-7 text-[64px] leading-[0.5] font-extrabold text-brand-lime"
                                 >
                                     &ldquo;
                                 </div>
                                 <blockquote
-                                    class="text-brand-indigo-dark-2 mt-2 mb-6 text-[18px] leading-[1.55] font-medium"
+                                    class="mt-2 mb-6 text-[18px] leading-[1.55] font-medium text-brand-indigo-dark-2"
                                 >
                                     {{ t.quote }}
                                 </blockquote>
-                                <figcaption class="flex items-center gap-[13px]">
+                                <figcaption
+                                    class="flex items-center gap-[13px]"
+                                >
                                     <span
                                         class="h-[42px] w-[42px] shrink-0 rounded-full"
                                         :class="t.avatarBg"
                                     />
                                     <div>
                                         <div
-                                            class="text-brand-indigo-dark-2 text-[14.5px] font-semibold"
+                                            class="text-[14.5px] font-semibold text-brand-indigo-dark-2"
                                         >
                                             {{ t.name }}
                                         </div>
-                                        <div class="text-brand-muted text-[13px]">
+                                        <div
+                                            class="text-[13px] text-brand-muted"
+                                        >
                                             {{ t.role }}
                                         </div>
                                     </div>
@@ -163,10 +167,10 @@ onBeforeUnmount(stop);
                                 <!-- Autoplay countdown band -->
                                 <div
                                     v-if="isCarousel"
-                                    class="bg-brand-indigo-dark-2/10 absolute right-0 bottom-0 left-0 h-1"
+                                    class="absolute right-0 bottom-0 left-0 h-1 bg-brand-indigo-dark-2/10"
                                 >
                                     <div
-                                        class="bg-brand-magenta h-full"
+                                        class="h-full bg-brand-magenta"
                                         :style="{
                                             width: `${(pageIndex === current ? progress : 0) * 100}%`,
                                         }"
@@ -191,8 +195,8 @@ onBeforeUnmount(stop);
                     class="h-2 cursor-pointer rounded-full transition-all"
                     :class="
                         pageIndex === current
-                            ? 'bg-brand-indigo-dark-2 w-6'
-                            : 'bg-brand-indigo-dark-2/25 w-2'
+                            ? 'w-6 bg-brand-indigo-dark-2'
+                            : 'w-2 bg-brand-indigo-dark-2/25'
                     "
                     :aria-label="`Testimoniale, pagina ${pageIndex + 1}`"
                     :aria-selected="pageIndex === current"

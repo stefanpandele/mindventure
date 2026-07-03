@@ -37,22 +37,22 @@ const lessons: Lesson[] = [
             <div class="flex flex-wrap items-end justify-between gap-4">
                 <div>
                     <span
-                        class="text-brand-indigo-dark-2 inline-flex items-center gap-[9px] font-mono text-[11.5px] font-bold tracking-[0.14em] uppercase"
+                        class="inline-flex items-center gap-[9px] font-mono text-[11.5px] font-bold tracking-[0.14em] text-brand-indigo-dark-2 uppercase"
                     >
                         <span
-                            class="bg-accent-teal inline-block h-[7px] w-[7px] rounded-[2px]"
+                            class="inline-block h-[7px] w-[7px] rounded-[2px] bg-accent-teal"
                         />
                         Video
                     </span>
                     <h2
-                        class="text-brand-indigo-dark-2 mt-3.5 text-[clamp(30px,3.6vw,44px)] font-bold tracking-[-0.01em]"
+                        class="mt-3.5 text-[clamp(30px,3.6vw,44px)] font-bold tracking-[-0.01em] text-brand-indigo-dark-2"
                     >
                         Vezi cum predăm, gratuit
                     </h2>
                 </div>
                 <a
                     href="#"
-                    class="text-brand inline-flex items-center gap-1.5 text-[14.5px] font-semibold transition-all hover:gap-[11px]"
+                    class="inline-flex items-center gap-1.5 text-[14.5px] font-semibold text-brand transition-all hover:gap-[11px]"
                 >
                     Toate lecțiile
                     <IconArrowRight :size="16" stroke="1.6" />
@@ -60,7 +60,9 @@ const lessons: Lesson[] = [
             </div>
 
             <!-- Lessons grid -->
-            <div class="mt-[38px] grid gap-[22px] sm:grid-cols-2 lg:grid-cols-3">
+            <div
+                class="mt-[38px] grid gap-[22px] sm:grid-cols-2 lg:grid-cols-3"
+            >
                 <a
                     v-for="lesson in lessons"
                     :key="lesson.title"
@@ -68,14 +70,14 @@ const lessons: Lesson[] = [
                     class="group block"
                 >
                     <div
-                        class="border-brand-indigo-dark-2/12 relative flex aspect-[16/10] items-center justify-center overflow-hidden rounded-[14px] border bg-[linear-gradient(150deg,#110E2B_0%,#1B1740_100%)] transition duration-200 group-hover:-translate-y-1 group-hover:shadow-[0_24px_44px_-28px_rgba(17,14,43,0.5)]"
+                        class="relative flex aspect-[16/10] items-center justify-center overflow-hidden rounded-[14px] border border-brand-indigo-dark-2/12 bg-[linear-gradient(150deg,#110E2B_0%,#1B1740_100%)] transition duration-200 group-hover:-translate-y-1 group-hover:shadow-[0_24px_44px_-28px_rgba(17,14,43,0.5)]"
                     >
                         <span
                             class="absolute inset-0 opacity-[0.55]"
                             :class="lesson.glow"
                         />
                         <span
-                            class="text-paper absolute top-3 left-3 z-[2] rounded-[7px] border border-[rgba(245,243,237,0.16)] bg-[rgba(17,14,43,0.5)] px-[9px] py-[5px] font-mono text-[10.5px] font-bold tracking-[0.06em]"
+                            class="absolute top-3 left-3 z-[2] rounded-[7px] border border-[rgba(245,243,237,0.16)] bg-[rgba(17,14,43,0.5)] px-[9px] py-[5px] font-mono text-[10.5px] font-bold tracking-[0.06em] text-paper"
                         >
                             {{ lesson.tag }}
                         </span>
@@ -89,11 +91,11 @@ const lessons: Lesson[] = [
                         </div>
                     </div>
                     <div
-                        class="text-brand-indigo-dark-2 mt-3.5 text-[15.5px] font-semibold"
+                        class="mt-3.5 text-[15.5px] font-semibold text-brand-indigo-dark-2"
                     >
                         {{ lesson.title }}
                     </div>
-                    <div class="text-brand-muted mt-[3px] text-[13px]">
+                    <div class="mt-[3px] text-[13px] text-brand-muted">
                         {{ lesson.meta }}
                     </div>
                 </a>
