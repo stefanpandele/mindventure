@@ -86,7 +86,7 @@ watch(open, (v) => {
                     <button
                         type="button"
                         @click="closeModal"
-                        :aria-label="t('ask_modal.close')"
+                        :aria-label="t('modal_ask.close')"
                         class="absolute top-4 right-4 flex h-8 w-8 items-center justify-center rounded-lg text-slate-400 transition hover:bg-slate-100 hover:text-slate-700"
                     >
                         <svg
@@ -109,10 +109,10 @@ watch(open, (v) => {
                         <h3
                             class="font-display text-2xl font-bold text-[#110E2B]"
                         >
-                            {{ t('ask_modal.title') }}
+                            {{ t('modal_ask.title') }}
                         </h3>
                         <p class="mt-2 mb-5 text-sm text-slate-500">
-                            {{ t('ask_modal.subtitle') }}
+                            {{ t('modal_ask.subtitle') }}
                         </p>
 
                         <div class="mb-4">
@@ -120,7 +120,7 @@ watch(open, (v) => {
                                 for="ask-name"
                                 class="mb-2 block text-[13px] font-semibold"
                             >
-                                {{ t('ask_modal.name') }}
+                                {{ t('modal_ask.name') }}
                                 <span class="text-brand-magenta">*</span>
                             </label>
                             <input
@@ -128,7 +128,7 @@ watch(open, (v) => {
                                 ref="firstField"
                                 v-model="form.name"
                                 type="text"
-                                :placeholder="t('ask_modal.name_ph')"
+                                :placeholder="t('modal_ask.name_ph')"
                                 class="w-full rounded-xl border-[1.5px] border-slate-200 bg-slate-50 px-4 py-3 text-[15px] transition outline-none focus:border-indigo-500 focus:bg-white focus:ring-4 focus:ring-indigo-500/10"
                             />
                             <p
@@ -144,14 +144,14 @@ watch(open, (v) => {
                                 for="ask-email"
                                 class="mb-2 block text-[13px] font-semibold"
                             >
-                                {{ t('ask_modal.email') }}
+                                {{ t('modal_ask.email') }}
                                 <span class="text-brand-magenta">*</span>
                             </label>
                             <input
                                 id="ask-email"
                                 v-model="form.email"
                                 type="email"
-                                :placeholder="t('ask_modal.email_ph')"
+                                :placeholder="t('modal_ask.email_ph')"
                                 class="w-full rounded-xl border-[1.5px] border-slate-200 bg-slate-50 px-4 py-3 text-[15px] transition outline-none focus:border-indigo-500 focus:bg-white focus:ring-4 focus:ring-indigo-500/10"
                             />
                             <p
@@ -168,16 +168,16 @@ watch(open, (v) => {
                                 for="ask-tel"
                                 class="mb-2 block text-[13px] font-semibold"
                             >
-                                {{ t('ask_modal.tel') }}
+                                {{ t('modal_ask.tel') }}
                                 <span class="font-normal text-slate-400"
-                                    >({{ t('ask_modal.tel_optional') }})</span
+                                    >({{ t('modal_ask.tel_optional') }})</span
                                 >
                             </label>
                             <input
                                 id="ask-tel"
                                 v-model="form.tel"
                                 type="tel"
-                                :placeholder="t('ask_modal.tel_ph')"
+                                :placeholder="t('modal_ask.tel_ph')"
                                 class="w-full rounded-xl border-[1.5px] border-slate-200 bg-slate-50 px-4 py-3 text-[15px] transition outline-none focus:border-indigo-500 focus:bg-white focus:ring-4 focus:ring-indigo-500/10"
                             />
                             <p
@@ -193,14 +193,14 @@ watch(open, (v) => {
                                 for="ask-question"
                                 class="mb-2 block text-[13px] font-semibold"
                             >
-                                {{ t('ask_modal.question') }}
+                                {{ t('modal_ask.question') }}
                                 <span class="text-brand-magenta">*</span>
                             </label>
                             <textarea
                                 id="ask-question"
                                 v-model="form.question"
                                 rows="4"
-                                :placeholder="t('ask_modal.question_ph')"
+                                :placeholder="t('modal_ask.question_ph')"
                                 class="w-full resize-y rounded-xl border-[1.5px] border-slate-200 bg-slate-50 px-4 py-3 text-[15px] transition outline-none focus:border-indigo-500 focus:bg-white focus:ring-4 focus:ring-indigo-500/10"
                             />
                             <p
@@ -216,7 +216,7 @@ watch(open, (v) => {
                             :disabled="form.processing"
                             class="block w-full rounded-xl bg-brand-magenta px-5 py-3.5 text-center text-[15px] font-semibold text-white transition duration-200 hover:-translate-y-0.5 hover:shadow-[0_14px_30px_-10px_rgba(192,38,211,0.5)] disabled:cursor-not-allowed disabled:opacity-60"
                         >
-                            {{ t('ask_modal.submit') }}
+                            {{ t('modal_ask.submit') }}
                         </button>
                     </form>
 
@@ -243,17 +243,17 @@ watch(open, (v) => {
                         <h3
                             class="font-display text-2xl font-bold text-[#110E2B]"
                         >
-                            {{ t('ask_modal.success_title') }}
+                            {{ t('modal_ask.success_title') }}
                         </h3>
                         <p class="mx-auto mt-2 max-w-xs text-sm text-slate-500">
-                            {{ t('ask_modal.success_text') }}
+                            {{ t('modal_ask.success_text') }}
                         </p>
                         <button
                             type="button"
                             @click="closeModal"
                             class="text-md mt-6 font-semibold text-indigo-600 hover:underline"
                         >
-                            {{ t('ask_modal.close') }}
+                            {{ t('modal_ask.close') }}
                         </button>
                     </div>
                 </div>

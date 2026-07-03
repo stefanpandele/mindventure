@@ -40,17 +40,17 @@ class FaqAskRequest extends FormRequest
     public function messages(): array
     {
         return [
-            'name.required' => __('ask_modal.error.name_required'),
-            'name.max' => __('ask_modal.error.name_max'),
-            'email.required' => __('ask_modal.error.email_required'),
-            'email.email' => __('ask_modal.error.email_invalid'),
-            'email.max' => __('ask_modal.error.email_max'),
-            'tel.max' => __('ask_modal.error.tel_max'),
-            'question.required' => __('ask_modal.error.question_required'),
-            'question.min' => __('ask_modal.error.question_min'),
-            'question.max' => __('ask_modal.error.question_max'),
-            'section.required' => __('ask_modal.error.section_invalid'),
-            'section.in' => __('ask_modal.error.section_invalid'),
+            'name.required' => __('modal_ask.error.name_required'),
+            'name.max' => __('modal_ask.error.name_max'),
+            'email.required' => __('modal_ask.error.email_required'),
+            'email.email' => __('modal_ask.error.email_invalid'),
+            'email.max' => __('modal_ask.error.email_max'),
+            'tel.max' => __('modal_ask.error.tel_max'),
+            'question.required' => __('modal_ask.error.question_required'),
+            'question.min' => __('modal_ask.error.question_min'),
+            'question.max' => __('modal_ask.error.question_max'),
+            'section.required' => __('modal_ask.error.section_invalid'),
+            'section.in' => __('modal_ask.error.section_invalid'),
         ];
     }
 }
