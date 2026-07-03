@@ -1,30 +1,35 @@
 <script setup lang="ts">
+import { useTranslations } from '@/composables/useTranslations';
+
 interface Track {
     name: string;
-    audience: string;
+    profile: string;
     description: string;
+    advice: string;
     glyph: string;
     topBar: string;
     iconBg: string;
     levelHover: string;
 }
 
+const { t } = useTranslations();
+
 const tracks: Track[] = [
     {
-        name: 'Analysis & Approaches',
-        audience: 'profiluri matematice & STEM',
-        description:
-            'Algebră, funcții, calcul diferențial și integral, demonstrații. Traseul cerut de facultățile competitive.',
+        name: t('pages.ib_math.program.track_1.name'),
+        profile: t('pages.ib_math.program.track_1.profile'),
+        description: t('pages.ib_math.program.track_1.description'),
+        advice: t('pages.ib_math.program.track_1.advice'),
         glyph: 'ƒx',
         topBar: 'bg-brand-magenta',
         iconBg: 'bg-brand-magenta text-white',
         levelHover: 'hover:border-brand-magenta hover:text-brand-magenta',
     },
     {
-        name: 'Applications & Interpretation',
-        audience: 'științe sociale, business, design',
-        description:
-            'Statistică, modelare și matematică aplicată în contexte reale. Pentru profiluri umaniste și economice.',
+        name: t('pages.ib_math.program.track_2.name'),
+        profile: t('pages.ib_math.program.track_2.profile'),
+        description: t('pages.ib_math.program.track_2.description'),
+        advice: t('pages.ib_math.program.track_2.advice'),
         glyph: '∿',
         topBar: 'bg-accent-teal',
         iconBg: 'bg-accent-teal text-white',
@@ -54,11 +59,10 @@ const levels = [
                 <h2
                     class="mt-3.5 text-[clamp(30px,3.6vw,44px)] font-bold tracking-[-0.01em] text-brand-indigo-dark-2"
                 >
-                    Acoperim toată matematica IB
+                    {{ t('pages.ib_math.program.section_title') }}
                 </h2>
                 <p class="mt-3.5 text-[17px] leading-relaxed text-brand-body">
-                    Indiferent de traseul copilului, îl pregătim pentru examenul
-                    real — cu accent pe ce se punctează efectiv în bareme.
+                    {{ t('pages.ib_math.program.section_description') }}
                 </p>
             </div>
 
@@ -88,7 +92,7 @@ const levels = [
                                 {{ track.name }}
                             </h3>
                             <div class="mt-0.5 text-[13px] text-brand-muted">
-                                {{ track.audience }}
+                                {{ track.profile }}
                             </div>
                         </div>
                     </div>
@@ -98,6 +102,19 @@ const levels = [
                     >
                         {{ track.description }}
                     </p>
+
+                    <div
+                        class="mt-[22px] flex items-start gap-[13px] rounded-[14px] bg-white/50 px-5 py-4 text-[14.5px] text-brand-body"
+                    >
+                        <span
+                            class="flex h-6 w-6 shrink-0 items-center justify-center rounded-[7px] bg-brand-indigo text-[13px] font-bold text-white"
+                        >
+                            !
+                        </span>
+                        <p>
+                            {{ track.description }}
+                        </p>
+                    </div>
 
                     <div class="mt-[22px] grid grid-cols-2 gap-2.5">
                         <div
@@ -127,12 +144,10 @@ const levels = [
                     ?
                 </span>
                 <p>
-                    Nu știi ce nivel i se potrivește copilului?
-                    <b class="font-semibold text-brand-indigo-dark-2"
-                        >La evaluare îl testăm</b
-                    >
-                    și vă recomandăm traseul potrivit pentru obiectivul lui de
-                    admitere.
+                    <b class="font-semibold text-brand-indigo-dark-2">
+                        {{ t('pages.ib_math.program.helper_1') }}
+                    </b>
+                    {{ t('pages.ib_math.program.helper_2') }}
                 </p>
             </div>
         </div>

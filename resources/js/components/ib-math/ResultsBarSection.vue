@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { useTranslations } from '@/composables/useTranslations';
+
 interface Stat {
     value: string;
     label: string;
@@ -6,27 +8,30 @@ interface Stat {
     barColor: string;
 }
 
+const { t } = useTranslations();
+
 const stats: Stat[] = [
     {
-        value: 'Profesor universitar',
-        label: 'predă atât AA cât și AI',
+        value: t('pages.ib_math.results_bar.stat_1.value'),
+        label: t('pages.ib_math.results_bar.stat_1.label'),
         word: true,
         barColor: 'bg-brand-magenta',
     },
     {
-        value: 'Gratuit',
-        label: 'lecții complete pe YouTube',
+        value: t('pages.ib_math.results_bar.stat_2.value'),
+        label: t('pages.ib_math.results_bar.stat_2.label'),
         word: true,
         barColor: 'bg-brand-lime',
     },
     {
-        value: '45 min',
-        label: 'evaluare inițială, fără obligații',
+        value: t('pages.ib_math.results_bar.stat_3.value'),
+        label: t('pages.ib_math.results_bar.stat_3.label'),
+        word: true,
         barColor: 'bg-accent-teal',
     },
     {
-        value: 'AA & AI',
-        label: 'SL și HL — toată matematica IB',
+        value: t('pages.ib_math.results_bar.stat_4.value'),
+        label: t('pages.ib_math.results_bar.stat_4.label'),
         word: true,
         barColor: 'bg-brand',
     },
