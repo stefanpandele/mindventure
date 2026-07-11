@@ -1,4 +1,8 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { useTranslations } from '@/composables/useTranslations';
+
+const { t } = useTranslations();
+</script>
 
 <template>
     <section class="relative overflow-hidden border-b border-brand/10">
@@ -13,7 +17,7 @@
                     <span
                         class="inline-block h-[7px] w-[7px] rounded-[2px] bg-brand-lime"
                     />
-                    Junior · clasele 2–8
+                    {{ t('pages.junior.hero.badge_text') }}
                 </span>
 
                 <h1

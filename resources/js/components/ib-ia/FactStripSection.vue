@@ -1,15 +1,30 @@
 <script setup lang="ts">
+import { useTranslations } from '@/composables/useTranslations';
+
+const { t } = useTranslations();
+
 interface Fact {
     value: string;
     label: string;
 }
 
 const facts: Fact[] = [
-    { value: '20%', label: 'din nota finală' },
-    { value: '12–20', label: 'pagini, dublu rând' },
-    { value: '5', label: 'criterii de evaluare' },
-    { value: '/20', label: 'punctaj total' },
-    { value: 'extern', label: 'moderat de IB' },
+    {
+        value: t('pages.ib_ia.fact_strip_section.stat_1.value'),
+        label: t('pages.ib_ia.fact_strip_section.stat_1.label'),
+    },
+    {
+        value: t('pages.ib_ia.fact_strip_section.stat_2.value'),
+        label: t('pages.ib_ia.fact_strip_section.stat_2.label'),
+    },
+    {
+        value: t('pages.ib_ia.fact_strip_section.stat_3.value'),
+        label: t('pages.ib_ia.fact_strip_section.stat_3.label'),
+    },
+    {
+        value: t('pages.ib_ia.fact_strip_section.stat_4.value'),
+        label: t('pages.ib_ia.fact_strip_section.stat_4.label'),
+    },
 ];
 </script>
 
@@ -23,7 +38,7 @@ const facts: Fact[] = [
                     class="absolute top-[5px] bottom-[5px] left-0 w-[3px] rounded-[2px] bg-accent-teal"
                 />
                 <div
-                    class="font-mono text-[clamp(22px,2.4vw,28px)] leading-none font-bold"
+                    class="font-mono text-[clamp(18px,2.4vw,22px)] leading-none font-bold"
                 >
                     {{ fact.value }}
                 </div>

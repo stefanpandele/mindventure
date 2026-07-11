@@ -1,4 +1,8 @@
 <script setup lang="ts">
+import { useTranslations } from '@/composables/useTranslations';
+
+const { t } = useTranslations();
+
 interface ScoreRow {
     name: string;
     mark: number;
@@ -7,11 +11,36 @@ interface ScoreRow {
 }
 
 const scoreRows: ScoreRow[] = [
-    { name: 'A · Prezentare', mark: 4, width: '66%', key: false },
-    { name: 'B · Comunicare matematică', mark: 4, width: '66%', key: true },
-    { name: 'C · Implicare personală', mark: 3, width: '50%', key: true },
-    { name: 'D · Reflecție', mark: 3, width: '50%', key: true },
-    { name: 'E · Utilizarea matematicii', mark: 6, width: '100%', key: false },
+    {
+        name: t('pages.ib_ia.hero.scorecard.list_item_1.name'),
+        mark: 4,
+        width: '66%',
+        key: false,
+    },
+    {
+        name: t('pages.ib_ia.hero.scorecard.list_item_2.name'),
+        mark: 4,
+        width: '66%',
+        key: true,
+    },
+    {
+        name: t('pages.ib_ia.hero.scorecard.list_item_3.name'),
+        mark: 3,
+        width: '50%',
+        key: true,
+    },
+    {
+        name: t('pages.ib_ia.hero.scorecard.list_item_4.name'),
+        mark: 3,
+        width: '50%',
+        key: true,
+    },
+    {
+        name: t('pages.ib_ia.hero.scorecard.list_item_5.name'),
+        mark: 6,
+        width: '100%',
+        key: false,
+    },
 ];
 </script>
 
@@ -28,29 +57,26 @@ const scoreRows: ScoreRow[] = [
                     <span
                         class="inline-block h-[7px] w-[7px] rounded-[2px] bg-accent-teal"
                     />
-                    IA Lab · Suport Internal Assessment
+                    {{ t('pages.ib_ia.hero.badge_text') }}
                 </span>
 
                 <h1
                     class="text-4xl leading-[1.02] font-bold tracking-[-0.025em] text-brand-indigo-dark-2 sm:text-[clamp(40px,5vw,62px)]"
                 >
-                    IA-ul tău e
+                    {{ t('pages.ib_ia.hero.title_1') }}
                     <span class="relative inline-block text-accent-teal">
                         <span class="relative z-10">20%</span>
                         <span
                             class="absolute -right-1 bottom-[0.08em] -left-1 h-[0.3em] -rotate-[1.5deg] rounded-[3px] bg-brand-lime"
                         />
                     </span>
-                    din notă. Hai să-l facem să conteze.
+                    {{ t('pages.ib_ia.hero.title_2') }}
                 </h1>
 
                 <p
                     class="max-w-xl text-justify text-[17px] leading-relaxed text-brand-body/90"
                 >
-                    Explorarea matematică e singura parte din nota IB pe care o
-                    construiești luni întregi, în liniște, înainte de examen. Te
-                    ghidăm de la temă până la forma finală — criteriu cu
-                    criteriu, exact cum gândește examinatorul.
+                    {{ t('pages.ib_ia.hero.description') }}
                 </p>
 
                 <div class="mt-2 flex flex-wrap gap-3">

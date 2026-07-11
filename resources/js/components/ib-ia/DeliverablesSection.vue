@@ -1,11 +1,15 @@
 <script setup lang="ts">
 import {
     IconActivity,
+    IconAward,
     IconClipboardList,
     IconFileCheck,
     IconShieldCheck,
 } from '@tabler/icons-vue';
 import type { Component } from 'vue';
+import { useTranslations } from '@/composables/useTranslations';
+
+const { t } = useTranslations();
 
 interface Deliverable {
     icon: Component;
@@ -18,26 +22,32 @@ const deliverables: Deliverable[] = [
     {
         icon: IconFileCheck,
         iconColor: 'text-brand-indigo',
-        title: 'Validare temă',
-        text: 'Verificăm dacă ideea ta „are matematică" suficientă pentru nivelul tău, înainte să pierzi săptămâni pe ea.',
+        title: t('pages.ib_ia.deliverables_section.list_item_1.title'),
+        text: t('pages.ib_ia.deliverables_section.list_item_1.text'),
     },
     {
         icon: IconClipboardList,
         iconColor: 'text-brand-magenta',
-        title: 'Plan pe criterii',
-        text: 'O structură clară, împărțită pe cele cinci criterii, cu un buget de pagini pentru fiecare parte.',
+        title: t('pages.ib_ia.deliverables_section.list_item_2.title'),
+        text: t('pages.ib_ia.deliverables_section.list_item_2.text'),
     },
     {
         icon: IconActivity,
         iconColor: 'text-accent-teal',
-        title: 'Feedback pe barem',
-        text: 'Comentarii criteriu cu criteriu pe ce ai scris, cu ce câștigă și ce pierde puncte — pe limbajul examinatorului.',
+        title: t('pages.ib_ia.deliverables_section.list_item_3.title'),
+        text: t('pages.ib_ia.deliverables_section.list_item_3.text'),
     },
     {
         icon: IconShieldCheck,
         iconColor: 'text-accent-lime',
-        title: 'Moderare de probă',
-        text: 'Un punctaj estimativ înainte de predare, ca să știi unde stai și să nu fii surprins de moderarea reală.',
+        title: t('pages.ib_ia.deliverables_section.list_item_4.title'),
+        text: t('pages.ib_ia.deliverables_section.list_item_4.text'),
+    },
+    {
+        icon: IconAward,
+        iconColor: 'text-accent-lime',
+        title: t('pages.ib_ia.deliverables_section.list_item_5.title'),
+        text: t('pages.ib_ia.deliverables_section.list_item_5.text'),
     },
 ];
 </script>
@@ -53,17 +63,20 @@ const deliverables: Deliverable[] = [
                     <span
                         class="inline-block h-[7px] w-[7px] rounded-[2px] bg-accent-teal"
                     />
-                    Ce primești
+                    {{ t('pages.ib_ia.deliverables_section.header') }}
                 </span>
                 <h2
                     class="mt-3.5 text-[clamp(28px,3.4vw,42px)] font-bold tracking-[-0.01em] text-brand-indigo-dark-2"
                 >
-                    Concret, ce iei dintr-o sesiune IA
+                    {{ t('pages.ib_ia.deliverables_section.title') }}
                 </h2>
+                <p class="mt-3.5 text-[17px] leading-relaxed text-paper/60">
+                    {{ t('pages.ib_ia.deliverables_section.description') }}
+                </p>
             </div>
 
             <!-- Cards -->
-            <div class="mt-11 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+            <div class="mt-11 grid gap-5 sm:grid-cols-2 lg:grid-cols-5">
                 <article
                     v-for="deliverable in deliverables"
                     :key="deliverable.title"

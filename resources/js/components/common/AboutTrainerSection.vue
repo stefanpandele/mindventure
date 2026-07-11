@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { useTranslations } from '@/composables/useTranslations';
-import { IconArrowRight } from '@tabler/icons-vue';
 
 const tags = ['Profesor IB', '10+ ani', 'AA & AI · SL & HL'];
 

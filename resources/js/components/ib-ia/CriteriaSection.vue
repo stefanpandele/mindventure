@@ -1,4 +1,8 @@
 <script setup lang="ts">
+import { useTranslations } from '@/composables/useTranslations';
+
+const { t } = useTranslations();
+
 interface Criterion {
     letter: string;
     name: string;
@@ -11,40 +15,40 @@ interface Criterion {
 const criteria: Criterion[] = [
     {
         letter: 'A',
-        name: 'Prezentare',
-        what: 'organizare, coerență, conciziune — o lucrare ușor de urmărit',
+        name: t('pages.ib_ia.criteria_section.list_item_1.name'),
+        what: t('pages.ib_ia.criteria_section.list_item_1.what'),
         width: '66%',
         mark: 4,
         key: false,
     },
     {
         letter: 'B',
-        name: 'Comunicare matematică',
-        what: 'notație corectă, terminologie, grafice și tabele clar etichetate',
+        name: t('pages.ib_ia.criteria_section.list_item_2.name'),
+        what: t('pages.ib_ia.criteria_section.list_item_2.what'),
         width: '66%',
         mark: 4,
         key: true,
     },
     {
         letter: 'C',
-        name: 'Implicare personală',
-        what: 'interes real și gândire independentă, nu un subiect copiat din manual',
+        name: t('pages.ib_ia.criteria_section.list_item_3.name'),
+        what: t('pages.ib_ia.criteria_section.list_item_3.what'),
         width: '50%',
         mark: 3,
         key: true,
     },
     {
         letter: 'D',
-        name: 'Reflecție',
-        what: 'interpretezi rezultatele, recunoști limitele, arăți ce ai învățat',
+        name: t('pages.ib_ia.criteria_section.list_item_4.name'),
+        what: t('pages.ib_ia.criteria_section.list_item_4.what'),
         width: '50%',
         mark: 3,
         key: true,
     },
     {
         letter: 'E',
-        name: 'Utilizarea matematicii',
-        what: 'corectă și relevantă — la HL, cu rigoare și sofisticare în plus',
+        name: t('pages.ib_ia.criteria_section.list_item_5.name'),
+        what: t('pages.ib_ia.criteria_section.list_item_5.what'),
         width: '100%',
         mark: 6,
         key: false,
@@ -63,17 +67,15 @@ const criteria: Criterion[] = [
                     <span
                         class="inline-block h-[7px] w-[7px] rounded-[2px] bg-accent-teal"
                     />
-                    Cum se punctează
+                    {{ t('pages.ib_ia.criteria_section.header') }}
                 </span>
                 <h2
                     class="mt-3.5 text-[clamp(28px,3.4vw,42px)] font-bold tracking-[-0.01em] text-brand-indigo-dark-2"
                 >
-                    Cinci criterii, criteriu cu criteriu
+                    {{ t('pages.ib_ia.criteria_section.title') }}
                 </h2>
                 <p class="mt-3.5 text-[17px] leading-relaxed text-brand-body">
-                    Aceleași criterii la AA și AI, SL și HL. La examen ai noroc
-                    sau ghinion cu subiectele — aici nu. IA-ul e predictibil
-                    dacă știi exact ce caută fiecare criteriu.
+                    {{ t('pages.ib_ia.criteria_section.description') }}
                 </p>
             </div>
 
@@ -153,14 +155,7 @@ const criteria: Criterion[] = [
                     !
                 </span>
                 <p class="text-[15.5px] leading-[1.6] text-paper/90">
-                    Mulți elevi buni cred că trebuie matematică „mai grea".
-                    Realitatea: punctele se pierd rar la Criteriul E.
-                    <b class="font-bold text-brand-lime"
-                        >Diferența dintre un 13 și un 18 vine aproape mereu din
-                        B, C și D</b
-                    >
-                    — cum comunici, cât de implicat ești și cum reflectezi.
-                    Acolo lucrăm cel mai mult.
+                    {{ t('pages.ib_ia.criteria_section.notice') }}
                 </p>
             </div>
         </div>

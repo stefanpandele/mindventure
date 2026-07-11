@@ -1,5 +1,8 @@
 <script setup lang="ts">
 import { IconShieldCheck } from '@tabler/icons-vue';
+import { useTranslations } from '@/composables/useTranslations';
+
+const { t } = useTranslations();
 
 interface Step {
     num: string;
@@ -10,28 +13,28 @@ interface Step {
 const steps: Step[] = [
     {
         num: '01',
-        title: 'Tema potrivită',
-        text: 'Pornim de la ceva care te interesează cu adevărat și care „are matematică" fix la nivelul tău. Evităm temele răsuflate, pe care examinatorii le-au văzut de mii de ori — sunt cel mai greu de personalizat.',
+        title: t('pages.ib_ia.process_section.list_item_1.title'),
+        text: t('pages.ib_ia.process_section.list_item_1.text'),
     },
     {
         num: '02',
-        title: 'Întrebare și plan pe pagini',
-        text: 'Formulăm o întrebare de cercetare clară și împărțim explorarea pe criterii, cu un plan estimat pe pagini — ca să nu scrii 22 de pagini diluate când 14 focusate iau mai mult.',
+        title: t('pages.ib_ia.process_section.list_item_2.title'),
+        text: t('pages.ib_ia.process_section.list_item_2.text'),
     },
     {
         num: '03',
-        title: 'Matematica, corect și la nivel',
-        text: 'Lucrăm corectitudinea, notația și nivelul potrivit — calcul și algebră la AA, statistică și modelare la AI; și diferența reală dintre ce se cere la SL și la HL.',
+        title: t('pages.ib_ia.process_section.list_item_3.title'),
+        text: t('pages.ib_ia.process_section.list_item_3.text'),
     },
     {
         num: '04',
-        title: 'Reflecție și implicare',
-        text: 'Partea unde se câștigă punctele și unde cei mai mulți pierd: cum îți arăți gândirea proprie, cum interpretezi rezultatele și cum recunoști limitele modelului tău.',
+        title: t('pages.ib_ia.process_section.list_item_4.title'),
+        text: t('pages.ib_ia.process_section.list_item_4.text'),
     },
     {
         num: '05',
-        title: 'Review pe barem',
-        text: 'Îți dăm feedback criteriu cu criteriu, ca o moderare de probă, înainte de predare. Vezi exact unde stai și ce mai poți crește.',
+        title: t('pages.ib_ia.process_section.list_item_5.title'),
+        text: t('pages.ib_ia.process_section.list_item_5.text'),
     },
 ];
 </script>
@@ -50,17 +53,15 @@ const steps: Step[] = [
                     <span
                         class="inline-block h-[7px] w-[7px] rounded-[2px] bg-accent-teal"
                     />
-                    Cum lucrăm
+                    {{ t('pages.ib_ia.process_section.header') }}
                 </span>
                 <h2
                     class="mt-3.5 text-[clamp(28px,3.4vw,42px)] font-bold tracking-[-0.01em] text-white"
                 >
-                    De la o idee, la o lucrare pe care o stăpânești
+                    {{ t('pages.ib_ia.process_section.title') }}
                 </h2>
                 <p class="mt-3.5 text-[17px] leading-relaxed text-paper/60">
-                    Construim IA-ul în etape, în ordinea în care examinatorul
-                    citește lucrarea. Fără să-l lași pe ultima sută — acolo se
-                    pierd exact punctele de la reflecție și comunicare.
+                    {{ t('pages.ib_ia.process_section.description') }}
                 </p>
             </div>
 
@@ -99,13 +100,11 @@ const steps: Step[] = [
                     <IconShieldCheck :size="20" stroke="1.8" />
                 </span>
                 <p class="text-[15px] leading-[1.6] text-paper/90">
-                    <b class="font-bold text-paper"
-                        >Te ghidăm — dar IA-ul îl scrii tu.</b
-                    >
-                    IB-ul cere ca lucrarea să fie munca ta, iar una care nu e a
-                    ta se vede imediat la Criteriul C. Îți dăm temă validată,
-                    structură și feedback pe barem; scrisul și gândirea rămân
-                    ale tale. Așa rămâne și nota.
+                    {{ t('pages.ib_ia.process_section.notice_1') }}
+                    <b class="font-bold text-paper">
+                        {{ t('pages.ib_ia.process_section.notice_2') }}
+                    </b>
+                    {{ t('pages.ib_ia.process_section.notice_3') }}
                 </p>
             </div>
         </div>

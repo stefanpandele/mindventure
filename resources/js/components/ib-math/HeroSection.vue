@@ -18,7 +18,7 @@ const { t } = useTranslations();
                     <span
                         class="inline-block h-[7px] w-[7px] rounded-[2px] bg-brand-magenta"
                     />
-                    International Baccalaureate · Matematică
+                    {{ t('pages.ib_math.hero.badge_text') }}
                 </span>
 
                 <h1
