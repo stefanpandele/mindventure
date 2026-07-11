@@ -1,9 +1,9 @@
 <script setup lang="ts">
+import AboutTrainerSection from '@/components/common/AboutTrainerSection.vue';
 import Footer from '@/components/Footer.vue';
 import Header from '@/components/Header.vue';
 import CoverageSection from '@/components/junior/CoverageSection.vue';
 import CtaSection from '@/components/junior/CtaSection.vue';
-import FaqSection from '@/components/junior/FaqSection.vue';
 import HeroSection from '@/components/junior/HeroSection.vue';
 import MethodSection from '@/components/junior/MethodSection.vue';
 import ParentsSection from '@/components/junior/ParentsSection.vue';
@@ -19,7 +19,7 @@ import StatementSection from '@/components/junior/StatementSection.vue';
             <MethodSection />
             <CoverageSection />
             <ParentsSection />
-            <FaqSection />
+            <AboutTrainerSection />
             <CtaSection />
         </main>
         <Footer />

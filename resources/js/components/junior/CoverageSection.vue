@@ -1,4 +1,8 @@
 <script setup lang="ts">
+import { useTranslations } from '@/composables/useTranslations';
+
+const { t } = useTranslations();
+
 interface Stage {
     label: string;
     title: string;
@@ -10,27 +14,27 @@ interface Stage {
 
 const stages: Stage[] = [
     {
-        label: 'Primar',
-        title: 'Clasele 2–4',
-        range: 'Bazele și gândirea logică',
+        label: t('pages.junior.coverage_section.stage_item.label_1'),
+        title: t('pages.junior.coverage_section.stage_item.title_1'),
+        range: t('pages.junior.coverage_section.stage_item.range_1'),
         items: [
-            'Numere, adunare, scădere și înmulțire — înțelese, nu memorate',
-            'Tabla înmulțirii fără stres, prin joc și repetiție',
-            'Probleme și gândire logică: „cum mă apuc?"',
-            'Încredere că „pot la mate", de la început',
+            t('pages.junior.coverage_section.stage_item.sub_item_1.value_1'),
+            t('pages.junior.coverage_section.stage_item.sub_item_1.value_2'),
+            t('pages.junior.coverage_section.stage_item.sub_item_1.value_3'),
+            t('pages.junior.coverage_section.stage_item.sub_item_1.value_4'),
         ],
         topBar: 'bg-brand-lime',
         checkBg: 'bg-brand-lime/25',
     },
     {
-        label: 'Gimnaziu',
-        title: 'Clasele 5–8',
-        range: 'Fundația dinaintea liceului',
+        label: t('pages.junior.coverage_section.stage_item.label_2'),
+        title: t('pages.junior.coverage_section.stage_item.title_2'),
+        range: t('pages.junior.coverage_section.stage_item.range_2'),
         items: [
-            'Fracții, procente, rapoarte și proporții',
-            'Primele ecuații și bazele algebrei',
-            'Geometrie: să vadă, nu doar să rețină formule',
-            'Pregătire solidă pentru evaluarea națională și liceu',
+            t('pages.junior.coverage_section.stage_item.sub_item_2.value_1'),
+            t('pages.junior.coverage_section.stage_item.sub_item_2.value_2'),
+            t('pages.junior.coverage_section.stage_item.sub_item_2.value_3'),
+            t('pages.junior.coverage_section.stage_item.sub_item_2.value_4'),
         ],
         topBar: 'bg-accent-teal',
         checkBg: 'bg-accent-teal/20',
@@ -49,16 +53,15 @@ const stages: Stage[] = [
                     <span
                         class="inline-block h-[7px] w-[7px] rounded-[2px] bg-accent-teal"
                     />
-                    Ce acoperim
+                    {{ t('pages.junior.coverage_section.header') }}
                 </span>
                 <h2
                     class="mt-3.5 text-[clamp(28px,3.4vw,42px)] font-bold tracking-[-0.01em] text-brand-indigo-dark-2"
                 >
-                    De la primele numere, la baza de liceu
+                    {{ t('pages.junior.coverage_section.title') }}
                 </h2>
                 <p class="mt-3.5 text-[17px] leading-relaxed text-brand-body">
-                    Două etape, un singur drum continuu — fiecare clasă pune
-                    cărămida pentru următoarea.
+                    {{ t('pages.junior.coverage_section.description') }}
                 </p>
             </div>
 

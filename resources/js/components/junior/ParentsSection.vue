@@ -6,6 +6,9 @@ import {
     IconUsers,
 } from '@tabler/icons-vue';
 import type { Component } from 'vue';
+import { useTranslations } from '@/composables/useTranslations';
+
+const { t } = useTranslations();
 
 interface ParentPoint {
     icon: Component;
@@ -18,26 +21,26 @@ const points: ParentPoint[] = [
     {
         icon: IconUsers,
         iconColor: 'text-brand-magenta',
-        title: 'Grupe mici sau 1:1',
-        text: 'Atenție reală pentru fiecare copil, nu o clasă în care se pierde în spate.',
+        title: t('pages.junior.parents_section.list_item.title_1'),
+        text: t('pages.junior.parents_section.list_item.text_1'),
     },
     {
         icon: IconChartLine,
         iconColor: 'text-brand-indigo',
-        title: 'Rapoarte de progres',
-        text: 'Vedeți clar ce a învățat, ce a recuperat și ce urmează — fără bătaie de cap.',
+        title: t('pages.junior.parents_section.list_item.title_2'),
+        text: t('pages.junior.parents_section.list_item.text_2'),
     },
     {
         icon: IconHeart,
         iconColor: 'text-accent-teal',
-        title: 'Încredere, nu doar note',
-        text: 'Țelul nu e doar un 10, ci un copil care nu se mai teme de matematică.',
+        title: t('pages.junior.parents_section.list_item.title_3'),
+        text: t('pages.junior.parents_section.list_item.text_3'),
     },
     {
         icon: IconStar,
         iconColor: 'text-accent-lime',
-        title: 'Online sau față în față',
-        text: 'Cum vă e mai comod. Pentru cei mici, recomandăm sesiuni scurte și dese.',
+        title: t('pages.junior.parents_section.list_item.title_4'),
+        text: t('pages.junior.parents_section.list_item.text_4'),
     },
 ];
 </script>
@@ -53,12 +56,12 @@ const points: ParentPoint[] = [
                     <span
                         class="inline-block h-[7px] w-[7px] rounded-[2px] bg-brand-magenta"
                     />
-                    Pentru părinți
+                    {{ t('pages.junior.parents_section.header') }}
                 </span>
                 <h2
                     class="mt-3.5 text-[clamp(28px,3.4vw,42px)] font-bold tracking-[-0.01em] text-brand-indigo-dark-2"
                 >
-                    Ce e important pentru voi
+                    {{ t('pages.junior.parents_section.title') }}
                 </h2>
             </div>
 
@@ -102,13 +105,10 @@ const points: ParentPoint[] = [
                 <p
                     class="min-w-[240px] flex-1 text-[15.5px] leading-[1.55] text-paper/90"
                 >
-                    <b class="font-bold text-brand-lime"
-                        >Junior e începutul aceluiași drum.</b
-                    >
-                    Baza pe care o punem acum, la clasele mici, e exact cea pe
-                    care se construiește, peste ani, un 7 la Bacalaureatul
-                    Internațional. Cu cât pornește mai devreme, cu atât drumul e
-                    mai ușor.
+                    <b class="font-bold text-brand-lime">
+                        {{ t('pages.junior.parents_section.notice_1') }}
+                    </b>
+                    {{ t('pages.junior.parents_section.notice_2') }}
                 </p>
             </div>
         </div>

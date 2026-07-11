@@ -1,4 +1,8 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { useTranslations } from '@/composables/useTranslations';
+
+const { t } = useTranslations();
+</script>
 
 <template>
     <section class="bg-brand-indigo-dark-2 py-[60px] text-paper md:py-[78px]">
@@ -6,16 +10,15 @@
             <p
                 class="max-w-[16em] text-[clamp(28px,4vw,46px)] leading-[1.08] font-bold tracking-[-0.02em]"
             >
-                Matematica nu e grea. Devine grea
-                <span class="text-brand-lime">când se sar bazele</span>.
+                {{ t('pages.junior.statement_section.title_1') }}
+                <span class="text-brand-lime">
+                    {{ t('pages.junior.statement_section.title_2') }} </span
+                >.
             </p>
             <p
                 class="mt-[22px] max-w-[40em] text-[17px] leading-[1.65] text-paper/60"
             >
-                Între clasele 2 și 8 se formează două lucruri: înțelegerea de
-                bază și relația copilului cu matematica. Dacă apar goluri sau
-                frică acum, se adună până în liceu și costă scump. Le prindem
-                din timp — și transformăm „nu pot" în „mai dă-mi una".
+                {{ t('pages.junior.statement_section.description') }}
             </p>
         </div>
     </section>
