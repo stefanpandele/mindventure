@@ -8,25 +8,26 @@ interface Stat {
 
 const stats: Stat[] = [
     {
-        value: 'Profesor universitar',
-        label: 'predă atât AA cât și AI',
+        value: 'Matematică explicată,',
+        label: 'nu memorată',
         word: true,
         barColor: 'bg-brand-magenta',
     },
     {
-        value: 'Gratuit',
-        label: 'lecții complete pe YouTube',
+        value: 'Gândire critică',
+        label: 'înainte de toate',
         word: true,
         barColor: 'bg-brand-lime',
     },
     {
-        value: '30 min',
-        label: 'evaluare inițială, fără obligații',
+        value: 'Grupe restrânse',
+        label: 'și mentorat personalizat',
+        word: true,
         barColor: 'bg-accent-teal',
     },
     {
-        value: 'AA & AI',
-        label: 'SL și HL — toată matematica IB',
+        value: 'De la primii pași,',
+        label: 'până la excelență academică',
         word: true,
         barColor: 'bg-brand',
     },
