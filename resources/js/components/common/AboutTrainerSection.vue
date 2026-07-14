@@ -38,12 +38,12 @@ const { t } = useTranslations();
                 <h3
                     class="mt-3.5 text-[clamp(18px,3.2vw,20px)] font-bold tracking-[-0.01em] text-brand-indigo-dark-2"
                 >
-                    {{ t('pages.ib_math.trainer.section_title_2') }}
+                    {{ t('pages.ib_math.trainer.section_description_1') }}
                 </h3>
                 <p
                     class="mt-[18px] text-justify text-[17px] leading-[1.65] whitespace-pre-line text-brand-body"
                 >
-                    {{ t('pages.ib_math.trainer.section_description') }}
+                    {{ t('pages.ib_math.trainer.section_description_2') }}
                 </p>
 
                 <p

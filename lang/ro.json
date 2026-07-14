@@ -86,8 +86,8 @@
     "pages.ib_math.hww.section_description": "La Mindventure, nu încurajăm memorarea mecanică și nici orele nesfârșite de lucru haotic. Schimbăm complet modul în care elevii abordează matematica IB, transformând conceptele complexe în algoritmi clari de rezolvare.",
     "pages.ib_math.trainer.section_header": "Cine preda",
     "pages.ib_math.trainer.section_title_1": "Un parcurs academic internațional pus în slujba succesului copilului tău.",
-    "pages.ib_math.trainer.section_title_2": "Pentru note de top la un examen global precum IB, elevii nu au nevoie de un meditator generalist, ci de un mentor care înțelege matematica la nivel structural și aplicat.",
-    "pages.ib_math.trainer.section_description": "Sunt Denisa Diaconescu. Sunt Conferențiar la Facultatea de Matematică și Informatică (Universitatea din București) și Doctor în Logică Matematică. Din 2008 ghidez generații întregi de studenți și tineri, insuflându-le rigoarea gândirii analitice.\n\nParcursul meu profesional îmbină excelența academică cu aplicabilitatea matematicii la cel mai înalt nivel industrial. Am condus proiecte de cercetare avansată în logică teoretică la Universitatea din Berna (Elveția). Am lucrat ani de zile ca cercetător în sisteme distribuite, unde am realizat modelări matematice pentru protocoale tehnologice globale.\n\nDupă o carieră dedicată științei de vârf, am ales să folosesc această experiență pentru a ajuta noua generație. De aceea am fondat Mindventure — un studio de matematică creat pentru a antrena mințile tinerilor pentru succes și independență, transformând incertitudinea în claritate logică și rezultate excelente\nExamenul IB este o provocare majoră. Pe lângă stăpânirea solidă a conceptelor matematice, el impune strategii clare de management al timpului și al stresului. În plus, probe de elită precum Paper 3 sau eseurile de cercetare Internal Assessment (IA) cer abilități reale de investigație științifică.\nExperiența mea de peste 20 ani în cercetare de vârf, mentoratul și predarea universitară sunt argumentele care mă ajută să fiu un ghid autentic pentru copilul tău. La Mindventure, excelenta la examen vine la pachet cu increderea in fortele proprii.",
+    "pages.ib_math.trainer.section_description_1": "Sunt Denisa Diaconescu. Sunt Conferențiar la Facultatea de Matematică și Informatică (Universitatea din București) și Doctor în Logică Matematică. Din 2008 ghidez generații întregi de studenți și tineri, insuflându-le rigoarea gândirii analitice.",
+    "pages.ib_math.trainer.section_description_2": "Am făcut cercetare și am aplicat matematica atât în mediul academic universitar, cât și în industrie. După o carieră dedicată științei de vârf, am ales să folosesc această experiență pentru a ajuta noua generație. De aceea am fondat Mindventure — un studio de matematică creat pentru a antrena mințile tinerilor pentru succes și independență, transformând incertitudinea în claritate logică și rezultate excepționale.\nFie că ajut un copil din primele clase să își descopere încrederea, fie că ghidez un licean către nota maximă la examenele IB sau cele de final de liceu, aplic aceeași filozofie: sensul vine înaintea formulei.",
     "pages.ib_math.trainer.cv_1": "Dacă vrei să afli mai multe despre parcursul meu profesional,",
     "pages.ib_math.trainer.cv_2": "vizualizează CV-ul Academic aici.",
     "pages.ib_math.faq.section_header": "Întrebări · IB",
@@ -295,6 +295,17 @@
     "emails.booking.field_phone": "Telefon",
     "emails.booking.question_title": "Întrebarea ta, la care îți răspundem la ședință:",
     "emails.booking.signature": "Pe curând,\nDenisa Diaconescu\nMindventure",
+
+
+    "footer.brand_description": "Studio de Matematica. Pregătire completă, de la primii pași până la examenele finale.",
+    "footer.columns.1.title": "Programe",
+    "footer.columns.1.items.1.name": "Junior",
+    "footer.columns.1.items.2.name": "Pregătire matematică IB",
+    "footer.columns.1.items.3.name": "Suport IB Internal Assessment",
+    "footer.columns.2.title": "Contact",
+    "footer.columns.2.items.1.name": "Email",
+    "footer.columns.2.items.2.name": "WhatsApp",
+    "footer.columns.2.items.3.name": "Formular de contact",
 
     "buttons.cta.book_session": "Hai să ne cunoaștem",
     "buttons.cta.book_session_child": "Programează o sesiune de evaluare pentru copilul tău",

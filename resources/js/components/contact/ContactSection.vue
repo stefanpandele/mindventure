@@ -207,42 +207,42 @@ const socials: Social[] = [
                 </a>
 
                 <!-- Social -->
-                <div
-                    class="mt-[26px] rounded-2xl border border-brand-indigo-dark-2/12 bg-white px-[26px] py-6"
-                >
-                    <span
-                        class="inline-flex items-center gap-[9px] font-mono text-[11.5px] font-bold tracking-[0.14em] text-brand-ink uppercase"
-                    >
-                        <span
-                            class="inline-block h-[7px] w-[7px] rounded-[2px] bg-brand-magenta"
-                        />
-                        Social media
-                    </span>
-                    <h4
-                        class="mt-2 mb-1 text-[19px] font-bold tracking-[-0.02em] text-brand-indigo-dark-2"
-                    >
-                        Urmărește-ne
-                    </h4>
-                    <div class="mb-[18px] text-[14px] text-brand-muted">
-                        Lecții, exerciții și din culisele studioului.
-                    </div>
-                    <div class="flex flex-wrap gap-2.5">
-                        <a
-                            v-for="social in socials"
-                            :key="social.label"
-                            href="#"
-                            target="_blank"
-                            rel="noopener"
-                            :class="[
-                                'inline-flex items-center gap-[9px] rounded-[11px] border-[1.5px] border-brand-indigo-dark-2/12 px-[15px] py-2.5 text-[14px] font-semibold text-brand-ink transition hover:-translate-y-0.5 hover:text-white',
-                                social.hover,
-                            ]"
-                        >
-                            <component :is="social.icon" :size="18" />
-                            {{ social.label }}
-                        </a>
-                    </div>
-                </div>
+<!--                <div-->
+<!--                    class="mt-[26px] rounded-2xl border border-brand-indigo-dark-2/12 bg-white px-[26px] py-6"-->
+<!--                >-->
+<!--                    <span-->
+<!--                        class="inline-flex items-center gap-[9px] font-mono text-[11.5px] font-bold tracking-[0.14em] text-brand-ink uppercase"-->
+<!--                    >-->
+<!--                        <span-->
+<!--                            class="inline-block h-[7px] w-[7px] rounded-[2px] bg-brand-magenta"-->
+<!--                        />-->
+<!--                        Social media-->
+<!--                    </span>-->
+<!--                    <h4-->
+<!--                        class="mt-2 mb-1 text-[19px] font-bold tracking-[-0.02em] text-brand-indigo-dark-2"-->
+<!--                    >-->
+<!--                        Urmărește-ne-->
+<!--                    </h4>-->
+<!--                    <div class="mb-[18px] text-[14px] text-brand-muted">-->
+<!--                        Lecții, exerciții și din culisele studioului.-->
+<!--                    </div>-->
+<!--                    <div class="flex flex-wrap gap-2.5">-->
+<!--                        <a-->
+<!--                            v-for="social in socials"-->
+<!--                            :key="social.label"-->
+<!--                            href="#"-->
+<!--                            target="_blank"-->
+<!--                            rel="noopener"-->
+<!--                            :class="[-->
+<!--                                'inline-flex items-center gap-[9px] rounded-[11px] border-[1.5px] border-brand-indigo-dark-2/12 px-[15px] py-2.5 text-[14px] font-semibold text-brand-ink transition hover:-translate-y-0.5 hover:text-white',-->
+<!--                                social.hover,-->
+<!--                            ]"-->
+<!--                        >-->
+<!--                            <component :is="social.icon" :size="18" />-->
+<!--                            {{ social.label }}-->
+<!--                        </a>-->
+<!--                    </div>-->
+<!--                </div>-->
             </div>
 
             <!-- FORM -->
