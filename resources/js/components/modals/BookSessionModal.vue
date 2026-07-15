@@ -128,7 +128,7 @@ const benefits = ['modal_book.benefit_1', 'modal_book.benefit_2'];
 
                         <h3
                             id="book-modal-title"
-                            class="relative mt-3.5 text-[26px] leading-[1.1] font-bold tracking-[-0.02em] text-white"
+                            class="relative mt-3.5 text-card-title leading-[1.1] font-bold tracking-[-0.02em] text-white"
                         >
                             {{ t('modal_book.title') }}
                         </h3>
@@ -137,28 +137,28 @@ const benefits = ['modal_book.benefit_1', 'modal_book.benefit_2'];
                         </p>
 
                         <!-- benefit chips -->
-                        <div class="relative mt-4 flex flex-wrap gap-2">
-                            <span
-                                v-for="benefit in benefits"
-                                :key="benefit"
-                                class="inline-flex items-center gap-1.5 rounded-full bg-white/10 px-2.5 py-1 text-[11.5px] font-medium text-paper/90 ring-1 ring-white/15"
-                            >
-                                <svg
-                                    class="h-3 w-3 flex-none text-brand-lime"
-                                    viewBox="0 0 24 24"
-                                    fill="none"
-                                >
-                                    <path
-                                        d="M5 12.5l4.5 4.5L19 7"
-                                        stroke="currentColor"
-                                        stroke-width="2.6"
-                                        stroke-linecap="round"
-                                        stroke-linejoin="round"
-                                    />
-                                </svg>
-                                {{ t(benefit) }}
-                            </span>
-                        </div>
+<!--                        <div class="relative mt-4 flex flex-wrap gap-2">-->
+<!--                            <span-->
+<!--                                v-for="benefit in benefits"-->
+<!--                                :key="benefit"-->
+<!--                                class="inline-flex items-center gap-1.5 rounded-full bg-white/10 px-2.5 py-1 text-[11.5px] font-medium text-paper/90 ring-1 ring-white/15"-->
+<!--                            >-->
+<!--                                <svg-->
+<!--                                    class="h-3 w-3 flex-none text-brand-lime"-->
+<!--                                    viewBox="0 0 24 24"-->
+<!--                                    fill="none"-->
+<!--                                >-->
+<!--                                    <path-->
+<!--                                        d="M5 12.5l4.5 4.5L19 7"-->
+<!--                                        stroke="currentColor"-->
+<!--                                        stroke-width="2.6"-->
+<!--                                        stroke-linecap="round"-->
+<!--                                        stroke-linejoin="round"-->
+<!--                                    />-->
+<!--                                </svg>-->
+<!--                                {{ t(benefit) }}-->
+<!--                            </span>-->
+<!--                        </div>-->
                     </div>
 
                     <!-- ===== BODY ===== -->
@@ -305,32 +305,32 @@ const benefits = ['modal_book.benefit_1', 'modal_book.benefit_2'];
                             </button>
 
                             <!-- reassurance microcopy -->
-                            <p
-                                class="flex items-center justify-center gap-1.5 text-center text-[12px] text-slate-400"
-                            >
-                                <svg
-                                    class="h-3.5 w-3.5 flex-none"
-                                    viewBox="0 0 24 24"
-                                    fill="none"
-                                >
-                                    <rect
-                                        x="5"
-                                        y="11"
-                                        width="14"
-                                        height="9"
-                                        rx="2"
-                                        stroke="currentColor"
-                                        stroke-width="1.8"
-                                    />
-                                    <path
-                                        d="M8 11V8a4 4 0 118 0v3"
-                                        stroke="currentColor"
-                                        stroke-width="1.8"
-                                        stroke-linecap="round"
-                                    />
-                                </svg>
-                                {{ t('modal_book.reassurance') }}
-                            </p>
+<!--                            <p-->
+<!--                                class="flex items-center justify-center gap-1.5 text-center text-[12px] text-slate-400"-->
+<!--                            >-->
+<!--                                <svg-->
+<!--                                    class="h-3.5 w-3.5 flex-none"-->
+<!--                                    viewBox="0 0 24 24"-->
+<!--                                    fill="none"-->
+<!--                                >-->
+<!--                                    <rect-->
+<!--                                        x="5"-->
+<!--                                        y="11"-->
+<!--                                        width="14"-->
+<!--                                        height="9"-->
+<!--                                        rx="2"-->
+<!--                                        stroke="currentColor"-->
+<!--                                        stroke-width="1.8"-->
+<!--                                    />-->
+<!--                                    <path-->
+<!--                                        d="M8 11V8a4 4 0 118 0v3"-->
+<!--                                        stroke="currentColor"-->
+<!--                                        stroke-width="1.8"-->
+<!--                                        stroke-linecap="round"-->
+<!--                                    />-->
+<!--                                </svg>-->
+<!--                                {{ t('modal_book.reassurance') }}-->
+<!--                            </p>-->
                         </form>
 
                         <!-- SUCCES -->

@@ -4,39 +4,35 @@ import { useTranslations } from '@/composables/useTranslations';
 const { t } = useTranslations();
 
 interface Stage {
-    label: string;
     title: string;
     range: string;
-    items: string[];
     topBar: string;
     checkBg: string;
 }
 
 const stages: Stage[] = [
     {
-        label: t('pages.junior.coverage_section.stage_item.label_1'),
-        title: t('pages.junior.coverage_section.stage_item.title_1'),
-        range: t('pages.junior.coverage_section.stage_item.range_1'),
-        items: [
-            t('pages.junior.coverage_section.stage_item.sub_item_1.value_1'),
-            t('pages.junior.coverage_section.stage_item.sub_item_1.value_2'),
-            t('pages.junior.coverage_section.stage_item.sub_item_1.value_3'),
-            t('pages.junior.coverage_section.stage_item.sub_item_1.value_4'),
-        ],
-        topBar: 'bg-brand-lime',
+        title: t('pages.junior.coverage_section.stage_item_1.title'),
+        range: t('pages.junior.coverage_section.stage_item_1.range'),
+        topBar: 'bg-brand-magenta',
         checkBg: 'bg-brand-lime/25',
     },
     {
-        label: t('pages.junior.coverage_section.stage_item.label_2'),
-        title: t('pages.junior.coverage_section.stage_item.title_2'),
-        range: t('pages.junior.coverage_section.stage_item.range_2'),
-        items: [
-            t('pages.junior.coverage_section.stage_item.sub_item_2.value_1'),
-            t('pages.junior.coverage_section.stage_item.sub_item_2.value_2'),
-            t('pages.junior.coverage_section.stage_item.sub_item_2.value_3'),
-            t('pages.junior.coverage_section.stage_item.sub_item_2.value_4'),
-        ],
+        title: t('pages.junior.coverage_section.stage_item_2.title'),
+        range: t('pages.junior.coverage_section.stage_item_2.range'),
+        topBar: 'bg-brand-indigo',
+        checkBg: 'bg-accent-teal/20',
+    },
+    {
+        title: t('pages.junior.coverage_section.stage_item_3.title'),
+        range: t('pages.junior.coverage_section.stage_item_3.range'),
         topBar: 'bg-accent-teal',
+        checkBg: 'bg-brand-lime/25',
+    },
+    {
+        title: t('pages.junior.coverage_section.stage_item_4.title'),
+        range: t('pages.junior.coverage_section.stage_item_4.range'),
+        topBar: 'bg-accent-lime',
         checkBg: 'bg-accent-teal/20',
     },
 ];
@@ -66,7 +62,7 @@ const stages: Stage[] = [
             </div>
 
             <!-- Stages -->
-            <div class="mt-11 grid gap-[22px] md:grid-cols-2">
+            <div class="mt-11 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
                 <article
                     v-for="stage in stages"
                     :key="stage.title"
@@ -76,36 +72,16 @@ const stages: Stage[] = [
                         class="absolute top-0 right-0 left-0 h-[5px]"
                         :class="stage.topBar"
                     />
-                    <div
-                        class="font-mono text-[12px] font-bold tracking-[0.08em] text-brand-muted uppercase"
-                    >
-                        {{ stage.label }}
-                    </div>
                     <h3
-                        class="mt-2.5 text-[26px] font-extrabold text-brand-indigo-dark-2"
+                        class="mt-2.5 mb-4 text-card-title font-extrabold text-brand-indigo-dark-2"
                     >
                         {{ stage.title }}
                     </h3>
                     <div
-                        class="mb-[18px] text-[14.5px] font-semibold text-brand-muted"
+                        class="text-[14.5px] text-brand-muted"
                     >
                         {{ stage.range }}
                     </div>
-                    <ul class="flex flex-col gap-[11px]">
-                        <li
-                            v-for="item in stage.items"
-                            :key="item"
-                            class="flex items-start gap-[11px] text-[14.5px] leading-[1.5] text-brand-body"
-                        >
-                            <span
-                                class="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-md text-[12px] text-brand-indigo-dark-2"
-                                :class="stage.checkBg"
-                            >
-                                ✓
-                            </span>
-                            {{ item }}
-                        </li>
-                    </ul>
                 </article>
             </div>
         </div>

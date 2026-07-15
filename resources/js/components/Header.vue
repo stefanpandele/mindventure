@@ -3,15 +3,16 @@ import { Link, usePage } from '@inertiajs/vue3';
 import { IconMenu2, IconX } from '@tabler/icons-vue';
 import { computed, ref } from 'vue';
 
+import BookSessionModal from '@/components/modals/BookSessionModal.vue';
 import { useTranslations } from '@/composables/useTranslations';
 import LanguageSwitcher from './LanguageSwitcher.vue';
 
 const { t } = useTranslations();
 const page = usePage();
+const section = 'homepage';
 const locale = computed(() => (page.props.locale ?? 'ro') as string);
 
 const open = ref(false);
-
 interface NavLink {
     name: string;
     uri: string;
@@ -20,9 +21,9 @@ interface NavLink {
 const links: NavLink[] = [
     { name: 'nav.home', uri: '/' },
     { name: 'nav.about', uri: '/about' },
+    { name: 'nav.junior', uri: '/junior' },
     { name: 'nav.ib_math', uri: '/ib-math' },
     { name: 'nav.ib_ia', uri: '/ib-ia' },
-    { name: 'nav.junior', uri: '/junior' },
     { name: 'nav.contact', uri: '/contact' },
 ];
 </script>
@@ -75,19 +76,18 @@ const links: NavLink[] = [
                     <LanguageSwitcher :locale="locale" />
                 </div>
 
-                <Link
-                    href="/"
-                    class="rounded-md border border-brand/30 px-3.5 py-2 text-xs font-semibold text-brand-ink transition-colors hover:border-brand hover:text-brand"
-                >
-                    {{ t('auth.login') }}
-                </Link>
+                <!--                <Link-->
+                <!--                    href="/"-->
+                <!--                    class="rounded-md border border-brand/30 px-3.5 py-2 text-xs font-semibold text-brand-ink transition-colors hover:border-brand hover:text-brand"-->
+                <!--                >-->
+                <!--                    {{ t('auth.login') }}-->
+                <!--                </Link>-->
 
-                <Link
-                    href="/"
-                    class="rounded-md bg-logo-indigo px-3.5 py-2 text-xs font-semibold text-white transition-opacity hover:opacity-90"
-                >
-                    {{ t('cta.book') }}
-                </Link>
+                <BookSessionModal
+                    :section="section"
+                    :name="t('buttons.cta.book_session')"
+                    trigger-class="inline-block rounded-xl bg-brand-indigo text-white px-5 py-2.5 text-[15px] font-semibold  transition-opacity hover:opacity-90"
+                />
             </div>
 
             <!-- Mobile cluster: language switcher + hamburger -->
@@ -110,18 +110,17 @@ const links: NavLink[] = [
 
         <!-- Mobile secondary row: auth + CTA (below the top bar) -->
         <div class="flex items-center gap-2 px-5 py-2.5 md:hidden">
-            <Link
-                href="/"
-                class="flex-1 rounded-md border border-brand/30 py-2 text-center text-xs font-semibold text-brand-ink transition-colors hover:border-brand hover:text-brand"
-            >
-                {{ t('auth.login') }}
-            </Link>
-            <Link
-                href="/"
-                class="flex-1 rounded-md bg-brand py-2 text-center text-xs font-semibold text-white transition-opacity hover:opacity-90"
-            >
-                {{ t('cta.book') }}
-            </Link>
+            <!--            <Link-->
+            <!--                href="/"-->
+            <!--                class="flex-1 rounded-md border border-brand/30 py-2 text-center text-xs font-semibold text-brand-ink transition-colors hover:border-brand hover:text-brand"-->
+            <!--            >-->
+            <!--                {{ t('auth.login') }}-->
+            <!--            </Link>-->
+            <BookSessionModal
+                :section="section"
+                :name="t('buttons.cta.book_session')"
+                trigger-class="inline-block rounded-xl bg-brand-lime px-6 py-3 text-[15px] font-semibold text-brand-indigo-dark-2 transition-opacity hover:opacity-90"
+            />
         </div>
 
         <!-- Mobile menu -->

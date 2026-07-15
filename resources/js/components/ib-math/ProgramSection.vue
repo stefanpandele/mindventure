@@ -5,7 +5,7 @@ interface Track {
     name: string;
     profile: string;
     description: string;
-    advice: string;
+    // advice: string;
     glyph: string;
     topBar: string;
     iconBg: string;
@@ -19,7 +19,7 @@ const tracks: Track[] = [
         name: t('pages.ib_math.program.track_1.name'),
         profile: t('pages.ib_math.program.track_1.profile'),
         description: t('pages.ib_math.program.track_1.description'),
-        advice: t('pages.ib_math.program.track_1.advice'),
+        // advice: t('pages.ib_math.program.track_1.advice'),
         glyph: 'ƒx',
         topBar: 'bg-brand-magenta',
         iconBg: 'bg-brand-magenta text-white',
@@ -29,7 +29,7 @@ const tracks: Track[] = [
         name: t('pages.ib_math.program.track_2.name'),
         profile: t('pages.ib_math.program.track_2.profile'),
         description: t('pages.ib_math.program.track_2.description'),
-        advice: t('pages.ib_math.program.track_2.advice'),
+        // advice: t('pages.ib_math.program.track_2.advice'),
         glyph: '∿',
         topBar: 'bg-accent-teal',
         iconBg: 'bg-accent-teal text-white',
@@ -102,19 +102,6 @@ const levels = [
                     >
                         {{ track.description }}
                     </p>
-
-                    <div
-                        class="mt-[22px] flex items-start gap-[13px] rounded-[14px] bg-white/50 px-5 py-4 text-[14.5px] text-brand-body"
-                    >
-                        <span
-                            class="flex h-6 w-6 shrink-0 items-center justify-center rounded-[7px] bg-brand-indigo text-[13px] font-bold text-white"
-                        >
-                            !
-                        </span>
-                        <p>
-                            {{ track.description }}
-                        </p>
-                    </div>
 
                     <div class="mt-[22px] grid grid-cols-2 gap-2.5">
                         <div

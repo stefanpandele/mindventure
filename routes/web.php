@@ -11,6 +11,8 @@ Route::inertia('/ib-math', 'IbMath')->name('ib-math');
 Route::inertia('/ib-ia', 'IbIa')->name('ib-ia');
 Route::inertia('/junior', 'Junior')->name('junior');
 Route::inertia('/contact', 'Contact')->name('contact');
+Route::inertia('/terms-and-conditions', 'Terms')->name('terms-and-conditions');
+Route::inertia('/privacy-policy', 'Privacy')->name('privacy-policy');
 
 Route::get('/locale/{locale}', function (string $locale) {
     abort_unless(in_array($locale, ['ro', 'en'], true), 400);

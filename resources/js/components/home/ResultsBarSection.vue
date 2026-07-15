@@ -1,4 +1,8 @@
 <script setup lang="ts">
+import { useTranslations } from '@/composables/useTranslations';
+
+const { t } = useTranslations();
+
 interface Stat {
     value: string;
     label: string;
@@ -8,26 +12,26 @@ interface Stat {
 
 const stats: Stat[] = [
     {
-        value: 'Matematică explicată,',
-        label: 'nu memorată',
+        value: t('pages.home.results_bar.list_item_1.value'),
+        label: t('pages.home.results_bar.list_item_1.label'),
         word: true,
         barColor: 'bg-brand-magenta',
     },
     {
-        value: 'Gândire critică',
-        label: 'înainte de toate',
+        value: t('pages.home.results_bar.list_item_2.value'),
+        label: t('pages.home.results_bar.list_item_2.label'),
         word: true,
         barColor: 'bg-brand-lime',
     },
     {
-        value: 'Grupe restrânse',
-        label: 'și mentorat personalizat',
+        value: t('pages.home.results_bar.list_item_3.value'),
+        label: t('pages.home.results_bar.list_item_3.label'),
         word: true,
         barColor: 'bg-accent-teal',
     },
     {
-        value: 'De la primii pași,',
-        label: 'până la excelență academică',
+        value: t('pages.home.results_bar.list_item_4.value'),
+        label: t('pages.home.results_bar.list_item_4.label'),
         word: true,
         barColor: 'bg-brand',
     },

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import AskQuestionModal from '@/components/modals/AskQuestionModal.vue';
+// import AskQuestionModal from '@/components/modals/AskQuestionModal.vue';
 import { useTranslations } from '@/composables/useTranslations';
 
 interface Faq {
@@ -8,7 +8,6 @@ interface Faq {
 }
 
 const { t } = useTranslations();
-const section = 'ib-math';
 
 const faqs: Faq[] = [
     {
@@ -68,30 +67,30 @@ const faqs: Faq[] = [
                     {{ t('pages.ib_math.faq.section_description') }}
                 </p>
 
-                <div
-                    class="mt-8 rounded-[18px] bg-brand-indigo-dark-2 p-7 text-paper"
-                >
-                    <h3 class="text-[19px] font-bold">
-                        {{ t('pages.ib_math.faq.ask_card.title') }}
-                    </h3>
-                    <p
-                        class="mt-2 mb-5 text-[14px] leading-relaxed text-paper/65"
-                    >
-                        {{ t('pages.ib_math.faq.ask_card.description') }}
-                    </p>
+<!--                <div-->
+<!--                    class="mt-8 rounded-[18px] bg-brand-indigo-dark-2 p-7 text-paper"-->
+<!--                >-->
+<!--                    <h3 class="text-[19px] font-bold">-->
+<!--                        {{ t('pages.ib_math.faq.ask_card.title') }}-->
+<!--                    </h3>-->
+<!--                    <p-->
+<!--                        class="mt-2 mb-5 text-[14px] leading-relaxed text-paper/65"-->
+<!--                    >-->
+<!--                        {{ t('pages.ib_math.faq.ask_card.description') }}-->
+<!--                    </p>-->
 
-                    <AskQuestionModal :section="section" />
+<!--                    <AskQuestionModal :section="section" />-->
 
-                    <div class="mt-3.5 text-center text-[13px] text-paper/65">
-                        {{ t('pages.ib_math.faq.ask_card.mail_prefix') }}
-                        <a
-                            href="mailto:contact@mindventure.ro"
-                            class="font-semibold text-brand-lime"
-                        >
-                            contact@mindventure.ro
-                        </a>
-                    </div>
-                </div>
+<!--                    <div class="mt-3.5 text-center text-[13px] text-paper/65">-->
+<!--                        {{ t('pages.ib_math.faq.ask_card.mail_prefix') }}-->
+<!--                        <a-->
+<!--                            href="mailto:contact@mindventure.ro"-->
+<!--                            class="font-semibold text-brand-lime"-->
+<!--                        >-->
+<!--                            contact@mindventure.ro-->
+<!--                        </a>-->
+<!--                    </div>-->
+<!--                </div>-->
             </div>
 
             <!-- Accordion -->

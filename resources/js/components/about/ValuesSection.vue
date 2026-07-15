@@ -1,7 +1,9 @@
 <script setup lang="ts">
 import { IconCircleCheck, IconHeart, IconStar } from '@tabler/icons-vue';
 import type { Component } from 'vue';
+import { useTranslations } from '@/composables/useTranslations';
 
+const { t } = useTranslations();
 interface Value {
     icon: Component;
     iconColor: string;
@@ -15,22 +17,22 @@ const values: Value[] = [
         icon: IconStar,
         iconColor: 'text-brand-magenta',
         iconBg: 'bg-brand-magenta/[0.12]',
-        title: 'Rigoare de universitate',
-        text: 'Aceeași exigență cu care am predat la facultate și am făcut cercetare — adaptată pe înțelesul fiecărei vârste.',
+        title: t('pages.about.value_section.list_item_1.title'),
+        text: t('pages.about.value_section.list_item_1.text') ,
     },
     {
         icon: IconHeart,
         iconColor: 'text-accent-teal',
         iconBg: 'bg-accent-teal/[0.16]',
-        title: 'Răbdare și încredere',
-        text: 'Respect ritmul fiecărui copil și construiesc întâi încrederea. Fără frică de greșeală nu există învățare reală.',
+        title: t('pages.about.value_section.list_item_2.title'),
+        text: t('pages.about.value_section.list_item_2.text'),
     },
     {
         icon: IconCircleCheck,
         iconColor: 'text-brand-indigo',
         iconBg: 'bg-brand-indigo/10',
-        title: 'Gândire, nu memorare',
-        text: 'Țelul nu e să rețină formule, ci să gândească matematic — o abilitate care îi rămâne mult după ultimul examen.',
+        title: t('pages.about.value_section.list_item_3.title'),
+        text: t('pages.about.value_section.list_item_3.text'),
     },
 ];
 </script>
@@ -46,12 +48,12 @@ const values: Value[] = [
                     <span
                         class="inline-block h-[7px] w-[7px] rounded-[2px] bg-accent-teal"
                     />
-                    Cum predau
+                    {{ t('pages.about.value_section.header') }}
                 </span>
                 <h2
                     class="mt-3.5 text-[clamp(28px,3.4vw,42px)] font-bold tracking-[-0.01em] text-brand-indigo-dark-2"
                 >
-                    Ce înseamnă asta pentru copilul tău
+                    {{ t('pages.about.value_section.title') }}
                 </h2>
             </div>
 

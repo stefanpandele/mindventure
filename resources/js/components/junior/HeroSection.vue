@@ -1,7 +1,9 @@
 <script setup lang="ts">
+import BookSessionModal from '@/components/modals/BookSessionModal.vue';
 import { useTranslations } from '@/composables/useTranslations';
 
 const { t } = useTranslations();
+const section = 'junior';
 </script>
 
 <template>
@@ -42,18 +44,17 @@ const { t } = useTranslations();
                 </p>
 
                 <div class="mt-[30px] flex flex-wrap gap-3.5">
-                    <a
-                        href="#rezerva"
-                        class="rounded-xl bg-brand-indigo px-5 py-3 text-[15px] font-semibold text-paper transition-opacity hover:opacity-90"
-                    >
-                        {{ t('buttons.cta.book_session') }}
-                    </a>
-                    <a
-                        href="#cum-lucram"
-                        class="rounded-xl border-[1.5px] border-brand-indigo-dark-2/12 px-5 py-3 text-[15px] font-semibold text-brand-indigo-dark-2 transition-colors hover:border-brand-indigo-dark-2"
-                    >
-                        {{ t('buttons.how_we_work') }}
-                    </a>
+                    <BookSessionModal
+                        :section="section"
+                        :name="t('buttons.cta.book_session')"
+                        trigger-class="inline-block rounded-xl bg-brand-lime px-6 py-3 text-[15px] font-semibold text-brand-indigo-dark-2 transition-opacity hover:opacity-90"
+                    />
+                    <!--                    <a-->
+                    <!--                        href="#cum-lucram"-->
+                    <!--                        class="rounded-xl border-[1.5px] border-brand-indigo-dark-2/12 px-5 py-3 text-[15px] font-semibold text-brand-indigo-dark-2 transition-colors hover:border-brand-indigo-dark-2"-->
+                    <!--                    >-->
+                    <!--                        {{ t('buttons.how_we_work') }}-->
+                    <!--                    </a>-->
                 </div>
 
                 <div

@@ -1,14 +1,22 @@
 <script setup lang="ts">
 import { Link, usePage } from '@inertiajs/vue3';
 import {
-    IconBrandYoutubeFilled,
+    // IconBrandYoutubeFilled,
     IconBrandInstagramFilled,
     IconBrandFacebookFilled,
-    IconBrandTiktokFilled,
+    // IconBrandTiktokFilled,
 } from '@tabler/icons-vue';
-import { computed  } from 'vue';
-import type {Component} from 'vue';
+import { computed } from 'vue';
+import type { Component } from 'vue';
 import { useTranslations } from '@/composables/useTranslations';
+import {
+    contact,
+    ibIa,
+    ibMath,
+    junior,
+    privacyPolicy,
+    termsAndConditions,
+} from '@/routes';
 
 const { t } = useTranslations();
 const isInternal = (url: string): boolean => url.startsWith('/');
@@ -27,19 +35,19 @@ interface FooterColumn {
 
 const columns = computed<FooterColumn[]>(() => [
     {
-        title: 'Programe',
+        title: t('components.footer.columns.programs.title'),
         items: [
             {
-                name: 'Junior',
-                url: '/junior',
+                name: t('components.footer.columns.programs.item_1.name'),
+                url: junior.url(),
             },
             {
-                name: 'Pregătire matematică IB',
-                url: '/ib-math',
+                name: t('components.footer.columns.programs.item_2.name'),
+                url: ibMath.url(),
             },
             {
-                name: 'Suport IB Internal Assesment',
-                url: '/ib-ia',
+                name: t('components.footer.columns.programs.item_3.name'),
+                url: ibIa.url(),
             },
         ],
     },
@@ -55,8 +63,21 @@ const columns = computed<FooterColumn[]>(() => [
                 url: 'https://api.whatsapp.com/send/?phone=40720171700',
             },
             {
-                name: 'Formular',
-                url: '/contact',
+                name: t('components.footer.columns.contact.item_3.name'),
+                url: `${contact.url()}#contact-form`,
+            },
+        ],
+    },
+    {
+        title: 'Legal',
+        items: [
+            {
+                name: t('terms_and_conditions_label'),
+                url: termsAndConditions.url(),
+            },
+            {
+                name: t('privacy_policy_label'),
+                url: privacyPolicy.url(),
             },
         ],
     },

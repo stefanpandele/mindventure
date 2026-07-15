@@ -58,15 +58,15 @@ const { t } = useTranslations();
                         {{ t('pages.ib_math.trainer.cv_2') }}
                     </a>
                 </p>
-                <div class="mt-6 flex flex-wrap gap-2.5">
-                    <span
-                        v-for="tag in tags"
-                        :key="tag"
-                        class="rounded-full border-[1.5px] border-brand-indigo-dark-2 px-3.5 py-2 font-mono text-[12px] font-bold tracking-[0.04em] text-brand-indigo-dark-2"
-                    >
-                        {{ tag }}
-                    </span>
-                </div>
+<!--                <div class="mt-6 flex flex-wrap gap-2.5">-->
+<!--                    <span-->
+<!--                        v-for="tag in tags"-->
+<!--                        :key="tag"-->
+<!--                        class="rounded-full border-[1.5px] border-brand-indigo-dark-2 px-3.5 py-2 font-mono text-[12px] font-bold tracking-[0.04em] text-brand-indigo-dark-2"-->
+<!--                    >-->
+<!--                        {{ tag }}-->
+<!--                    </span>-->
+<!--                </div>-->
             </div>
             <div class="clear-both" />
         </div>

@@ -8,7 +8,7 @@ import HeroSection from '@/components/ib-math/HeroSection.vue';
 import HowWeWorkSection from '@/components/ib-math/HowWeWorkSection.vue';
 import ProgramSection from '@/components/ib-math/ProgramSection.vue';
 import ResultsBarSection from '@/components/ib-math/ResultsBarSection.vue';
-import VideoSection from '@/components/ib-math/VideoSection.vue';
+// import VideoSection from '@/components/ib-math/VideoSection.vue';
 </script>
 
 <template>
@@ -19,7 +19,7 @@ import VideoSection from '@/components/ib-math/VideoSection.vue';
             <ResultsBarSection />
             <ProgramSection />
             <HowWeWorkSection />
-            <VideoSection />
+<!--            <VideoSection />-->
             <AboutTrainerSection />
             <FaqSection />
             <CtaSection />

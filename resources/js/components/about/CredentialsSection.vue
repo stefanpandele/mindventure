@@ -8,23 +8,23 @@ interface Credential {
 const credentials: Credential[] = [
     {
         barColor: 'bg-brand-magenta',
-        title: 'Conferențiar',
+        title: 'Conferențiar universitar',
         detail: 'Facultatea de Matematică și Informatică, Universitatea din București',
     },
     {
         barColor: 'bg-brand-lime',
         title: 'Doctor în matematică',
-        detail: 'specializare în logică matematică (2013)',
+        detail: 'Specializare în logică matematică (2013)',
     },
     {
         barColor: 'bg-accent-teal',
-        title: 'Din 2008',
-        detail: 'la catedră, cu generații întregi de studenți și elevi',
+        title: 'Peste 20 ani experiență',
+        detail: 'Ghidând generații întregi de studenți și elevi',
     },
     {
         barColor: 'bg-brand-indigo',
-        title: 'Universitatea din Berna',
-        detail: 'cercetare postdoctorală în logică și metode formale',
+        title: 'Cercetare',
+        detail: 'În mediul academic și cel privat',
     },
 ];
 </script>

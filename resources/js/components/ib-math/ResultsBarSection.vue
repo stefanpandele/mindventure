@@ -3,7 +3,7 @@ import { useTranslations } from '@/composables/useTranslations';
 
 interface Stat {
     value: string;
-    label: string;
+    // label: string;
     word?: boolean;
     barColor: string;
 }
@@ -13,25 +13,25 @@ const { t } = useTranslations();
 const stats: Stat[] = [
     {
         value: t('pages.ib_math.results_bar.stat_1.value'),
-        label: t('pages.ib_math.results_bar.stat_1.label'),
+        // label: t('pages.ib_math.results_bar.stat_1.label'),
         word: true,
         barColor: 'bg-brand-magenta',
     },
     {
         value: t('pages.ib_math.results_bar.stat_2.value'),
-        label: t('pages.ib_math.results_bar.stat_2.label'),
+        // label: t('pages.ib_math.results_bar.stat_2.label'),
         word: true,
         barColor: 'bg-brand-lime',
     },
     {
         value: t('pages.ib_math.results_bar.stat_3.value'),
-        label: t('pages.ib_math.results_bar.stat_3.label'),
+        // label: t('pages.ib_math.results_bar.stat_3.label'),
         word: true,
         barColor: 'bg-accent-teal',
     },
     {
         value: t('pages.ib_math.results_bar.stat_4.value'),
-        label: t('pages.ib_math.results_bar.stat_4.label'),
+        // label: t('pages.ib_math.results_bar.stat_4.label'),
         word: true,
         barColor: 'bg-brand',
     },
@@ -44,8 +44,8 @@ const stats: Stat[] = [
             class="mx-auto grid max-w-6xl grid-cols-2 gap-x-6 gap-y-8 px-5 sm:px-6 md:grid-cols-4 md:gap-6"
         >
             <div
-                v-for="stat in stats"
-                :key="stat.label"
+                v-for="(stat, i) in stats"
+                :key="i"
                 class="relative pl-[18px]"
             >
                 <span
@@ -62,9 +62,9 @@ const stats: Stat[] = [
                 >
                     {{ stat.value }}
                 </div>
-                <div class="mt-[9px] max-w-[14em] text-[14px] text-paper/60">
-                    {{ stat.label }}
-                </div>
+<!--                <div class="mt-[9px] max-w-[14em] text-[14px] text-paper/60">-->
+<!--                    {{ stat.label }}-->
+<!--                </div>-->
             </div>
         </div>
     </section>

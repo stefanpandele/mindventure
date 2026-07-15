@@ -1,4 +1,8 @@
 <script setup lang="ts">
+import { useTranslations } from '@/composables/useTranslations';
+
+const { t } = useTranslations();
+
 interface Faq {
     question: string;
     answer: string;
@@ -6,20 +10,20 @@ interface Faq {
 
 const faqs: Faq[] = [
     {
-        question: 'Online sau față în față?',
-        answer: 'Ambele. Sesiunile se țin online sau on-site, în funcție de ce vă e mai comod.',
+        question: t('pages.home.faq.q_item.q_1'),
+        answer: t('pages.home.faq.q_item.a_1'),
     },
     {
-        question: 'Cum stabiliți nivelul copilului?',
-        answer: 'Printr-o evaluare inițială gratuită de 30 de minute, în care vedem exact unde e și ce program i se potrivește.',
+        question: t('pages.home.faq.q_item.q_2'),
+        answer: t('pages.home.faq.q_item.a_2'),
     },
     {
-        question: 'Acoperiți și AA, și AI?',
-        answer: 'Da — ambele trasee IB, la SL și HL. La evaluare vă spunem care e potrivit pentru obiectivul de admitere.',
+        question: t('pages.home.faq.q_item.q_3'),
+        answer: t('pages.home.faq.q_item.a_3'),
     },
     {
-        question: 'De la ce vârstă se poate începe?',
-        answer: 'De la clasa a 2-a, prin programul Junior. Cu cât fundația e construită mai devreme, cu atât drumul spre IB e mai ușor.',
+        question: t('pages.home.faq.q_item.q_4'),
+        answer: t('pages.home.faq.q_item.a_4'),
     },
 ];
 </script>
@@ -35,12 +39,12 @@ const faqs: Faq[] = [
                     <span
                         class="inline-block h-[7px] w-[7px] rounded-[2px] bg-brand-magenta"
                     />
-                    Întrebări
+                    {{ t('pages.home.faq.header') }}
                 </span>
                 <h2
                     class="mt-3.5 text-[clamp(30px,3.6vw,44px)] font-bold tracking-[-0.01em] text-brand-indigo-dark-2"
                 >
-                    Întrebări frecvente
+                    {{ t('pages.home.faq.title') }}
                 </h2>
             </div>
 

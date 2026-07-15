@@ -94,23 +94,23 @@ const points: ParentPoint[] = [
             </div>
 
             <!-- Path note -->
-            <div
-                class="mt-[38px] flex flex-wrap items-center gap-4 rounded-[18px] bg-brand-indigo-dark-2 px-[30px] py-[26px] text-paper"
-            >
-                <span
-                    class="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-brand-lime font-mono text-[18px] font-bold text-brand-indigo-dark-2"
-                >
-                    7
-                </span>
-                <p
-                    class="min-w-[240px] flex-1 text-[15.5px] leading-[1.55] text-paper/90"
-                >
-                    <b class="font-bold text-brand-lime">
-                        {{ t('pages.junior.parents_section.notice_1') }}
-                    </b>
-                    {{ t('pages.junior.parents_section.notice_2') }}
-                </p>
-            </div>
+<!--            <div-->
+<!--                class="mt-[38px] flex flex-wrap items-center gap-4 rounded-[18px] bg-brand-indigo-dark-2 px-[30px] py-[26px] text-paper"-->
+<!--            >-->
+<!--                <span-->
+<!--                    class="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-brand-lime font-mono text-[18px] font-bold text-brand-indigo-dark-2"-->
+<!--                >-->
+<!--                    7-->
+<!--                </span>-->
+<!--                <p-->
+<!--                    class="min-w-[240px] flex-1 text-[15.5px] leading-[1.55] text-paper/90"-->
+<!--                >-->
+<!--                    <b class="font-bold text-brand-lime">-->
+<!--                        {{ t('pages.junior.parents_section.notice_1') }}-->
+<!--                    </b>-->
+<!--                    {{ t('pages.junior.parents_section.notice_2') }}-->
+<!--                </p>-->
+<!--            </div>-->
         </div>
     </section>
 </template>

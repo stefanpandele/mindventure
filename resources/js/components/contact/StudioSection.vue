@@ -1,4 +1,8 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { useTranslations } from '@/composables/useTranslations';
+
+const { t } = useTranslations();
+</script>
 
 <template>
     <section class="bg-brand-indigo-dark-2 py-14 text-paper md:py-20">
@@ -24,34 +28,25 @@
                     <span
                         class="inline-block h-[7px] w-[7px] rounded-[2px] bg-brand-lime"
                     />
-                    Studioul
+                    {{ t('pages.contact.studio_section.badge_text') }}
                 </span>
 
                 <h2
                     class="mb-[18px] text-[clamp(28px,3.4vw,40px)] leading-[1.05] font-bold tracking-[-0.025em]"
                 >
-                    Un spațiu gândit pentru matematică, fără stres
+                    {{ t('pages.contact.studio_section.title') }}
                 </h2>
 
                 <p
                     class="mb-[18px] max-w-[34em] text-[16.5px] leading-[1.7] text-paper/[0.62]"
                 >
-                    Lucrăm într-un studio luminos din Voluntari — masă mare,
-                    multă culoare și instrumente la îndemână. Un loc unde copiii
-                    se concentrează, se joacă și capătă încredere, nu o sală
-                    rece de meditații.
-                </p>
-                <p
-                    class="mb-[18px] max-w-[34em] text-[16.5px] leading-[1.7] text-paper/[0.62]"
-                >
-                    Sesiunile se pot ține la studio sau online, după cum vă e
-                    mai comod.
+                    {{ t('pages.contact.studio_section.description') }}
                 </p>
 
                 <div
                     class="font-mono text-[12px] font-bold tracking-[0.1em] text-brand-lime uppercase"
                 >
-                    Mindventure · Studio de Matematică
+                    {{ t('pages.contact.studio_section.section_footer') }}
                 </div>
             </div>
         </div>

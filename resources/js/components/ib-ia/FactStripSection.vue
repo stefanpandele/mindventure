@@ -5,25 +5,35 @@ const { t } = useTranslations();
 
 interface Fact {
     value: string;
-    label: string;
+    // label: string;
+    word: true;
+    barColor: string;
 }
 
 const facts: Fact[] = [
     {
         value: t('pages.ib_ia.fact_strip_section.stat_1.value'),
-        label: t('pages.ib_ia.fact_strip_section.stat_1.label'),
+        // label: t('pages.ib_ia.fact_strip_section.stat_1.label'),
+        word: true,
+        barColor: 'bg-brand-magenta',
     },
     {
         value: t('pages.ib_ia.fact_strip_section.stat_2.value'),
-        label: t('pages.ib_ia.fact_strip_section.stat_2.label'),
+        // label: t('pages.ib_ia.fact_strip_section.stat_2.label'),
+        word: true,
+        barColor: 'bg-brand-lime',
     },
     {
         value: t('pages.ib_ia.fact_strip_section.stat_3.value'),
-        label: t('pages.ib_ia.fact_strip_section.stat_3.label'),
+        // label: t('pages.ib_ia.fact_strip_section.stat_3.label'),
+        word: true,
+        barColor: 'bg-accent-teal',
     },
     {
         value: t('pages.ib_ia.fact_strip_section.stat_4.value'),
-        label: t('pages.ib_ia.fact_strip_section.stat_4.label'),
+        // label: t('pages.ib_ia.fact_strip_section.stat_4.label'),
+        word: true,
+        barColor: 'bg-brand',
     },
 ];
 </script>
@@ -33,17 +43,24 @@ const facts: Fact[] = [
         <div
             class="mx-auto grid max-w-6xl grid-cols-2 gap-x-6 gap-y-7 px-5 sm:px-6 md:grid-cols-5 md:gap-5"
         >
-            <div v-for="fact in facts" :key="fact.label" class="relative pl-4">
+            <div
+                v-for="(fact, i) in facts"
+                :key="i"
+                class="relative pl-[18px]"
+            >
                 <span
-                    class="absolute top-[5px] bottom-[5px] left-0 w-[3px] rounded-[2px] bg-accent-teal"
+                    class="absolute top-1.5 bottom-1.5 left-0 w-[3px] rounded-[2px]"
+                    :class="fact.barColor"
                 />
                 <div
-                    class="font-mono text-[clamp(18px,2.4vw,22px)] leading-none font-bold"
+                    class="font-bold"
+                    :class="
+                        fact.word
+                            ? 'text-[clamp(20px,2.3vw,27px)] leading-[1.08] tracking-[-0.01em]'
+                            : 'font-mono text-[clamp(32px,3.6vw,44px)] leading-none tracking-[-0.02em]'
+                    "
                 >
                     {{ fact.value }}
-                </div>
-                <div class="mt-[7px] text-[12.5px] text-paper/60">
-                    {{ fact.label }}
                 </div>
             </div>
         </div>

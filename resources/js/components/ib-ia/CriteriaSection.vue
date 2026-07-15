@@ -19,7 +19,7 @@ const criteria: Criterion[] = [
         what: t('pages.ib_ia.criteria_section.list_item_1.what'),
         width: '66%',
         mark: 4,
-        key: false,
+        key: true,
     },
     {
         letter: 'B',
@@ -51,7 +51,7 @@ const criteria: Criterion[] = [
         what: t('pages.ib_ia.criteria_section.list_item_5.what'),
         width: '100%',
         mark: 6,
-        key: false,
+        key: true,
     },
 ];
 </script>

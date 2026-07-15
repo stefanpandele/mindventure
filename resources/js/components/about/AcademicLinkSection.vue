@@ -1,5 +1,8 @@
 <script setup lang="ts">
 import { IconArrowRight } from '@tabler/icons-vue';
+import { useTranslations } from '@/composables/useTranslations';
+
+const { t } = useTranslations();
 </script>
 
 <template>
@@ -12,12 +15,10 @@ import { IconArrowRight } from '@tabler/icons-vue';
                     <h3
                         class="mb-1.5 text-[22px] font-bold text-brand-indigo-dark-2"
                     >
-                        Parcursul academic complet
+                        {{ t('pages.about.academic_section.title') }}
                     </h3>
                     <p class="max-w-[40em] text-[15px] text-brand-muted">
-                        Publicații, cercetare, conferințe și activitatea
-                        didactică de la Universitatea din București — totul, pe
-                        pagina mea academică.
+                        {{ t('pages.about.academic_section.text') }}
                     </p>
                 </div>
                 <a
@@ -26,7 +27,7 @@ import { IconArrowRight } from '@tabler/icons-vue';
                     rel="noopener"
                     class="group inline-flex items-center gap-2 text-[15px] font-semibold whitespace-nowrap text-brand-magenta"
                 >
-                    Vezi CV-ul academic
+                    {{ t('pages.about.academic_section.link_text') }}
                     <IconArrowRight
                         :size="16"
                         stroke="1.6"
