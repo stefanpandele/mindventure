@@ -1,5 +1,9 @@
 <script setup lang="ts">
+import { Link } from '@inertiajs/vue3';
 import { IconArrowRight } from '@tabler/icons-vue';
+import { useTranslations } from '@/composables/useTranslations';
+
+const { t } = useTranslations();
 
 interface Service {
     tag: string;
@@ -10,41 +14,42 @@ interface Service {
     topBar: string;
     titleColor: string;
     linkColor: string;
+    url: string;
 }
 
 const services: Service[] = [
     {
-        tag: 'Liceu · IB',
-        name: 'IB 7',
-        sub: 'Meditații Bacalaureat Internațional',
-        description:
-            'Pregătire 1:1 sau în grup mic pentru examenul de matematică IB, cu accent pe exact ce se punctează în bareme.',
+        tag: t('pages.home.programs.list_item.tag_1'),
+        name: t('pages.home.programs.list_item.name_1'),
+        sub: t('pages.home.programs.list_item.sub_1'),
+        description: t('pages.home.programs.list_item.description_1'),
         meta: ['AA & AI', 'SL & HL'],
         topBar: 'bg-brand-magenta',
         titleColor: 'text-brand-magenta',
         linkColor: 'text-brand-magenta',
+        url: '/junior',
     },
     {
-        tag: 'IB · proiect',
-        name: 'IA Lab',
-        sub: 'Suport Internal Assessment',
-        description:
-            'Te ghidăm la IA pas cu pas — de la alegerea temei și a setului de date, până la forma finală corectată pe barem.',
+        tag: t('pages.home.programs.list_item.tag_2'),
+        name: t('pages.home.programs.list_item.name_2'),
+        sub: t('pages.home.programs.list_item.sub_2'),
+        description: t('pages.home.programs.list_item.description_2'),
         meta: ['AA & AI', 'temă → final'],
         topBar: 'bg-accent-teal',
         titleColor: 'text-accent-teal',
         linkColor: 'text-accent-teal',
+        url: '/ib-math',
     },
     {
-        tag: 'Clasele 2–8',
-        name: 'Junior',
-        sub: 'Fundația de matematică, devreme',
-        description:
-            'Bazele solide pe care se construiește tot ce urmează — gândire logică și încredere, nu memorare mecanică.',
+        tag: t('pages.home.programs.list_item.tag_3'),
+        name: t('pages.home.programs.list_item.name_3'),
+        sub: t('pages.home.programs.list_item.sub_3'),
+        description: t('pages.home.programs.list_item.description_3'),
         meta: ['clasa 2–8', '1:1 / grup mic'],
         topBar: 'bg-brand-indigo',
         titleColor: 'text-brand-indigo',
         linkColor: 'text-brand-indigo',
+        url: '/ib-ia',
     },
 ];
 </script>
@@ -60,17 +65,15 @@ const services: Service[] = [
                     <span
                         class="inline-block h-[7px] w-[7px] rounded-[2px] bg-brand-magenta"
                     />
-                    Program
+                    {{ t('pages.home.programs.header') }}
                 </span>
                 <h2
                     class="mt-3.5 text-[clamp(30px,3.6vw,44px)] font-bold tracking-[-0.01em] text-brand-indigo-dark-2"
                 >
-                    Trei programe, de la bază la 7
+                    {{ t('pages.home.programs.title') }}
                 </h2>
                 <p class="mt-3.5 text-[17px] leading-relaxed text-brand-body">
-                    Indiferent de unde pornește copilul, îl ducem mai departe pe
-                    același traseu de matematică — construit pe înțelegere, nu
-                    pe memorare.
+                    {{ t('pages.home.programs.description') }}
                 </p>
             </div>
 
@@ -109,44 +112,15 @@ const services: Service[] = [
                         {{ service.description }}
                     </p>
 
-                    <div class="mt-5 flex flex-wrap gap-2">
-                        <span
-                            v-for="item in service.meta"
-                            :key="item"
-                            class="rounded-lg border border-brand-indigo-dark-2/12 px-2.5 py-[5px] font-mono text-[11px] font-bold tracking-[0.03em] text-brand-muted"
-                        >
-                            {{ item }}
-                        </span>
-                    </div>
-
-                    <a
-                        href="#"
+                    <Link
+                        :href="service.url"
                         class="mt-[18px] inline-flex items-center gap-1.5 text-[14px] font-semibold transition-all hover:gap-3"
                         :class="service.linkColor"
                     >
-                        Află mai mult
+                        {{ t('pages.home.programs.button_learn_more') }}
                         <IconArrowRight :size="14" stroke="1.6" />
-                    </a>
+                    </Link>
                 </article>
-            </div>
-
-            <!-- Helper for parents unsure of the program -->
-            <div
-                class="mt-[22px] flex items-start gap-[13px] rounded-[14px] border border-dashed border-brand-indigo-dark-2/12 bg-white/50 px-5 py-4 text-[14.5px] text-brand-body"
-            >
-                <span
-                    class="flex h-6 w-6 shrink-0 items-center justify-center rounded-[7px] bg-brand-indigo text-[13px] font-bold text-white"
-                >
-                    ?
-                </span>
-                <p>
-                    Nu știi ce program i se potrivește copilului?
-                    <b class="font-semibold text-brand-indigo-dark-2"
-                        >La evaluarea gratuită îl testăm</b
-                    >
-                    și vă recomandăm traseul potrivit pentru nivelul și
-                    obiectivul lui.
-                </p>
             </div>
         </div>
     </section>

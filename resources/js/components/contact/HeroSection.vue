@@ -1,4 +1,8 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { useTranslations } from '@/composables/useTranslations';
+
+const { t } = useTranslations();
+</script>
 
 <template>
     <section class="border-b border-brand-indigo-dark-2/10">
@@ -13,28 +17,19 @@
                     <span
                         class="inline-block h-[7px] w-[7px] rounded-[2px] bg-brand-indigo"
                     />
-                    Contact · Studio de Matematică
+                    {{ t('pages.contact.hero.badge_text') }}
                 </span>
 
                 <h1
                     class="mt-[22px] text-[clamp(40px,5.2vw,62px)] leading-[1.03] font-bold tracking-[-0.025em] text-brand-indigo-dark-2"
                 >
-                    Hai să
-                    <span class="relative inline-block">
-                        <span
-                            class="absolute -right-1 bottom-[0.07em] -left-1 -z-10 h-[0.32em] -rotate-[1.6deg] rounded-[3px] bg-brand-lime"
-                        />
-                        vorbim
-                    </span>
-                    despre copilul tău.
+                    {{ t('pages.contact.hero.title') }}
                 </h1>
 
                 <p
                     class="mt-[22px] max-w-[31em] text-[18px] leading-relaxed text-brand-muted"
                 >
-                    Scrie-ne, sună-ne sau treci pe la studio în Voluntari.
-                    Răspundem rapid și începem mereu cu o evaluare gratuită,
-                    fără obligații.
+                    {{ t('pages.contact.hero.description') }}
                 </p>
             </div>
 

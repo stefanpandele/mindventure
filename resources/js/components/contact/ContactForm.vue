@@ -1,6 +1,9 @@
 <script setup lang="ts">
-import { useForm } from '@inertiajs/vue3';
+import { Link, useForm } from '@inertiajs/vue3';
 import { ref } from 'vue';
+import { useTranslations } from '@/composables/useTranslations';
+
+const { t } = useTranslations();
 
 const submitted = ref(false);
 
@@ -9,7 +12,7 @@ const form = useForm({
     email: '',
     phone: '',
     message: '',
-    gdpr: false as boolean,
+    consent_approved: false as boolean,
     website: '', // Honeypot — must stay empty.
 });
 
@@ -29,7 +32,8 @@ function submit(): void {
 
 <template>
     <div
-        class="rounded-[18px] border border-brand-indigo-dark-2/12 bg-white p-7 shadow-[0_30px_60px_-40px_rgba(17,14,43,0.4)] sm:p-9"
+        id="contact-form"
+        class="scroll-mt-24 rounded-[18px] border border-brand-indigo-dark-2/12 bg-white p-7 shadow-[0_30px_60px_-40px_rgba(17,14,43,0.4)] sm:p-9"
     >
         <!-- Success state -->
         <div v-if="submitted" class="px-2.5 py-[30px] text-center">
@@ -55,11 +59,10 @@ function submit(): void {
             <h3
                 class="mb-2.5 text-[24px] font-bold tracking-[-0.025em] text-brand-indigo-dark-2"
             >
-                Mulțumim!
+                {{ t('pages.contact.form_section.thank_you') }}
             </h3>
             <p class="mx-auto max-w-[26em] text-[15px] text-brand-muted">
-                Am primit mesajul tău și te contactăm în cel mai scurt timp ca
-                să stabilim evaluarea gratuită.
+                {{ t('pages.contact.form_section.thank_you_message') }}
             </p>
         </div>
 
@@ -68,11 +71,10 @@ function submit(): void {
             <h3
                 class="text-[24px] font-bold tracking-[-0.025em] text-brand-indigo-dark-2"
             >
-                Programează o evaluare gratuită
+                {{ t('pages.contact.form_section.title') }}
             </h3>
             <p class="mt-2 mb-[26px] text-[14.5px] text-brand-muted">
-                Completează formularul și te contactăm noi. 30 de minute, fără
-                nicio obligație.
+                {{ t('pages.contact.form_section.description') }}
             </p>
 
             <div class="mb-[18px]">
@@ -80,14 +82,16 @@ function submit(): void {
                     for="name"
                     class="mb-2 block text-[13px] font-semibold text-brand-ink"
                 >
-                    Nume și prenume
+                    {{ t('pages.contact.form_section.name_surname') }}
                     <span class="text-brand-magenta">*</span>
                 </label>
                 <input
                     id="name"
                     v-model="form.name"
                     type="text"
-                    placeholder="Numele tău"
+                    :placeholder="
+                        t('pages.contact.form_section.name_surname_ph')
+                    "
                     :class="fieldClass"
                 />
                 <p
@@ -110,7 +114,7 @@ function submit(): void {
                         id="email"
                         v-model="form.email"
                         type="email"
-                        placeholder="adresa@email.ro"
+                        :placeholder="t('pages.contact.form_section.email_ph')"
                         :class="fieldClass"
                     />
                     <p
@@ -126,7 +130,7 @@ function submit(): void {
                         for="phone"
                         class="mb-2 block text-[13px] font-semibold text-brand-ink"
                     >
-                        Telefon
+                        {{ t('pages.contact.form_section.phone') }}
                     </label>
                     <input
                         id="phone"
@@ -143,12 +147,13 @@ function submit(): void {
                     for="message"
                     class="mb-2 block text-[13px] font-semibold text-brand-ink"
                 >
-                    Mesaj <span class="text-brand-magenta">*</span>
+                    {{ t('pages.contact.form_section.message_label') }}
+                    <span class="text-brand-magenta">*</span>
                 </label>
                 <textarea
                     id="message"
                     v-model="form.message"
-                    placeholder="Spune-ne pe scurt unde e copilul și ce ți-ai dori."
+                    :placeholder="t('pages.contact.form_section.message_ph')"
                     :class="[fieldClass, 'min-h-[110px] resize-y']"
                 />
                 <p
@@ -173,21 +178,24 @@ function submit(): void {
                 class="mt-1.5 mb-[22px] flex items-start gap-[11px] text-[13px] leading-normal text-brand-muted"
             >
                 <input
-                    v-model="form.gdpr"
+                    v-model="form.consent_approved"
                     type="checkbox"
                     class="mt-0.5 h-[18px] w-[18px] flex-none accent-brand-indigo"
                 />
                 <span>
-                    Sunt de acord cu prelucrarea datelor pentru a fi
-                    contactat/ă.
-                    <a href="#" class="font-semibold text-brand">
-                        Politica de confidențialitate
+                    {{ t('consent') }}
+                    <a
+                        href="/privacy-policy"
+                        class="font-semibold text-brand"
+                        target="_blank"
+                    >
+                        {{ t('consent_link_label') }}
                     </a>
                     <span
-                        v-if="form.errors.gdpr"
+                        v-if="form.errors.consent_approved"
                         class="block text-brand-magenta"
                     >
-                        {{ form.errors.gdpr }}
+                        {{ form.errors.consent_approved }}
                     </span>
                 </span>
             </label>
@@ -197,11 +205,15 @@ function submit(): void {
                 :disabled="form.processing"
                 class="w-full rounded-xl bg-brand-indigo px-[22px] py-[15px] text-[15px] font-semibold text-paper transition-opacity hover:opacity-90 disabled:opacity-60"
             >
-                {{ form.processing ? 'Se trimite…' : 'Trimite mesajul' }}
+                {{
+                    form.processing
+                        ? t('pages.contact.form_section.form.btn_sending')
+                        : t('pages.contact.form_section.form.btn_send')
+                }}
             </button>
 
             <p class="mt-3.5 text-center text-[12.5px] text-brand-muted">
-                Sau scrie-ne direct la
+                {{ t('pages.contact.form_section.form_footer_text') }}
                 <a
                     href="mailto:contact@mindventure.ro"
                     class="font-semibold text-brand"

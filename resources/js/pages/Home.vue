@@ -1,14 +1,14 @@
 <script setup lang="ts">
+import AboutTrainerSection from '@/components/common/AboutTrainerSection.vue';
 import Footer from '@/components/Footer.vue';
 import Header from '@/components/Header.vue';
-import AboutTrainerSection from '@/components/home/AboutTrainerSection.vue';
 import CtaSection from '@/components/home/CtaSection.vue';
 import FaqSection from '@/components/home/FaqSection.vue';
 import HeroSection from '@/components/home/HeroSection.vue';
 import HowWeWorkSection from '@/components/home/HowWeWorkSection.vue';
+import OurVisionSection from '@/components/home/OurVisionSection.vue';
 import ProgramSection from '@/components/home/ProgramSection.vue';
 import ResultsBarSection from '@/components/home/ResultsBarSection.vue';
-import VideoSection from '@/components/home/VideoSection.vue';
 </script>
 
 <template>
@@ -17,9 +17,9 @@ import VideoSection from '@/components/home/VideoSection.vue';
         <main>
             <HeroSection />
             <ResultsBarSection />
-            <ProgramSection />
+            <OurVisionSection />
             <HowWeWorkSection />
-            <VideoSection />
+            <ProgramSection />
             <AboutTrainerSection />
             <FaqSection />
             <CtaSection />

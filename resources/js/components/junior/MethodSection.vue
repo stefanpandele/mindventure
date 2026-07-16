@@ -1,4 +1,8 @@
 <script setup lang="ts">
+import { useTranslations } from '@/composables/useTranslations';
+
+const { t } = useTranslations();
+
 interface MethodCard {
     num: string;
     title: string;
@@ -11,26 +15,26 @@ interface MethodCard {
 const cards: MethodCard[] = [
     {
         num: '01',
-        title: 'Întâi cu mâna, apoi cu creionul',
-        text: 'Folosim obiecte și jocuri ca să înțeleagă concret ce înseamnă numerele și operațiile — abia apoi trecem pe hârtie.',
+        title: t('pages.junior.statement_section.card_item.title_1'),
+        text: t('pages.junior.statement_section.card_item.text_1'),
         image: '/images/junior/method-1.webp',
-        alt: 'Jucării de matematică pentru învățare',
+        alt: t('pages.junior.statement_section.card_item.alt_text_1'),
         numBg: 'bg-brand-lime text-brand-indigo-dark-2',
     },
     {
         num: '02',
-        title: 'Exercițiu fără „tocit"',
-        text: 'Provocări, fișe colorate și mici jocuri, ca să exerseze des și cu plăcere — repetiția care chiar prinde.',
+        title: t('pages.junior.statement_section.card_item.title_2'),
+        text: t('pages.junior.statement_section.card_item.text_2'),
         image: '/images/junior/method-2.webp',
-        alt: 'Fișe de lucru și instrumente colorate',
+        alt: t('pages.junior.statement_section.card_item.alt_text_2'),
         numBg: 'bg-brand-magenta text-white',
     },
     {
         num: '03',
-        title: 'Pe ritmul lui, fără presiune',
-        text: 'Fiecare copil avansează în ritmul propriu. Construim încredere pas cu pas, nu o cursă în care rămâne în urmă.',
+        title: t('pages.junior.statement_section.card_item.title_3'),
+        text: t('pages.junior.statement_section.card_item.text_3'),
         image: '/images/junior/method-3.webp',
-        alt: 'Birou de studiu cu instrumente de matematică',
+        alt: t('pages.junior.statement_section.card_item.alt_text_3'),
         numBg: 'bg-accent-teal text-brand-indigo-dark-2',
     },
 ];
@@ -47,16 +51,15 @@ const cards: MethodCard[] = [
                     <span
                         class="inline-block h-[7px] w-[7px] rounded-[2px] bg-brand-lime"
                     />
-                    Cum lucrăm
+                    {{ t('pages.junior.method_section.header') }}
                 </span>
                 <h2
                     class="mt-3.5 text-[clamp(28px,3.4vw,42px)] font-bold tracking-[-0.01em] text-brand-indigo-dark-2"
                 >
-                    Cum o facem să placă
+                    {{ t('pages.junior.method_section.title') }}
                 </h2>
                 <p class="mt-3.5 text-[17px] leading-relaxed text-brand-body">
-                    Copiii învață când înțeleg, nu când memorează. Așa că pornim
-                    de la concret și ne jucăm până devine al lor.
+                    {{ t('pages.junior.method_section.description') }}
                 </p>
             </div>
 

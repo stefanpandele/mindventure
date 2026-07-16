@@ -1,4 +1,8 @@
 <script setup lang="ts">
+import { useTranslations } from '@/composables/useTranslations';
+
+const { t } = useTranslations();
+
 interface Method {
     num: string;
     title: string;
@@ -9,26 +13,26 @@ interface Method {
 const methods: Method[] = [
     {
         num: '01',
-        title: 'Evaluare inițială',
-        text: 'Vedem exact unde e copilul și ce nivel i se potrivește, înainte de orice.',
+        title: t('pages.home.how_we_work.list_item.title_1'),
+        text: t('pages.home.how_we_work.list_item.text_1'),
         numColor: 'text-brand-magenta',
     },
     {
         num: '02',
-        title: 'Plan individual',
-        text: 'Un traseu construit pe obiectivul lui, nu o programă generică pentru toți.',
+        title: t('pages.home.how_we_work.list_item.title_2'),
+        text: t('pages.home.how_we_work.list_item.text_2'),
         numColor: 'text-brand-lime',
     },
     {
         num: '03',
-        title: 'Subiecte reale',
-        text: 'Past papers și probleme calibrate fix pe nivelul țintă, corectate pe barem.',
+        title: t('pages.home.how_we_work.list_item.title_3'),
+        text: t('pages.home.how_we_work.list_item.text_3'),
         numColor: 'text-accent-teal',
     },
     {
         num: '04',
-        title: 'Rapoarte progres',
-        text: 'Vedeți clar ce a recuperat copilul și ce mai are de lucru.',
+        title: t('pages.home.how_we_work.list_item.title_4'),
+        text: t('pages.home.how_we_work.list_item.text_4'),
         numColor: 'text-brand',
     },
 ];
@@ -45,16 +49,15 @@ const methods: Method[] = [
                     <span
                         class="inline-block h-[7px] w-[7px] rounded-[2px] bg-brand-lime"
                     />
-                    Cum lucrăm
+                    {{ t('pages.home.how_we_work.header') }}
                 </span>
                 <h2
-                    class="mt-3.5 text-[clamp(30px,3.6vw,44px)] font-bold tracking-[-0.01em] text-white"
+                    class="mt-3.5 text-[clamp(22px,3.6vw,35px)] font-bold tracking-[-0.01em] text-white"
                 >
-                    Notă mai mare, nu mai multe ore
+                    {{ t('pages.home.how_we_work.title') }}
                 </h2>
                 <p class="mt-3.5 text-[17px] leading-relaxed text-paper/60">
-                    Patru lucruri pe care le facem la fiecare elev, indiferent
-                    de program — astea fac diferența.
+                    {{ t('pages.home.how_we_work.description') }}
                 </p>
             </div>
 

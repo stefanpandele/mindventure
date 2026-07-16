@@ -1,4 +1,8 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { useTranslations } from '@/composables/useTranslations';
+
+const { t } = useTranslations();
+</script>
 
 <template>
     <section
@@ -14,19 +18,16 @@
                 <blockquote
                     class="my-6 text-[clamp(24px,3.2vw,38px)] leading-[1.22] font-semibold tracking-[-0.02em]"
                 >
-                    Încă de mică îmi așezam jucăriile și le „predam" povești
-                    inventate. Astăzi fac același lucru — doar că poveștile mele
-                    sunt despre
-                    <em class="text-brand-lime not-italic"
-                        >logică, explorare și jocul gândirii</em
+                    {{ t('pages.about.quote_section.quote_1') }}
+                    <em class="text-brand-lime not-italic">
+                        {{ t('pages.about.quote_section.quote_2') }} </em
                     >.
                 </blockquote>
                 <div class="text-[15px] text-paper/[0.62]">
-                    Vreau ca fiecare copil care trece prin Mindventure să simtă
-                    că
-                    <b class="font-semibold text-paper"
-                        >mintea lui e puternică.</b
-                    >
+                    {{ t('pages.about.quote_section.sub_quote_1') }}
+                    <b class="font-semibold text-paper">
+                        {{ t('pages.about.quote_section.sub_quote_2') }}
+                    </b>
                 </div>
             </div>
         </div>

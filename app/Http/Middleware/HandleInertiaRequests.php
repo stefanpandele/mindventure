@@ -46,6 +46,7 @@ class HandleInertiaRequests extends Middleware
             ],
             'locale' => app()->getLocale(),
             'translations' => $this->translations(app()->getLocale()),
+            'contactEmail' => config('mail.contact_to'),
         ];
     }
 

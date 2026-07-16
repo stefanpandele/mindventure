@@ -1,4 +1,8 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { useTranslations } from '@/composables/useTranslations';
+
+const { t } = useTranslations();
+</script>
 
 <template>
     <section class="py-16 md:py-[90px]">
@@ -13,39 +17,30 @@
                     <span
                         class="inline-block h-[7px] w-[7px] rounded-[2px] bg-brand-magenta"
                     />
-                    Povestea mea
+                    {{ t('pages.about.story_section.header') }}
                 </span>
                 <h2
                     class="mt-4 mb-[22px] text-[clamp(28px,3.4vw,40px)] font-bold tracking-[-0.01em] text-brand-indigo-dark-2"
                 >
-                    De ce am creat Mindventure
+                    {{ t('pages.about.story_section.title') }}
                 </h2>
                 <p
                     class="mb-[18px] max-w-[38em] text-[16.5px] leading-[1.7] text-brand-muted"
                 >
-                    Am făcut cercetare și am predat matematică ani la rând — în
-                    universitate și în industrie, de la logică și metode formale
-                    până la sisteme din lumea reală. Mi-am construit cariera pe
-                    ideea că problemele grele au, aproape mereu, o soluție
-                    elegantă.
+                    {{ t('pages.about.story_section.description_1') }}
                 </p>
                 <p
                     class="mb-[18px] max-w-[38em] text-[16.5px] leading-[1.7] text-brand-muted"
                 >
-                    După ani petrecuți în universitate și în cercetare, am
-                    descoperit ceva:
-                    <strong class="font-semibold text-brand-indigo-dark-2"
-                        >adevărata valoare a matematicii nu stă în rezultate, ci
-                        în felul în care îți modelează gândirea.</strong
-                    >
+                    {{ t('pages.about.story_section.description_2') }}
+                    <strong class="font-semibold text-brand-indigo-dark-2">
+                        {{ t('pages.about.story_section.description_3') }}
+                    </strong>
                 </p>
                 <p
                     class="max-w-[38em] text-[16.5px] leading-[1.7] text-brand-muted"
                 >
-                    De aceea am creat Mindventure — un spațiu unde ne conectăm
-                    cu copiii, le câștigăm încrederea, respectăm ritmul
-                    fiecăruia și le arătăm că matematica e frumoasă, logică și
-                    vie.
+                    {{ t('pages.about.story_section.description_4') }}
                 </p>
             </div>
 
@@ -60,11 +55,6 @@
                         class="block w-full object-cover"
                     />
                 </figure>
-                <span
-                    class="absolute -bottom-4 -left-3 -rotate-3 rounded-[10px] bg-brand-lime px-3.5 py-[9px] font-mono text-[12px] font-bold text-brand-indigo-dark-2 shadow-[0_10px_24px_-12px_rgba(17,14,43,0.4)]"
-                >
-                    la lucru ✦
-                </span>
             </div>
         </div>
     </section>

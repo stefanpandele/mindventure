@@ -1,4 +1,10 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import BookSessionModal from '@/components/modals/BookSessionModal.vue';
+import { useTranslations } from '@/composables/useTranslations';
+
+const { t } = useTranslations();
+const section = 'about';
+</script>
 
 <template>
     <section class="border-b border-brand-indigo-dark-2/10">
@@ -13,7 +19,7 @@
                     <span
                         class="inline-block h-[7px] w-[7px] rounded-[2px] bg-brand-magenta"
                     />
-                    Despre · fondatoarea Mindventure
+                    {{ t('pages.about.hero.badge_text') }}
                 </span>
 
                 <h1
@@ -22,35 +28,26 @@
                     Denisa Diaconescu
                 </h1>
 
-                <div
-                    class="mt-3.5 text-[18px] font-semibold text-brand-magenta"
-                >
-                    Conferențiar la Universitatea din București · Doctor în
-                    matematică
-                </div>
-
                 <p
                     class="mt-[18px] max-w-[32em] text-[18px] leading-relaxed text-brand-muted"
                 >
-                    Din 2008 am ghidat generații întregi de tineri — în România
-                    și la Universitatea din Berna. Dar dincolo de diplome și
-                    articole științifice, sunt și mamă. Și când ești și
-                    profesor, și părinte, vezi altfel lucrurile.
+                    {{ t('pages.about.hero.description') }}
                 </p>
 
                 <div class="mt-[30px] flex flex-wrap gap-3.5">
-                    <a
-                        href="#cunoaste"
-                        class="rounded-xl bg-brand-magenta px-[22px] py-[13px] text-[15px] font-semibold text-white transition-opacity hover:opacity-90"
-                        >Cunoaște-mă la o evaluare</a
-                    >
+                    <BookSessionModal
+                        :section="section"
+                        :name="t('buttons.cta.book_session')"
+                        trigger-class="inline-block rounded-xl bg-brand-magenta px-6 py-3 text-[15px] font-semibold text-white transition-opacity hover:opacity-90"
+                    />
                     <a
                         href="https://cs.unibuc.ro/~ddiaconescu/"
                         target="_blank"
                         rel="noopener"
                         class="rounded-xl border-[1.5px] border-brand-indigo-dark-2/12 px-[22px] py-[13px] text-[15px] font-semibold text-brand-indigo-dark-2 transition-colors hover:border-brand-indigo-dark-2"
-                        >Parcurs academic</a
                     >
+                        {{ t('pages.about.hero.btn_cv') }}
+                    </a>
                 </div>
             </div>
 

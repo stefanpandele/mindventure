@@ -1,4 +1,10 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import BookSessionModal from '@/components/modals/BookSessionModal.vue';
+import { useTranslations } from '@/composables/useTranslations';
+
+const { t } = useTranslations();
+const section = 'junior';
+</script>
 
 <template>
     <section class="relative overflow-hidden border-b border-brand/10">
@@ -13,15 +19,17 @@
                     <span
                         class="inline-block h-[7px] w-[7px] rounded-[2px] bg-brand-lime"
                     />
-                    Junior · clasele 2–8
+                    {{ t('pages.junior.hero.badge_text') }}
                 </span>
 
                 <h1
                     class="mt-[22px] text-4xl leading-[1.03] font-bold tracking-[-0.025em] text-brand-indigo-dark-2 sm:text-[clamp(40px,5.2vw,64px)]"
                 >
-                    Matematica, pe placul lor —
+                    {{ t('pages.junior.hero.title_1') }}
                     <span class="relative inline-block">
-                        <span class="relative z-10">de la clasa a 2-a</span>
+                        <span class="relative z-10">
+                            {{ t('pages.junior.hero.title_2') }}
+                        </span>
                         <span
                             class="absolute -right-1 bottom-[0.07em] -left-1 h-[0.34em] -rotate-[1.8deg] rounded-[3px] bg-brand-lime"
                         />
@@ -32,22 +40,21 @@
                 <p
                     class="mt-[22px] max-w-[31em] text-[18px] leading-relaxed text-brand-body"
                 >
-                    Construim baza și încrederea devreme, cât încă e ușor — prin
-                    jocuri, obiecte și explicații pe înțelesul lor. Așa,
-                    matematica nu apucă să devină „materia grea".
+                    {{ t('pages.junior.hero.description') }}
                 </p>
 
                 <div class="mt-[30px] flex flex-wrap gap-3.5">
-                    <a
-                        href="#rezerva"
-                        class="rounded-xl bg-brand-indigo px-5 py-3 text-[15px] font-semibold text-paper transition-opacity hover:opacity-90"
-                        >Rezervă o evaluare gratuită</a
-                    >
-                    <a
-                        href="#cum-lucram"
-                        class="rounded-xl border-[1.5px] border-brand-indigo-dark-2/12 px-5 py-3 text-[15px] font-semibold text-brand-indigo-dark-2 transition-colors hover:border-brand-indigo-dark-2"
-                        >Cum lucrăm</a
-                    >
+                    <BookSessionModal
+                        :section="section"
+                        :name="t('buttons.cta.book_session')"
+                        trigger-class="inline-block rounded-xl bg-brand-lime px-6 py-3 text-[15px] font-semibold text-brand-indigo-dark-2 transition-opacity hover:opacity-90"
+                    />
+                    <!--                    <a-->
+                    <!--                        href="#cum-lucram"-->
+                    <!--                        class="rounded-xl border-[1.5px] border-brand-indigo-dark-2/12 px-5 py-3 text-[15px] font-semibold text-brand-indigo-dark-2 transition-colors hover:border-brand-indigo-dark-2"-->
+                    <!--                    >-->
+                    <!--                        {{ t('buttons.how_we_work') }}-->
+                    <!--                    </a>-->
                 </div>
 
                 <div
@@ -64,7 +71,7 @@
                             class="-ml-2 h-[26px] w-[26px] rounded-full border-2 border-paper bg-accent-teal"
                         />
                     </span>
-                    Grupe mici și sesiuni 1:1, pe ritmul fiecărui copil.
+                    {{ t('pages.junior.hero.social_proof') }}
                 </div>
             </div>
 
@@ -86,7 +93,7 @@
                     <figcaption
                         class="mt-2 text-center font-mono text-[11px] tracking-[0.02em] text-brand-muted"
                     >
-                        math is easy ✏️
+                        {{ t('pages.junior.hero.fig_caption_1') }}
                     </figcaption>
                 </figure>
                 <figure
@@ -100,7 +107,7 @@
                     <figcaption
                         class="mt-2 text-center font-mono text-[11px] tracking-[0.02em] text-brand-muted"
                     >
-                        tabla înmulțirii, altfel
+                        {{ t('pages.junior.hero.fig_caption_2') }}
                     </figcaption>
                 </figure>
             </div>
