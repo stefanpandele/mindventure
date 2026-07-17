@@ -12,6 +12,7 @@
     "sail": false,
     "skills": [
         "laravel-best-practices",
+        "configure-nightwatch",
         "wayfinder-development",
         "inertia-vue-development",
         "tailwindcss-development"
