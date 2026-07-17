@@ -86,7 +86,7 @@ const links: NavLink[] = [
                 <BookSessionModal
                     :section="section"
                     :name="t('buttons.cta.book_session')"
-                    trigger-class="inline-block rounded-xl bg-brand-indigo text-white px-5 py-2.5 text-[15px] font-semibold  transition-opacity hover:opacity-90"
+                    trigger-class="inline-block rounded-xl bg-brand-indigo text-white px-5 py-2.5 text-[15px] font-semibold transition-opacity hover:opacity-90"
                 />
             </div>
 
@@ -109,7 +109,7 @@ const links: NavLink[] = [
         </div>
 
         <!-- Mobile secondary row: auth + CTA (below the top bar) -->
-        <div class="flex items-center gap-2 px-5 py-2.5 md:hidden">
+        <div class="flex items-center justify-center gap-2 px-5 py-2.5 md:hidden">
             <!--            <Link-->
             <!--                href="/"-->
             <!--                class="flex-1 rounded-md border border-brand/30 py-2 text-center text-xs font-semibold text-brand-ink transition-colors hover:border-brand hover:text-brand"-->
@@ -119,7 +119,7 @@ const links: NavLink[] = [
             <BookSessionModal
                 :section="section"
                 :name="t('buttons.cta.book_session')"
-                trigger-class="inline-block rounded-xl bg-brand-lime px-6 py-3 text-[15px] font-semibold text-brand-indigo-dark-2 transition-opacity hover:opacity-90"
+                trigger-class="inline-block rounded-xl bg-brand-indigo px-5 py-2.5 text-[15px] font-semibold text-white transition-opacity hover:opacity-90"
             />
         </div>
 
