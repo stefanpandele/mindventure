@@ -1,4 +1,8 @@
 <script setup lang="ts">
+import { useTranslations } from '@/composables/useTranslations';
+
+const { t } = useTranslations();
+
 interface Credential {
     barColor: string;
     title: string;
@@ -8,23 +12,23 @@ interface Credential {
 const credentials: Credential[] = [
     {
         barColor: 'bg-brand-magenta',
-        title: 'Conferențiar universitar',
-        detail: 'Facultatea de Matematică și Informatică, Universitatea din București',
+        title: t('pages.about.credentials_section.item_1.title'),
+        detail: t('pages.about.credentials_section.item_1.detail'),
     },
     {
         barColor: 'bg-brand-lime',
-        title: 'Doctor în matematică',
-        detail: 'Specializare în logică matematică (2013)',
+        title: t('pages.about.credentials_section.item_2.title'),
+        detail: t('pages.about.credentials_section.item_2.detail'),
     },
     {
         barColor: 'bg-accent-teal',
-        title: 'Peste 20 ani experiență',
-        detail: 'Ghidând generații întregi de studenți și elevi',
+        title: t('pages.about.credentials_section.item_3.title'),
+        detail: t('pages.about.credentials_section.item_3.detail'),
     },
     {
         barColor: 'bg-brand-indigo',
-        title: 'Cercetare',
-        detail: 'În mediul academic și cel privat',
+        title: t('pages.about.credentials_section.item_4.title'),
+        detail: t('pages.about.credentials_section.item_4.detail'),
     },
 ];
 </script>

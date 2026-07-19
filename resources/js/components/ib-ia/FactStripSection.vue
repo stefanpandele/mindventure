@@ -41,7 +41,7 @@ const facts: Fact[] = [
 <template>
     <section class="bg-brand-indigo-dark-2 py-10 text-paper">
         <div
-            class="mx-auto grid max-w-6xl grid-cols-2 gap-x-6 gap-y-7 px-5 sm:px-6 md:grid-cols-5 md:gap-5"
+            class="mx-auto grid max-w-6xl grid-cols-2 gap-x-6 gap-y-8 px-5 sm:px-6 md:grid-cols-4 md:gap-6"
         >
             <div
                 v-for="(fact, i) in facts"

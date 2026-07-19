@@ -26,15 +26,17 @@ const section = 'junior';
                     class="mt-[22px] text-4xl leading-[1.03] font-bold tracking-[-0.025em] text-brand-indigo-dark-2 sm:text-[clamp(40px,5.2vw,64px)]"
                 >
                     {{ t('pages.junior.hero.title_1') }}
-                    <span class="relative inline-block">
-                        <span class="relative z-10">
-                            {{ t('pages.junior.hero.title_2') }}
+                    <span class="whitespace-nowrap">
+                        <span class="relative inline-block">
+                            <span class="relative z-10">
+                                {{ t('pages.junior.hero.title_2') }}
+                            </span>
+                            <span
+                                class="absolute -right-1 bottom-[0.07em] -left-1 h-[0.34em] -rotate-[1.8deg] rounded-[3px] bg-brand-lime"
+                            />
                         </span>
-                        <span
-                            class="absolute -right-1 bottom-[0.07em] -left-1 h-[0.34em] -rotate-[1.8deg] rounded-[3px] bg-brand-lime"
-                        />
+                        .
                     </span>
-                    .
                 </h1>
 
                 <p
