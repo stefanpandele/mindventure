@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import BookSessionModal from '@/components/modals/BookSessionModal.vue';
 import { useTranslations } from '@/composables/useTranslations';
+import { trackEvent } from '@/lib/gtm';
 
 const { t } = useTranslations();
 const section = 'junior';
@@ -50,6 +51,7 @@ const section = 'junior';
                         :section="section"
                         :name="t('buttons.cta.book_session')"
                         trigger-class="inline-block rounded-xl bg-brand-lime px-6 py-3 text-[15px] font-semibold text-brand-indigo-dark-2 transition-opacity hover:opacity-90"
+                        @open="trackEvent('cta_click', { location: 'hero_section' })"
                     />
                     <!--                    <a-->
                     <!--                        href="#cum-lucram"-->

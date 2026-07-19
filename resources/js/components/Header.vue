@@ -5,6 +5,7 @@ import { computed, ref } from 'vue';
 
 import BookSessionModal from '@/components/modals/BookSessionModal.vue';
 import { useTranslations } from '@/composables/useTranslations';
+import { trackEvent } from '@/lib/gtm';
 import LanguageSwitcher from './LanguageSwitcher.vue';
 
 const { t } = useTranslations();
@@ -87,6 +88,7 @@ const links: NavLink[] = [
                     :section="section"
                     :name="t('buttons.cta.book_session')"
                     trigger-class="inline-block rounded-xl bg-brand-indigo text-white px-5 py-2.5 text-[15px] font-semibold transition-opacity hover:opacity-90"
+                    @open="trackEvent('cta_click', { location: 'app_header' })"
                 />
             </div>
 
@@ -120,6 +122,7 @@ const links: NavLink[] = [
                 :section="section"
                 :name="t('buttons.cta.book_session')"
                 trigger-class="inline-block rounded-xl bg-brand-indigo px-5 py-2.5 text-[15px] font-semibold text-white transition-opacity hover:opacity-90"
+                @open="trackEvent('cta_click', { location: 'app_header' })"
             />
         </div>
 

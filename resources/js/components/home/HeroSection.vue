@@ -2,6 +2,7 @@
 // import { IconPlayerPlayFilled } from '@tabler/icons-vue';
 import BookSessionModal from '@/components/modals/BookSessionModal.vue';
 import { useTranslations } from '@/composables/useTranslations';
+import { trackEvent } from '@/lib/gtm';
 
 const { t } = useTranslations();
 const section = 'homepage';
@@ -59,6 +60,7 @@ const section = 'homepage';
                         :section="section"
                         :name="t('buttons.cta.book_session')"
                         trigger-class="inline-block rounded-xl bg-brand-indigo text-white px-5 py-2.5 text-[15px] font-semibold  transition-opacity hover:opacity-90"
+                        @open="trackEvent('cta_click', { location: 'hero_section' })"
                     />
                     <!--                    <a-->
                     <!--                        href="#video"-->
