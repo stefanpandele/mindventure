@@ -2,6 +2,7 @@
 import { IconPlayerPlayFilled } from '@tabler/icons-vue';
 import BookSessionModal from '@/components/modals/BookSessionModal.vue';
 import { useTranslations } from '@/composables/useTranslations';
+import { trackEvent } from '@/lib/gtm';
 
 const { t } = useTranslations();
 </script>
@@ -58,6 +59,7 @@ const { t } = useTranslations();
                         section="ib-math"
                         :name="t('buttons.cta.book_session')"
                         trigger-class="rounded-md bg-brand-indigo px-5 py-2.5 text-[15px] font-semibold text-white transition-opacity hover:opacity-90"
+                        @open="trackEvent('cta_click', { location: 'hero_section' })"
                     />
                 </div>
             </div>

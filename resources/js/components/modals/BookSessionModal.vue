@@ -2,6 +2,7 @@
 import { useForm } from '@inertiajs/vue3';
 import { ref, watch, nextTick, onMounted, onBeforeUnmount } from 'vue';
 import { useTranslations } from '@/composables/useTranslations';
+import { trackEvent } from '@/lib/gtm';
 
 const { t } = useTranslations();
 const open = ref(false);
@@ -10,6 +11,7 @@ const firstField = ref<HTMLInputElement | null>(null);
 // Teleport is client-only to avoid an SSR hydration mismatch.
 const isMounted = ref(false);
 const props = defineProps(['section', 'name', 'triggerClass']);
+const emit = defineEmits(['open']);
 
 const form = useForm({
     name: '',
@@ -20,6 +22,7 @@ const form = useForm({
 });
 
 function openModal() {
+    emit('open');
     sent.value = false;
     open.value = true;
     nextTick(() => firstField.value?.focus());
@@ -33,6 +36,7 @@ function submit() {
         preserveScroll: true,
         onSuccess: () => {
             sent.value = true;
+            trackEvent('form_submit', { section: props.section });
             form.reset();
         },
     });
