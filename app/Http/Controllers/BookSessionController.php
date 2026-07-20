@@ -21,7 +21,7 @@ class BookSessionController extends Controller
             senderName: $validated['name'],
             senderEmail: $validated['email'],
             senderPhone: $validated['phone'],
-            question: $validated['question'],
+            question: $validated['question'] ?? '',
             section: $validated['section'],
         ));
 
@@ -31,7 +31,7 @@ class BookSessionController extends Controller
                 senderName: $validated['name'],
                 senderEmail: $validated['email'],
                 senderPhone: $validated['phone'],
-                question: $validated['question'],
+                question: $validated['question'] ?? '',
                 section: $validated['section'],
             ));
 
