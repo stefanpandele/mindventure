@@ -8,7 +8,9 @@ import {
 } from '@tabler/icons-vue';
 import { computed } from 'vue';
 import type { Component } from 'vue';
+import CookieConsent from '@/components/CookieConsent.vue';
 import { useTranslations } from '@/composables/useTranslations';
+import { reopenConsentBanner } from '@/lib/consent';
 import {
     contact,
     ibIa,
@@ -25,7 +27,9 @@ const contactEmail = computed(() => (page.props.contactEmail ?? '') as string);
 
 interface FooterLink {
     name: string;
-    url: string;
+    /** Either a destination or, for the cookie preferences entry, an action. */
+    url?: string;
+    action?: () => void;
 }
 
 interface FooterColumn {
@@ -78,6 +82,10 @@ const columns = computed<FooterColumn[]>(() => [
             {
                 name: t('privacy_policy_label'),
                 url: privacyPolicy.url(),
+            },
+            {
+                name: t('cookies.preferences'),
+                action: reopenConsentBanner,
             },
         ],
     },
@@ -151,8 +159,16 @@ const socials: SocialLink[] = [
                 </div>
                 <ul class="space-y-1.5">
                     <li v-for="item in col.items" :key="item.name">
+                        <button
+                            v-if="item.action"
+                            type="button"
+                            class="text-left text-[11px] text-white/60 transition-colors hover:text-white"
+                            @click="item.action"
+                        >
+                            {{ item.name }}
+                        </button>
                         <Link
-                            v-if="isInternal(item.url)"
+                            v-else-if="isInternal(item.url!)"
                             :href="item.url"
                             class="text-[11px] text-white/60 transition-colors hover:text-white"
                         >
@@ -162,7 +178,7 @@ const socials: SocialLink[] = [
                             v-else
                             :href="item.url"
                             :target="
-                                item.url.startsWith('http')
+                                item.url!.startsWith('http')
                                     ? '_blank'
                                     : undefined
                             "
@@ -191,5 +207,13 @@ const socials: SocialLink[] = [
                 </span>
             </div>
         </div>
+
+        <!--
+            The app has no shared layout, and the footer is the one component
+            every page renders, so the consent banner lives here to be present
+            site-wide. It teleports itself to <body>, so it is not actually
+            nested in the footer.
+        -->
+        <CookieConsent />
     </footer>
 </template>

@@ -1,4 +1,21 @@
 {
+    "seo.home.title": "Mindventure — Studio de Matematică în Voluntari",
+    "seo.home.description": "Studio de pregătire la matematică în Voluntari: de la primele clase până la examenul IB Math și mentorat pentru Internal Assessment. Grupe mici și sesiuni 1:1.",
+    "seo.about.title": "Despre Denisa Diaconescu | Mindventure",
+    "seo.about.description": "Denisa Diaconescu, Conferențiar Universitar și Doctor în Matematică, ghidează elevi din 2008, în România și la Universitatea din Berna. Povestea Mindventure.",
+    "seo.ib_math.title": "Pregătire IB Math în grupe de maximum 4 elevi | Mindventure",
+    "seo.ib_math.description": "Pregătire pentru examenul IB Math în grupe exclusive de maximum 4 elevi, coordonate de Denisa Diaconescu, Doctor în Matematică. Studio în Erou Iancu Nicolae.",
+    "seo.ib_ia.title": "Mentorat IB Internal Assessment (IA) | Mindventure",
+    "seo.ib_ia.description": "Mentorat pentru Internal Assessment la matematică: de la alegerea temei până la forma finală, criteriu cu criteriu, exact cum gândește examinatorul IB.",
+    "seo.junior.title": "Matematică pentru primar și gimnaziu | Mindventure",
+    "seo.junior.description": "Matematică pentru primar și gimnaziu, predată prin jocuri și explicații pe înțelesul copiilor. Grupe mici și sesiuni 1:1, pe ritmul fiecărui elev.",
+    "seo.contact.title": "Contact — Studio de Matematică în Voluntari | Mindventure",
+    "seo.contact.description": "Scrie-ne sau vino la studioul din Erou Iancu Nicolae 122, Voluntari. Începem întotdeauna cu o întâlnire de cunoaștere, fără obligații. Telefon: (+40) 720 17 17 00.",
+    "seo.terms.title": "Termeni și condiții | Mindventure",
+    "seo.terms.description": "Termenii și condițiile de utilizare a serviciilor Mindventure, studio de pregătire la matematică din Voluntari.",
+    "seo.privacy.title": "Politica de confidențialitate | Mindventure",
+    "seo.privacy.description": "Cum colectează, folosește și protejează Mindventure datele tale personale.",
+
     "nav.home": "Acasă",
     "nav.about": "Despre",
     "nav.ib_math": "Matematică IB",
@@ -402,5 +419,11 @@
     "components.footer.columns.programs.item_2.name": "Pregătire matematică IB",
     "components.footer.columns.programs.item_3.name": "IB Internal Assesment",
 
-    "components.footer.columns.contact.item_3.name": "Formular de contact"
+    "components.footer.columns.contact.item_3.name": "Formular de contact",
+    "cookies.aria_label": "Consimțământ pentru cookie-uri",
+    "cookies.message": "Folosim cookie-uri de analiză și marketing, activate doar cu acordul tău. Detalii în",
+    "cookies.policy_link": "Politica de confidențialitate",
+    "cookies.accept": "Accept",
+    "cookies.deny": "Refuz",
+    "cookies.preferences": "Preferințe cookie-uri"
 }

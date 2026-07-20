@@ -19,6 +19,7 @@ const form = useForm({
     phone: '',
     question: '',
     section: props.section,
+    event_id: '',
 });
 
 function openModal() {
@@ -32,11 +33,19 @@ function closeModal() {
     form.clearErrors();
 }
 function submit() {
+    // One id shared by the browser pixel and the server-side Conversions API
+    // call, so Meta collapses the two reports of this lead into one conversion.
+    const eventId = crypto.randomUUID();
+    form.event_id = eventId;
+
     form.post('/book-session', {
         preserveScroll: true,
         onSuccess: () => {
             sent.value = true;
-            trackEvent('form_submit', { section: props.section });
+            trackEvent('form_submit', {
+                section: props.section,
+                event_id: eventId,
+            });
             form.reset();
         },
     });
@@ -59,7 +68,7 @@ watch(open, (v) => {
     }
 });
 
-const benefits = ['modal_book.benefit_1', 'modal_book.benefit_2'];
+// const benefits = ['modal_book.benefit_1', 'modal_book.benefit_2'];
 </script>
 
 <template>

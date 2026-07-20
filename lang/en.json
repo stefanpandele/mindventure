@@ -1,4 +1,21 @@
 {
+    "seo.home.title": "Mindventure — Mathematics Studio in Voluntari",
+    "seo.home.description": "A mathematics studio in Voluntari, Bucharest: from the first grades through the IB Math exam and Internal Assessment mentoring. Small groups and 1:1 sessions.",
+    "seo.about.title": "About Denisa Diaconescu | Mindventure",
+    "seo.about.description": "Denisa Diaconescu, Associate Professor and PhD in Mathematics, has guided students since 2008, in Romania and at the University of Bern. The Mindventure story.",
+    "seo.ib_math.title": "IB Math tutoring in groups of up to 4 students | Mindventure",
+    "seo.ib_math.description": "IB Math exam preparation in exclusive groups of no more than 4 students, led by Denisa Diaconescu, PhD in Mathematics. Studio on Erou Iancu Nicolae.",
+    "seo.ib_ia.title": "IB Internal Assessment (IA) mentoring | Mindventure",
+    "seo.ib_ia.description": "Mentoring for the Mathematics Internal Assessment: from choosing the topic to the final draft, criterion by criterion, the way an IB examiner reads it.",
+    "seo.junior.title": "Mathematics for primary and secondary school | Mindventure",
+    "seo.junior.description": "Mathematics for primary and secondary school, taught through games and explanations children actually follow. Small groups and 1:1 sessions, at each child's pace.",
+    "seo.contact.title": "Contact — Mathematics Studio in Voluntari | Mindventure",
+    "seo.contact.description": "Write to us or visit the studio at Erou Iancu Nicolae 122, Voluntari. We always start with a free, no-obligation meeting. Phone: (+40) 720 17 17 00.",
+    "seo.terms.title": "Terms and conditions | Mindventure",
+    "seo.terms.description": "The terms and conditions for using the services of Mindventure, a mathematics studio in Voluntari.",
+    "seo.privacy.title": "Privacy policy | Mindventure",
+    "seo.privacy.description": "How Mindventure collects, uses and protects your personal data.",
+
     "nav.home": "Home",
     "nav.about": "About the teacher",
     "nav.ib_math": "IB Math",
@@ -402,5 +419,11 @@
     "components.footer.columns.programs.item_2.name": "IB Mathematics",
     "components.footer.columns.programs.item_3.name": "IB Internal Assessment",
 
-    "components.footer.columns.contact.item_3.name": "Contact form"
+    "components.footer.columns.contact.item_3.name": "Contact form",
+    "cookies.aria_label": "Cookie consent",
+    "cookies.message": "We use analytics and marketing cookies, enabled only with your consent. Details in our",
+    "cookies.policy_link": "Privacy Policy",
+    "cookies.accept": "Accept",
+    "cookies.deny": "Decline",
+    "cookies.preferences": "Cookie preferences"
 }

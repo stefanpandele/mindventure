@@ -20,7 +20,7 @@ class BookSessionConfirmation extends Mailable
         public string $senderName,
         public string $senderEmail,
         public string $senderPhone,
-        public string $question,
+        public ?string $question,
         public string $section,
     ) {}
 
