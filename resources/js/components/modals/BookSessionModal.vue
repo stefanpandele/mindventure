@@ -59,7 +59,7 @@ watch(open, (v) => {
     }
 });
 
-const benefits = ['modal_book.benefit_1', 'modal_book.benefit_2'];
+// const benefits = ['modal_book.benefit_1', 'modal_book.benefit_2'];
 </script>
 
 <template>

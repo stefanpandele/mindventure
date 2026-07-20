@@ -54,7 +54,7 @@ const { t } = useTranslations();
 
                 <div class="mt-2 flex flex-wrap gap-3">
                     <BookSessionModal
-                        section="ib-math"
+                        section="ib-ia"
                         :name="t('buttons.cta.book_session')"
                         trigger-class="rounded-md bg-brand-indigo px-5 py-2.5 text-[15px] font-semibold text-white transition-opacity hover:opacity-90"
                         @open="trackEvent('cta_click', { location: 'hero_section' })"
