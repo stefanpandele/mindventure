@@ -17,13 +17,14 @@ class BookSessionController extends Controller
     {
         $validated = $request->validated();
 
-        Mail::to(config('mail.contact_to'))->send(new BookSession(
-            senderName: $validated['name'],
-            senderEmail: $validated['email'],
-            senderPhone: $validated['phone'],
-            question: $validated['question'] ?? '',
-            section: $validated['section'],
-        ));
+        Mail::to(config('mail.contact_to'))
+            ->send(new BookSession(
+                senderName: $validated['name'],
+                senderEmail: $validated['email'],
+                senderPhone: $validated['phone'],
+                question: $validated['question'] ?? '',
+                section: $validated['section'],
+            ));
 
         Mail::to($validated['email'])
             ->locale(app()->getLocale())

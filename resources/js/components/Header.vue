@@ -10,8 +10,22 @@ import LanguageSwitcher from './LanguageSwitcher.vue';
 
 const { t } = useTranslations();
 const page = usePage();
-const section = 'homepage';
 const locale = computed(() => (page.props.locale ?? 'ro') as string);
+
+const sectionByComponent: Record<string, string> = {
+    Home: 'homepage',
+    About: 'about',
+    Junior: 'junior',
+    IbMath: 'ib-math',
+    IbIa: 'ib-ia',
+    Contact: 'contact',
+    Terms: 'terms',
+    Privacy: 'privacy',
+};
+
+const section = computed(
+    () => sectionByComponent[page.component] ?? 'homepage',
+);
 
 const open = ref(false);
 interface NavLink {

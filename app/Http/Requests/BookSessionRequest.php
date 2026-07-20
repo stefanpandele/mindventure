@@ -28,7 +28,19 @@ class BookSessionRequest extends FormRequest
             'email' => ['required', 'email', 'max:255'],
             'phone' => ['required', 'string', 'max:50'],
             'question' => ['nullable', 'string', 'max:5000'],
-            'section' => ['required', Rule::in(['ib-math'])],
+            'section' => [
+                'required',
+                Rule::in([
+                    'homepage',
+                    'about',
+                    'junior',
+                    'ib-math',
+                    'ib-ia',
+                    'contact',
+                    'terms',
+                    'privacy',
+                ]),
+            ],
         ];
     }
 
