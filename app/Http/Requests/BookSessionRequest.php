@@ -28,6 +28,10 @@ class BookSessionRequest extends FormRequest
             'email' => ['required', 'email', 'max:255'],
             'phone' => ['required', 'string', 'max:50'],
             'question' => ['nullable', 'string', 'max:5000'],
+            // Generated in the browser and shared with the pixel so Meta can
+            // deduplicate the browser and server copies of this lead. Optional:
+            // the server falls back to its own id if the request lacks one.
+            'event_id' => ['nullable', 'string', 'max:64'],
             'section' => [
                 'required',
                 Rule::in([

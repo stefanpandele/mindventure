@@ -20,6 +20,15 @@ return Application::configure(basePath: dirname(__DIR__))
             HandleInertiaRequests::class,
             AddLinkHeadersForPreloadedAssets::class,
         ]);
+
+        // The Meta pixel writes these from JavaScript, so they are not Laravel
+        // encrypted cookies. Without this exception the middleware fails to
+        // decrypt them and strips them from the request, which would silently
+        // cost the Conversions API its browser-match identifiers.
+        $middleware->encryptCookies(except: [
+            '_fbp',
+            '_fbc',
+        ]);
     })
     ->withExceptions(function (Exceptions $exceptions): void {
         $exceptions->shouldRenderJsonWhen(

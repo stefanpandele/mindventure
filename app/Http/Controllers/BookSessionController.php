@@ -5,8 +5,10 @@ namespace App\Http\Controllers;
 use App\Http\Requests\BookSessionRequest;
 use App\Mail\BookSession;
 use App\Mail\BookSessionConfirmation;
+use App\Services\MetaConversionsApi;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Str;
 
 class BookSessionController extends Controller
 {
@@ -36,6 +38,55 @@ class BookSessionController extends Controller
                 section: $validated['section'],
             ));
 
+        $this->reportLeadToMeta($validated, $request);
+
         return back();
+    }
+
+    /**
+     * Mirror the browser pixel's Lead event server-side.
+     *
+     * Dispatched after the response so an unreachable Meta endpoint never
+     * delays the visitor's submission. Runs in-process rather than on the
+     * queue, which has no worker in this application.
+     *
+     * @param  array<string, mixed>  $validated
+     */
+    private function reportLeadToMeta(array $validated, BookSessionRequest $request): void
+    {
+        $eventId = $validated['event_id'] ?? (string) Str::uuid();
+
+        $userData = [
+            'email' => $validated['email'],
+            'phone' => $validated['phone'],
+            'name' => $validated['name'],
+        ];
+
+        // The form posts from whichever page the modal was opened on, so the
+        // referer is the page Meta should attribute the lead to.
+        $context = array_filter([
+            'event_source_url' => $request->headers->get('referer'),
+            'client_ip_address' => $request->ip(),
+            'client_user_agent' => $request->userAgent(),
+            'fbp' => $this->cookieString($request, '_fbp'),
+            'fbc' => $this->cookieString($request, '_fbc'),
+        ]);
+
+        $customData = ['content_name' => $validated['section']];
+
+        dispatch(function () use ($eventId, $userData, $context, $customData) {
+            app(MetaConversionsApi::class)->send('Lead', $eventId, $userData, $context, $customData);
+        })->afterResponse();
+    }
+
+    /**
+     * Read a cookie that must be a plain string, ignoring the array form a
+     * crafted request could otherwise smuggle in (`_fbp[]=...`).
+     */
+    private function cookieString(BookSessionRequest $request, string $name): ?string
+    {
+        $value = $request->cookie($name);
+
+        return is_string($value) ? $value : null;
     }
 }

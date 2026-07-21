@@ -42,4 +42,16 @@ return [
         // to force it on or off regardless of environment.
         'enabled' => (bool) env('GTM_ENABLED', ! in_array(env('APP_ENV', 'production'), ['local', 'dev'], true)),
     ],
+
+    'meta' => [
+        'pixel_id' => env('META_PIXEL_ID'),
+        'capi_token' => env('META_CAPI_TOKEN'),
+        // Mirrors the GTM switch: off on local/dev so test submissions don't
+        // land in the live pixel. Set META_CAPI_ENABLED to force it either way.
+        'enabled' => (bool) env('META_CAPI_ENABLED', ! in_array(env('APP_ENV', 'production'), ['local', 'dev'], true)),
+        // While set, events are routed to Events Manager > Test Events instead
+        // of the live stream. Must be empty in production.
+        'test_event_code' => env('META_CAPI_TEST_EVENT_CODE'),
+        'api_version' => env('META_CAPI_VERSION', 'v21.0'),
+    ],
 ];
