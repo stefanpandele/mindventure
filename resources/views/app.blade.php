@@ -4,6 +4,8 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
+        <meta name="facebook-domain-verification" content="f7u1q4wpnkj6k9byzgho4xr9vddu4p" />
+
         @if (config('services.gtm.enabled') && config('services.gtm.id'))
             {{-- Google Tag Manager --}}
             <script>
