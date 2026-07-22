@@ -22,15 +22,24 @@
         <link rel="icon" href="/favicon.svg" type="image/svg+xml">
         <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 
-        <title>{{ config('app.name', 'Mindventure') }}</title>
+        {{-- Bound by App\View\Composers\SeoComposer, per route. --}}
+        <title>{{ $seo['title'] }}</title>
 
-        <meta name="description" content="Premium mathematics education for International Baccalaureate students.">
+        <meta name="description" content="{{ $seo['description'] }}">
+        <link rel="canonical" href="{{ $seo['canonical'] }}">
 
-        <meta property="og:title" content="Mindventure">
-        <meta property="og:description" content="Premium mathematics education for International Baccalaureate students.">
+        <meta property="og:site_name" content="Mindventure">
+        <meta property="og:title" content="{{ $seo['title'] }}">
+        <meta property="og:description" content="{{ $seo['description'] }}">
         <meta property="og:image" content="{{ url('/og-image.png') }}">
-        <meta property="og:url" content="{{ config('app.url') }}">
+        <meta property="og:url" content="{{ $seo['canonical'] }}">
+        <meta property="og:locale" content="{{ $seo['ogLocale'] }}">
         <meta property="og:type" content="website">
+
+        <meta name="twitter:card" content="summary_large_image">
+        <meta name="twitter:title" content="{{ $seo['title'] }}">
+        <meta name="twitter:description" content="{{ $seo['description'] }}">
+        <meta name="twitter:image" content="{{ url('/og-image.png') }}">
 
         @fonts
 
