@@ -41,9 +41,18 @@ class BookSessionCapiTest extends TestCase
         ], $overrides);
     }
 
+    /**
+     * A visitor who accepted the cookie banner. Without that cookie the
+     * controller sends nothing to Meta at all.
+     */
+    private function consented(): self
+    {
+        return $this->withUnencryptedCookie('mv_consent', 'granted');
+    }
+
     public function test_it_sends_a_lead_event_to_meta(): void
     {
-        $this->from('/ib-math')->post('/book-session', $this->payload())
+        $this->consented()->from('/ib-math')->post('/book-session', $this->payload())
             ->assertRedirect();
 
         Http::assertSent(function (Request $request) {
@@ -59,21 +68,21 @@ class BookSessionCapiTest extends TestCase
 
     public function test_it_reuses_the_browser_event_id_so_meta_can_deduplicate(): void
     {
-        $this->from('/ib-math')->post('/book-session', $this->payload());
+        $this->consented()->from('/ib-math')->post('/book-session', $this->payload());
 
         Http::assertSent(fn (Request $request) => $request->data()['data'][0]['event_id'] === 'evt-abc-123');
     }
 
     public function test_it_generates_an_event_id_when_the_request_omits_one(): void
     {
-        $this->from('/ib-math')->post('/book-session', $this->payload(['event_id' => null]));
+        $this->consented()->from('/ib-math')->post('/book-session', $this->payload(['event_id' => null]));
 
         Http::assertSent(fn (Request $request) => filled($request->data()['data'][0]['event_id']));
     }
 
     public function test_it_hashes_identifiers_and_never_sends_them_in_the_clear(): void
     {
-        $this->from('/ib-math')->post('/book-session', $this->payload());
+        $this->consented()->from('/ib-math')->post('/book-session', $this->payload());
 
         Http::assertSent(function (Request $request) {
             $userData = $request->data()['data'][0]['user_data'];
@@ -91,7 +100,7 @@ class BookSessionCapiTest extends TestCase
 
     public function test_it_forwards_the_facebook_browser_cookies_for_match_quality(): void
     {
-        $this->from('/ib-math')
+        $this->consented()->from('/ib-math')
             ->withUnencryptedCookies([
                 '_fbp' => 'fb.1.1700000000.123456',
                 '_fbc' => 'fb.1.1700000000.IwAR123',
@@ -108,7 +117,7 @@ class BookSessionCapiTest extends TestCase
 
     public function test_it_attributes_the_lead_to_the_page_the_form_was_submitted_from(): void
     {
-        $this->from('https://mindventure.ro/ib-math')->post('/book-session', $this->payload());
+        $this->consented()->from('https://mindventure.ro/ib-math')->post('/book-session', $this->payload());
 
         Http::assertSent(fn (Request $request) => $request->data()['data'][0]['event_source_url'] === 'https://mindventure.ro/ib-math');
     }
@@ -117,7 +126,7 @@ class BookSessionCapiTest extends TestCase
     {
         config(['services.meta.enabled' => false]);
 
-        $this->from('/ib-math')->post('/book-session', $this->payload());
+        $this->consented()->from('/ib-math')->post('/book-session', $this->payload());
 
         Http::assertNothingSent();
     }
@@ -126,7 +135,7 @@ class BookSessionCapiTest extends TestCase
     {
         config(['services.meta.capi_token' => null]);
 
-        $this->from('/ib-math')->post('/book-session', $this->payload());
+        $this->consented()->from('/ib-math')->post('/book-session', $this->payload());
 
         Http::assertNothingSent();
     }
@@ -135,16 +144,34 @@ class BookSessionCapiTest extends TestCase
     {
         Http::fake(['graph.facebook.com/*' => Http::response(['error' => 'nope'], 500)]);
 
-        $this->from('/ib-math')->post('/book-session', $this->payload())
+        $this->consented()->from('/ib-math')->post('/book-session', $this->payload())
             ->assertRedirect()
             ->assertSessionHasNoErrors();
     }
 
     public function test_an_invalid_event_id_is_rejected_by_validation(): void
     {
-        $this->from('/ib-math')
+        $this->consented()->from('/ib-math')
             ->post('/book-session', $this->payload(['event_id' => str_repeat('x', 65)]))
             ->assertSessionHasErrors('event_id');
+
+        Http::assertNothingSent();
+    }
+
+    public function test_it_sends_nothing_when_the_visitor_has_not_answered_the_cookie_banner(): void
+    {
+        $this->from('/ib-math')->post('/book-session', $this->payload())
+            ->assertRedirect();
+
+        Http::assertNothingSent();
+    }
+
+    public function test_it_sends_nothing_when_the_visitor_refused_cookies(): void
+    {
+        $this->withUnencryptedCookie('mv_consent', 'denied')
+            ->from('/ib-math')
+            ->post('/book-session', $this->payload())
+            ->assertRedirect();
 
         Http::assertNothingSent();
     }

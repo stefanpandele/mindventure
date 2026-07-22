@@ -7,15 +7,14 @@
         <meta name="facebook-domain-verification" content="f7u1q4wpnkj6k9byzgho4xr9vddu4p" />
 
         @if (config('services.gtm.enabled') && config('services.gtm.id'))
-            {{-- Google Tag Manager --}}
-            <script>
-                (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-                        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-                    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-                    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-                })(window,document,'script','dataLayer','{{ config('services.gtm.id') }}');
-            </script>
-            {{-- End Google Tag Manager --}}
+            {{--
+                Google Tag Manager is deliberately NOT loaded here. The container
+                pulls in GA4 and the Meta pixel, so it may only run once the
+                visitor accepts cookies. `resources/js/lib/gtm.ts` reads this id
+                and injects the loader at that point. There is no noscript
+                iframe for the same reason: it would fire without consent.
+            --}}
+            <meta name="gtm-id" content="{{ config('services.gtm.id') }}">
         @endif
 
         <link rel="icon" href="/favicon.ico" sizes="any">
@@ -47,18 +46,6 @@
         <x-inertia::head />
     </head>
     <body class="font-sans antialiased">
-        @if (config('services.gtm.enabled') && config('services.gtm.id'))
-            {{-- Google Tag Manager (noscript) --}}
-            <noscript>
-                <iframe
-                    src="https://www.googletagmanager.com/ns.html?id={{ config('services.gtm.id') }}"
-                    height="0"
-                    width="0"
-                    style="display:none;visibility:hidden"
-                ></iframe>
-            </noscript>
-            {{-- End Google Tag Manager (noscript) --}}
-        @endif
         <x-inertia::app />
     </body>
 </html>

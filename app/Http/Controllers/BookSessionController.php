@@ -50,10 +50,18 @@ class BookSessionController extends Controller
      * delays the visitor's submission. Runs in-process rather than on the
      * queue, which has no worker in this application.
      *
+     * Skipped entirely unless the visitor accepted cookies. The server has to
+     * check for itself: the browser pixel is gated by not loading GTM, but this
+     * call would otherwise still send hashed contact details to Meta.
+     *
      * @param  array<string, mixed>  $validated
      */
     private function reportLeadToMeta(array $validated, BookSessionRequest $request): void
     {
+        if ($this->cookieString($request, 'mv_consent') !== 'granted') {
+            return;
+        }
+
         $eventId = $validated['event_id'] ?? (string) Str::uuid();
 
         $userData = [

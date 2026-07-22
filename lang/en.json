@@ -419,5 +419,11 @@
     "components.footer.columns.programs.item_2.name": "IB Mathematics",
     "components.footer.columns.programs.item_3.name": "IB Internal Assessment",
 
-    "components.footer.columns.contact.item_3.name": "Contact form"
+    "components.footer.columns.contact.item_3.name": "Contact form",
+    "cookies.aria_label": "Cookie consent",
+    "cookies.message": "We use analytics and marketing cookies, enabled only with your consent. Details in our",
+    "cookies.policy_link": "Privacy Policy",
+    "cookies.accept": "Accept",
+    "cookies.deny": "Decline",
+    "cookies.preferences": "Cookie preferences"
 }

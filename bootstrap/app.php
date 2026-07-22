@@ -24,10 +24,13 @@ return Application::configure(basePath: dirname(__DIR__))
         // The Meta pixel writes these from JavaScript, so they are not Laravel
         // encrypted cookies. Without this exception the middleware fails to
         // decrypt them and strips them from the request, which would silently
-        // cost the Conversions API its browser-match identifiers.
+        // cost the Conversions API its browser-match identifiers. `mv_consent`
+        // is written by the cookie banner and read on both sides, so it is in
+        // the same position.
         $middleware->encryptCookies(except: [
             '_fbp',
             '_fbc',
+            'mv_consent',
         ]);
     })
     ->withExceptions(function (Exceptions $exceptions): void {

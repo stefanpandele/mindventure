@@ -5,7 +5,7 @@ export const privacy: Record<string, LegalContent> = {
         badge: 'Legal · Confidențialitate',
         title: 'Politica de confidențialitate',
         subtitle: 'Protecția datelor pe mindventure.ro',
-        lastUpdated: 'Ultima actualizare: noiembrie 2025',
+        lastUpdated: 'Ultima actualizare: iulie 2026',
         sections: [
             {
                 heading: '1. Dispoziții generale',
@@ -39,7 +39,7 @@ export const privacy: Record<string, LegalContent> = {
                 blocks: [
                     {
                         type: 'p',
-                        text: 'Site-ul poate fi accesat fără a fi necesară crearea unui cont de utilizator. Nu folosim în prezent instrumente de analiză de tip Google Analytics și nu setăm cookie-uri de tracking sau marketing.',
+                        text: 'Site-ul poate fi accesat fără a fi necesară crearea unui cont de utilizator. Folosim instrumente de analiză și de marketing (Google Analytics 4 și Meta Pixel), însă acestea sunt încărcate doar dacă îți dai acordul din bannerul de cookie-uri — vezi secțiunea 11.',
                     },
                     {
                         type: 'p',
@@ -122,6 +122,7 @@ export const privacy: Record<string, LegalContent> = {
                         type: 'list',
                         items: [
                             'furnizori de servicii tehnice (de exemplu, hosting), doar în măsura în care acest lucru este necesar pentru funcționarea site-ului;',
+                            'Google Ireland Limited și Meta Platforms Ireland Limited, pentru statistici de utilizare și măsurarea campaniilor publicitare — numai dacă ai acceptat cookie-urile de analiză și marketing (vezi secțiunea 11);',
                             'autorități publice sau instituții, atunci când suntem obligați prin lege sau în baza unor solicitări oficiale.',
                         ],
                     },
@@ -133,6 +134,10 @@ export const privacy: Record<string, LegalContent> = {
                     {
                         type: 'p',
                         text: 'Nu avem ca scop, în mod intenționat, transferul datelor tale cu caracter personal către state din afara Uniunii Europene sau Spațiului Economic European. Dacă în viitor va fi necesar un astfel de transfer, acesta va fi realizat doar cu implementarea garanțiilor prevăzute de legislația privind protecția datelor.',
+                    },
+                    {
+                        type: 'p',
+                        text: 'Dacă accepți cookie-urile de analiză și marketing, Google și Meta pot prelucra datele respective și pe servere din Statele Unite. Ambele companii sunt certificate în cadrul EU–U.S. Data Privacy Framework, care asigură un nivel adecvat de protecție conform deciziei Comisiei Europene.',
                     },
                 ],
             },
@@ -179,11 +184,23 @@ export const privacy: Record<string, LegalContent> = {
                 blocks: [
                     {
                         type: 'p',
-                        text: 'În prezent, site-ul mindventure.ro nu utilizează cookie-uri de analiză sau de marketing și nu încarcă scripturi de tracking (de exemplu, Google Analytics).',
+                        text: 'Site-ul mindventure.ro folosește cookie-uri strict necesare funcționării (de exemplu, cookie-ul de sesiune, cel de securitate CSRF, limba selectată și opțiunea ta privind cookie-urile). Acestea nu necesită consimțământ.',
                     },
                     {
                         type: 'p',
-                        text: 'Dacă în viitor vor fi instalate cookie-uri suplimentare sau vor fi folosite instrumente de analiză, politica privind cookie-urile va fi actualizată, iar utilizatorii vor putea să își gestioneze preferințele de consimțământ.',
+                        text: 'În plus, folosim cookie-uri de analiză și de marketing, care se activează numai după ce îți exprimi acordul din bannerul afișat la prima vizită:',
+                    },
+                    {
+                        type: 'list',
+                        items: [
+                            'Google Analytics 4, încărcat prin Google Tag Manager — statistici despre paginile vizitate și despre acțiunile din site (cookie-uri de tip _ga);',
+                            'Meta Pixel (Facebook) — măsurarea eficienței campaniilor publicitare și afișarea de reclame relevante (cookie-uri de tip _fbp, _fbc);',
+                            'Meta Conversions API — transmiterea către Meta, direct de pe serverul nostru, a formularelor de programare trimise, pentru aceleași scopuri de măsurare. Datele de contact (email, telefon, nume) sunt transmise doar sub formă criptată ireversibil (hash SHA-256).',
+                        ],
+                    },
+                    {
+                        type: 'p',
+                        text: 'Dacă refuzi, niciunul dintre aceste instrumente nu este încărcat și nu se transmite nimic către Google sau Meta. Îți poți schimba opțiunea oricând din linkul „Preferințe cookie-uri” aflat în subsolul site-ului. Opțiunea ta este reținută timp de 6 luni.',
                     },
                 ],
             },
@@ -203,7 +220,7 @@ export const privacy: Record<string, LegalContent> = {
         badge: 'Legal · Privacy',
         title: 'Privacy policy',
         subtitle: 'Data protection on mindventure.ro',
-        lastUpdated: 'Last updated: November 2025',
+        lastUpdated: 'Last updated: July 2026',
         sections: [
             {
                 heading: '1. General provisions',
@@ -237,7 +254,7 @@ export const privacy: Record<string, LegalContent> = {
                 blocks: [
                     {
                         type: 'p',
-                        text: 'The site can be accessed without creating a user account. We do not currently use analytics tools such as Google Analytics, and we do not set tracking or marketing cookies.',
+                        text: 'The site can be accessed without creating a user account. We do use analytics and marketing tools (Google Analytics 4 and the Meta Pixel), but they are only loaded if you agree via the cookie banner — see section 11.',
                     },
                     {
                         type: 'p',
@@ -320,6 +337,7 @@ export const privacy: Record<string, LegalContent> = {
                         type: 'list',
                         items: [
                             'technical service providers (for example, hosting), only to the extent necessary for the operation of the site;',
+                            'Google Ireland Limited and Meta Platforms Ireland Limited, for usage statistics and advertising campaign measurement — only if you accepted analytics and marketing cookies (see section 11);',
                             'public authorities or institutions, when we are required to do so by law or on the basis of official requests.',
                         ],
                     },
@@ -331,6 +349,10 @@ export const privacy: Record<string, LegalContent> = {
                     {
                         type: 'p',
                         text: 'We do not intentionally transfer your personal data to countries outside the European Union or the European Economic Area. If such a transfer becomes necessary in the future, it will be carried out only with the safeguards provided by data protection legislation in place.',
+                    },
+                    {
+                        type: 'p',
+                        text: 'If you accept analytics and marketing cookies, Google and Meta may also process that data on servers in the United States. Both companies are certified under the EU–U.S. Data Privacy Framework, which the European Commission has recognised as providing an adequate level of protection.',
                     },
                 ],
             },
@@ -377,11 +399,23 @@ export const privacy: Record<string, LegalContent> = {
                 blocks: [
                     {
                         type: 'p',
-                        text: 'At present, the mindventure.ro website does not use analytics or marketing cookies and does not load tracking scripts (for example, Google Analytics).',
+                        text: 'The mindventure.ro website uses cookies that are strictly necessary for it to work (for example the session cookie, the CSRF security cookie, the selected language and your cookie choice). These do not require consent.',
                     },
                     {
                         type: 'p',
-                        text: 'If additional cookies are installed in the future, or analytics tools are used, the cookie policy will be updated and users will be able to manage their consent preferences.',
+                        text: 'We also use analytics and marketing cookies, which are only activated once you agree via the banner shown on your first visit:',
+                    },
+                    {
+                        type: 'list',
+                        items: [
+                            'Google Analytics 4, loaded through Google Tag Manager — statistics about the pages visited and the actions taken on the site (_ga cookies);',
+                            'Meta Pixel (Facebook) — measuring how our advertising campaigns perform and showing relevant ads (_fbp, _fbc cookies);',
+                            'Meta Conversions API — sending booking form submissions to Meta directly from our server, for the same measurement purposes. Contact details (email, phone, name) are only ever sent irreversibly encrypted (SHA-256 hash).',
+                        ],
+                    },
+                    {
+                        type: 'p',
+                        text: 'If you decline, none of these tools are loaded and nothing is sent to Google or Meta. You can change your choice at any time from the "Cookie preferences" link in the site footer. Your choice is remembered for 6 months.',
                     },
                 ],
             },

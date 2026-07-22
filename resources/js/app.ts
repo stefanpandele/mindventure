@@ -1,6 +1,6 @@
 import { createInertiaApp, router } from '@inertiajs/vue3';
 
-import { trackEvent } from '@/lib/gtm';
+import { initAnalytics, trackEvent } from '@/lib/gtm';
 
 const appName = import.meta.env.VITE_APP_NAME || 'Laravel';
 
@@ -10,6 +10,10 @@ const appName = import.meta.env.VITE_APP_NAME || 'Laravel';
 window.addEventListener('vite:preloadError', () => {
     window.location.reload();
 });
+
+// Load GTM (and with it GA4 and the Meta pixel) only once the visitor has
+// accepted cookies. See resources/js/lib/consent.ts.
+initAnalytics();
 
 // Report client-side page changes to analytics tags that only ever see the
 // first URL otherwise. GTM's built-in history events are unusable here: Inertia

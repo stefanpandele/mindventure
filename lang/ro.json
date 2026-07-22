@@ -419,5 +419,11 @@
     "components.footer.columns.programs.item_2.name": "Pregătire matematică IB",
     "components.footer.columns.programs.item_3.name": "IB Internal Assesment",
 
-    "components.footer.columns.contact.item_3.name": "Formular de contact"
+    "components.footer.columns.contact.item_3.name": "Formular de contact",
+    "cookies.aria_label": "Consimțământ pentru cookie-uri",
+    "cookies.message": "Folosim cookie-uri de analiză și marketing, activate doar cu acordul tău. Detalii în",
+    "cookies.policy_link": "Politica de confidențialitate",
+    "cookies.accept": "Accept",
+    "cookies.deny": "Refuz",
+    "cookies.preferences": "Preferințe cookie-uri"
 }
