@@ -2,7 +2,6 @@
 
 namespace Tests\Feature;
 
-use Illuminate\Support\Facades\Date;
 use PHPUnit\Framework\Attributes\DataProvider;
 use Tests\TestCase;
 
@@ -110,10 +109,12 @@ class SeoTest extends TestCase
         $this->assertNotFalse(simplexml_load_string($response->getContent() ?: ''));
     }
 
-    public function test_sitemap_reports_the_page_modification_time_not_the_request_time(): void
+    /**
+     * Nothing on disk records when a page's copy last changed, so claiming a
+     * date would only earn the sitemap a `lastmod` Google discards.
+     */
+    public function test_sitemap_omits_lastmod(): void
     {
-        $expected = Date::createFromTimestamp(filemtime(resource_path('js/pages/Home.vue')))->toAtomString();
-
-        $this->get('/sitemap.xml')->assertSee('<lastmod>'.$expected.'</lastmod>', false);
+        $this->get('/sitemap.xml')->assertDontSee('<lastmod>', false);
     }
 }
