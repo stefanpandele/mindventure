@@ -7,6 +7,7 @@ use App\Mail\BookSession;
 use App\Mail\BookSessionConfirmation;
 use App\Services\MetaConversionsApi;
 use Illuminate\Http\RedirectResponse;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Str;
 
@@ -54,11 +55,34 @@ class BookSessionController extends Controller
      * check for itself: the browser pixel is gated by not loading GTM, but this
      * call would otherwise still send hashed contact details to Meta.
      *
+     * A refusal is an ordinary outcome — the banner closes and the visitor is
+     * free to book. An unanswered banner is not: it covers the page until the
+     * visitor decides, so a lead cannot be submitted while undecided. One that
+     * arrives anyway means some path slipped past the banner, and it reported
+     * on neither channel. That is invisible unless it is written down.
+     *
+     * "Unanswered" matches what the banner itself treats as unanswered: any
+     * cookie that is neither `granted` nor `denied`, missing ones included.
+     *
      * @param  array<string, mixed>  $validated
      */
     private function reportLeadToMeta(array $validated, BookSessionRequest $request): void
     {
-        if ($this->cookieString($request, 'mv_consent') !== 'granted') {
+        $consent = $this->cookieString($request, 'mv_consent');
+
+        if ($consent !== 'granted') {
+            // Nothing was lost while the Conversions API is switched off, which
+            // is its normal state on local and dev.
+            if ($consent !== 'denied' && config('services.meta.enabled')) {
+                Log::warning('Booking lead arrived with no cookie consent decision; nothing reported to Meta.', [
+                    'section' => $validated['section'],
+                    'page' => $request->headers->get('referer'),
+                    // Which case it was, never the cookie itself: that value
+                    // comes from the request and has no business in the log.
+                    'consent' => $consent === null ? 'absent' : 'unrecognised',
+                ]);
+            }
+
             return;
         }
 

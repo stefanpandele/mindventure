@@ -63,7 +63,14 @@ function clearTrackingCookies(): number {
     return names.length;
 }
 
-const choice = ref<ConsentChoice | null>(readChoice());
+/**
+ * Server-side rendering evaluates this module in Node, where there is no
+ * document to read. Nobody has answered the banner there by definition, so it
+ * starts undecided and the browser reads the real answer once it takes over.
+ */
+const choice = ref<ConsentChoice | null>(
+    import.meta.env.SSR ? null : readChoice(),
+);
 
 /** The visitor's stored answer, or `null` while they haven't answered yet. */
 export const consentChoice = computed(() => choice.value);
