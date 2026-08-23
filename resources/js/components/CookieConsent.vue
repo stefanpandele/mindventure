@@ -11,6 +11,14 @@ const { t } = useTranslations();
 const dialog = ref<HTMLElement | null>(null);
 
 /**
+ * Nothing here renders on the server. The banner's state lives in a cookie the
+ * server cannot read from Node, so SSR would always guess "undecided" and then
+ * disagree with a returning visitor's browser on hydration. Waiting for the
+ * mount is also what the modals in this application do.
+ */
+const isMounted = ref(false);
+
+/**
  * Keep Tab inside the banner while it is up.
  *
  * Deliberately no Escape handler. The banner offers no outcome besides the two
@@ -48,30 +56,39 @@ function onKeydown(event: KeyboardEvent): void {
     }
 }
 
-onMounted(() => window.addEventListener('keydown', onKeydown));
+/**
+ * Hold the page still while the banner is up, and put focus on the panel — not
+ * on Accept, since starting on the primary button would nudge the choice and
+ * consent has to stay freely given.
+ */
+function syncPageToBanner(pending: boolean): void {
+    document.body.style.overflow = pending ? 'hidden' : '';
+
+    if (pending) {
+        nextTick(() => dialog.value?.focus());
+    }
+}
+
+onMounted(() => {
+    isMounted.value = true;
+    window.addEventListener('keydown', onKeydown);
+
+    // Applied here rather than through an immediate watcher: an immediate
+    // watcher fires during setup, which on the server means writing to a
+    // `document` that does not exist.
+    syncPageToBanner(consentIsPending.value);
+});
 
 onBeforeUnmount(() => {
     window.removeEventListener('keydown', onKeydown);
     document.body.style.overflow = '';
 });
 
-watch(
-    consentIsPending,
-    (pending) => {
-        document.body.style.overflow = pending ? 'hidden' : '';
-
-        if (pending) {
-            // The panel itself, not Accept: starting on the primary button
-            // would nudge the choice, and consent has to stay freely given.
-            nextTick(() => dialog.value?.focus());
-        }
-    },
-    { immediate: true },
-);
+watch(consentIsPending, syncPageToBanner);
 </script>
 
 <template>
-    <Teleport to="body">
+    <Teleport v-if="isMounted" to="body">
         <!--
             Dims the page rather than merely sitting on top of it, so ignoring
             the banner stops being the path of least resistance. It covers the
